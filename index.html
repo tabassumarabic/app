@@ -99,25 +99,41 @@ input:focus{border-color:var(--accent)}
 .setrow:first-of-type{border-top:0}
 .setrow span{margin-left:auto;color:var(--soft)}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:92px;background:#111;color:#fff;padding:11px 18px;border-radius:14px;font-weight:800;z-index:40;max-width:calc(100% - 32px)}
-/* ===== Duel: Ipak yo'li xaritasi ===== */
-.xarita{position:relative;height:1180px;margin:0 -16px;border-radius:0;overflow:hidden;color:#3B2A14;font-family:Nunito,system-ui,sans-serif;
-  background:#E9D7B0 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E")}
-.xarita::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 80px rgba(110,70,20,.45);pointer-events:none}
-.xarita svg{position:absolute;left:0;top:0;width:100%;height:100%}
-.xarita .road{stroke:#7A4E1D;stroke-width:4;stroke-dasharray:2 12;stroke-linecap:round;fill:none}
-.xarita .done{stroke:#B3261E;stroke-width:5;fill:none;stroke-linecap:round;opacity:.85}
-.mz{position:absolute;transform:translate(-50%,-50%);text-align:center;z-index:2;cursor:pointer;border:0;background:none;padding:0;color:#3B2A14;font:inherit}
-.mz .disk{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;font-size:27px;margin:0 auto;position:relative;background:#F6E9C8;border:3px solid #7A4E1D;box-shadow:0 4px 0 #7A4E1D}
-.mz .nm{font-weight:900;font-size:12px;margin-top:4px;white-space:nowrap}
-.mz .tr{font-size:10.5px;font-weight:800;opacity:.8}
-.mz.lock .disk{filter:grayscale(1);opacity:.55}
-.mz.lock .nm,.mz.lock .tr{opacity:.55}
-.mz.cur .disk{transform:scale(1.15);background:#FFF3D1;border-color:#B3261E;box-shadow:0 0 0 6px rgba(179,38,30,.18),0 4px 0 #B3261E}
-.mz .me{position:absolute;left:50%;top:-34px;transform:translateX(-50%);font-size:30px;filter:drop-shadow(0 3px 4px rgba(0,0,0,.35))}
-.xarita .deco{position:absolute;font-size:28px;opacity:.5}
+/* ===== Duel: dunyo xaritasi ===== */
+.dunyo{position:relative;height:58vh;min-height:340px;margin:0 -16px;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;
+  background:radial-gradient(ellipse at center,#D3DFD7 0%,#AFC2B7 100%);border-top:3px double #6B4F2A;border-bottom:3px double #6B4F2A}
+.dunyo::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 70px rgba(60,40,15,.45);pointer-events:none}
+.dunyo svg{display:block;width:100%;height:100%}
+.dunyo .dv{fill:#EFE2C2;stroke:#8B6A3E;stroke-width:.8;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.dunyo .dv.hj{fill:#F7EDD3;stroke:#A3271F;stroke-width:1.6;stroke-dasharray:4 3}
+.dunyo .dv.mn{fill:#A3271F;stroke:#5E120D}
+.dunyo .dv.ym{fill:url(#dn-yarim);stroke:#A3271F;stroke-width:1.4}
+.dunyo .dv.uy{fill:#C08A1E;stroke:#6B4A0C;stroke-width:1.4}
+.dunyo .dv.ni{stroke:#E8573A;stroke-width:3;stroke-dasharray:none;animation:ni 1.2s ease-in-out infinite}
+@keyframes ni{50%{stroke-opacity:.3}}
+.dunyo text{text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.dn-btn{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:6px;z-index:2}
+.dn-btn button{width:40px;height:40px;border-radius:12px;border:2px solid #6B4F2A;background:#F6EBCF;color:#3B2A14;font-size:20px;font-weight:900;cursor:pointer;box-shadow:0 3px 0 #6B4F2A}
+.dn-kompas{position:absolute;left:12px;bottom:10px;font-size:34px;opacity:.6;pointer-events:none;z-index:2}
+.dn-nishon{font-weight:800;margin-top:12px}
+.dn-nishon .ar,.dv-ar{font-family:"Noto Naskh Arabic",serif;direction:rtl}
+.varaq-fon{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;justify-content:center}
+.varaq-fon[hidden]{display:none}
+.varaq{position:relative;background:var(--card);color:var(--ink);width:100%;max-width:480px;border-radius:24px 24px 0 0;padding:20px 16px 28px;animation:kot .2s ease-out}
+@keyframes kot{from{transform:translateY(40px);opacity:.4}}
+.varaq .x{position:absolute;right:12px;top:12px;border:0;background:var(--chip);color:var(--chipInk);border-radius:50%;width:38px;height:38px;font-weight:900;cursor:pointer}
+.dv-bosh{display:flex;align-items:center;gap:14px;margin:0 44px 12px 0}
+.dv-bosh .bq{font-size:54px;line-height:1}
+.dv-bosh .dv-ar{font-size:30px;line-height:1.3}
+.dv-vil{display:flex;gap:6px;margin:8px 0}
+.dv-vil i{flex:1;height:12px;border-radius:99px;background:var(--track)}
+.dv-vil i.on{background:#A3271F}
+.varaq .btn{margin-top:8px}
+.dv-ozg{font-size:16px;margin-top:8px}
+.dv-ozg .dv-ar{font-size:24px;margin-top:4px}
 .duel-top{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:10px;padding:10px 0;background:var(--bg)}
 .duel-top .k{margin-left:auto}
-.duel-acts{position:sticky;bottom:86px;z-index:6;display:flex;gap:10px;margin:-90px 0 18px;padding-top:10px}
+.duel-acts{display:flex;gap:10px;margin:12px 0 14px}
 .duel-acts .btn{flex:1;font-size:17px;padding:16px;margin:0}
 .duel-acts .sq{width:64px;flex:none;position:relative;font-size:24px;padding:0}
 .duel-acts .sq em{position:absolute;top:-6px;right:-6px;font-style:normal;font-size:11px;background:#E8573A;color:#fff;border-radius:99px;padding:2px 7px}
@@ -231,9 +247,15 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   <section id="s-mashq" hidden><div class="card soon"><div class="ic">📚</div><h2>Mashq</h2><p class="soft">So'zlar, tinglash, o'qish va boshqa mavzular bo'yicha mashqlar tez orada qo'shiladi.</p></div></section>
   <section id="s-duel" hidden>
     <div class="duel-top"><div><b style="font-size:18px;font-weight:900" id="dl-joy"></b><div class="soft" id="dl-keyingi"></div></div><span class="chip k">🏆 <span id="dl-kubok">0</span></span></div>
-    <div class="xarita" id="xarita"></div>
+    <div class="dunyo" id="dunyo">
+      <svg id="dn-svg" viewBox="0 0 2000 870" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dn-yarim" patternUnits="userSpaceOnUse" width="12" height="12" viewBox="0 0 10 10" patternTransform="rotate(45)"><rect width="10" height="10" fill="#EFE2C2"/><rect width="5" height="10" fill="#A3271F"/></pattern></defs><g id="dn-yer"></g><g id="dn-lab"></g></svg>
+      <div class="dn-btn"><button type="button" data-z="1.6" aria-label="Yaqinlashtirish">+</button><button type="button" data-z="0.625" aria-label="Uzoqlashtirish">−</button><button type="button" data-z="0" aria-label="Uyim">🏠</button></div>
+      <span class="dn-kompas">🧭</span>
+    </div>
+    <div class="card dn-nishon" id="dl-nishon">Xarita yuklanmoqda…</div>
     <div class="duel-acts"><button class="btn" id="dl-boshla" type="button">⚔️ Duel boshlash</button><button class="btn alt sq" id="dl-sandiq" type="button">🎁<em id="dl-sn" hidden></em></button></div>
     <div class="card"><button class="btn alt wide" id="dl-dost" type="button">👥 Do'stni duelga chaqirish</button></div>
+    <div class="card tarix"><b style="font-weight:900">👑 Jahongirlar</b><div id="dl-jahon"></div></div>
     <div class="card tarix"><b style="font-weight:900">🕘 Oxirgi duellar</b><div id="dl-tarix"></div></div>
   </section>
   <section id="s-karvon" hidden><div class="card soon"><div class="ic">🐪</div><h2>Karvon poygasi</h2><p class="soft">Haftada bir marta jamoaviy o'yin, oyda bir marta katta turnir. Tez orada.</p></div></section>
@@ -272,10 +294,13 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 
 <div class="olay" id="o-oyin" hidden><div class="in">
   <div class="vs"><div class="p"><span class="av" id="vs-men"></span><span>Siz</span></div><b>VS</b><div class="p r"><span id="vs-ism">Raqib</span><span class="av" id="vs-raqib"></span></div></div>
+  <div class="soft" id="vs-nishon" style="text-align:center;font-weight:800;margin:-4px 0 8px"></div>
   <div class="dots" id="dots"></div>
   <div class="vaqt"><u id="vaqt"></u></div>
   <div class="card" id="savol"></div>
 </div></div>
+
+<div class="varaq-fon" id="o-davlat" hidden><div class="varaq"><button class="x" type="button" data-yop>✕</button><div id="davlat"></div></div></div>
 
 <div class="olay" id="o-natija" hidden><div class="in"><div class="card natija" id="natija"></div></div></div>
 
@@ -503,50 +528,137 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   });
 
   // ================= DUEL =================
-  var ARENA = [
-    [0, "🇺🇿", "Xiva", "🏰", "Xorazm — al-Xorazmiy vatani. «Algoritm» so'zi uning nomidan kelib chiqqan."],
-    [150, "🇺🇿", "Buxoro", "🕌", "Imom al-Buxoriy (810-yil) va Ibn Sino (980-yil, Afshona qishlog'i) vatani."],
-    [300, "🇺🇿", "Samarqand", "🔭", "Mirzo Ulug'bek rasadxonasi (XV asr) va Registon maydoni."],
-    [500, "🇺🇿", "Termiz", "📖", "Imom at-Termiziy vatani — mashhur hadis to'plami muallifi."],
-    [750, "🇹🇲", "Marv", "🐎", "Buyuk Ipak yo'lidagi qadimiy shahar (hozirgi Turkmaniston)."],
-    [1050, "🇮🇶", "Bag'dod", "📜", "Bayt al-Hikma — «Donishmandlar uyi». Al-Xorazmiy shu yerda ishlagan."],
-    [1400, "🇸🇾", "Damashq", "🌹", "Umaviylar masjidi — eng qadimiy masjidlardan biri (VIII asr)."],
-    [1800, "🇪🇬", "Qohira", "🏛️", "Al-Azhar — X asrda asos solingan va bugun ham o'qitayotgan dorilfunun."],
-    [2300, "🇸🇦", "Madina", "🌴", "Masjid an-Nabaviy shahri."],
-    [2900, "🇲🇦", "Fes", "🎓", "Al-Qarawiyyin — 859-yilda Fotima al-Fihriya asos solgan, dunyodagi eng qadimiy universitetlardan."]
-  ];
-  var XY = [[50,92],[22,83],[62,75],[82,66],[46,58],[18,49],[52,40],[80,31],[48,22],[24,12]];
-  function egri(pts){
-    var d = "M" + pts[0][0] + "," + pts[0][1];
-    for (var i = 0; i < pts.length - 1; i++){
-      var p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
-      d += " C" + (p1[0] + (p2[0] - p0[0]) / 6) + "," + (p1[1] + (p2[1] - p0[1]) / 6) + " " + (p2[0] - (p3[0] - p1[0]) / 6) + "," + (p2[1] - (p3[1] - p1[1]) / 6) + " " + p2[0] + "," + p2[1];
-    }
-    return d;
+  // ================= DUEL: dunyo xaritasi =================
+  var DUNYO = null, DMAP = {}, XM = null, VB = null, kutKod = null;
+  function dunyoYukla(){
+    if (DUNYO) return Promise.resolve(DUNYO);
+    return fetch("dunyo.json?v=1").then(function(r){ return r.json(); }).then(function(j){ j.d.forEach(function(c){ DMAP[c.id] = c; }); DUNYO = j; return j; });
   }
-  function joriyArena(k){ return ARENA.filter(function(a){ return k >= a[0]; }).length - 1; }
+  function yuklaXarita(){
+    return Promise.all([dunyoYukla(), rpc("p_xaritam", { p_token: token })]).then(function(r){ XM = r[1]; xaritaChiz(); });
+  }
+  function yerim(id){ return XM ? XM.yer.filter(function(y){ return y.d === id; })[0] : null; }
+  function toliq(id){ var y = yerim(id); return !!y && y.v >= DMAP[id].v; }
+  function hujumMumkin(id){
+    if (!XM || !XM.uy || toliq(id)) return false;
+    if (yerim(id)) return true;
+    return XM.yer.some(function(y){ return toliq(y.d) && DMAP[y.d].q.indexOf(id) >= 0; });
+  }
   function xaritaChiz(){
     if (!men) return;
-    var k = men.kubok, cur = joriyArena(k), nx = ARENA[cur + 1];
-    $("dl-kubok").textContent = k;
-    $("dl-joy").textContent = ARENA[cur][1] + " " + ARENA[cur][2];
-    $("dl-keyingi").textContent = nx ? nx[2] + "gacha: " + (nx[0] - k) + " kubok" : "Butun yo'l bosib o'tildi! 👑";
+    $("dl-kubok").textContent = men.kubok;
     $("dl-sn").textContent = men.sandiq; $("dl-sn").hidden = !men.sandiq;
-    var W = 400, H = 1180, pts = XY.map(function(p){ return [p[0] / 100 * W, p[1] / 100 * H]; });
-    var h = '<span class="deco" style="left:8%;top:70%">🐪</span><span class="deco" style="left:80%;top:52%">🏺</span><span class="deco" style="left:10%;top:30%">🌴</span><span class="deco" style="left:78%;top:86%">🧭</span>' +
-      '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none"><path class="road" d="' + egri(pts) + '"/>' + (cur > 0 ? '<path class="done" d="' + egri(pts.slice(0, cur + 1)) + '"/>' : "") + '</svg>';
-    ARENA.forEach(function(a, i){
-      h += '<button type="button" class="mz' + (i < cur ? "" : i === cur ? " cur" : " lock") + '" data-a="' + i + '" style="left:' + XY[i][0] + '%;top:' + XY[i][1] + '%">' +
-        '<div class="disk">' + a[3] + (i === cur ? '<span class="me">🐪</span>' : "") + '</div><div class="nm">' + a[1] + " " + a[2] + '</div><div class="tr">🏆 ' + a[0] + '</div></button>';
+    if (!DUNYO || !XM) return;
+    var uy = XM.uy && DMAP[XM.uy], ni = XM.nishon && DMAP[XM.nishon];
+    $("dl-joy").textContent = uy ? uy.b + " " + uy.uz : "🏠 Uyingizni tanlang";
+    $("dl-keyingi").textContent = uy ? "🗺 " + XM.viloyat + " viloyat · 🌍 " + XM.davlat + " davlat" + (XM.orin ? " · #" + XM.orin : "") : "Xaritadan istalgan davlatni bosing";
+    $("dl-nishon").innerHTML = !uy ? "👆 Xaritadan davlatni bosing va uni uyingiz qiling. Uy hech qachon qo'ldan ketmaydi." :
+      ni ? "🎯 Nishon: " + ni.b + " <b>" + esc(ni.uz) + "</b> <span class=\"ar\">" + esc(ni.ar) + "</span> · " + ((yerim(ni.id) || {}).v || 0) + "/" + ni.v + " viloyat" :
+      "👑 Atrofdagi hamma davlat zabt etildi!";
+    var h = "", lab = "";
+    DUNYO.d.forEach(function(c){
+      var y = yerim(c.id), cls = "dv";
+      if (y && y.uy) cls += " uy"; else if (y && y.v >= c.v) cls += " mn"; else if (y) cls += " ym"; else if (hujumMumkin(c.id)) cls += " hj";
+      if (XM.nishon === c.id) cls += " ni";
+      h += '<path class="' + cls + '" data-id="' + c.id + '" d="' + c.p + '"/>';
+      if (y || XM.nishon === c.id) lab += '<text x="' + c.x + '" y="' + c.y + '">' + (y && y.uy ? "🏠" : y && y.q ? "🏰" : y ? c.b : "🎯") + '</text>';
     });
-    $("xarita").innerHTML = h;
-    if (!$("s-duel").hidden && !xaritaChiz.bir){ xaritaChiz.bir = true; setTimeout(function(){ var c = document.querySelector("#xarita .mz.cur"); if (c) c.scrollIntoView({ block: "center" }); }, 60); }
+    $("dn-yer").innerHTML = h; $("dn-lab").innerHTML = lab;
+    if (!VB) markazla();
+    korinish();
   }
-  $("xarita").addEventListener("click", function(e){
-    var b = e.target.closest("[data-a]"); if (!b) return;
-    var a = ARENA[+b.getAttribute("data-a")];
-    alert(a[1] + " " + a[2] + " · 🏆 " + a[0] + "\n\n" + a[4]);
+  function markazla(){
+    var c = XM && XM.uy && DMAP[XM.uy];
+    VB = c ? { x: c.x - 260, y: c.y - 230, w: 520 } : { x: 0, y: 0, w: DUNYO.w };
+  }
+  function korinish(){
+    var r = $("dunyo").getBoundingClientRect(); if (!r.width || !VB) return;
+    var W = DUNYO.w, H = DUNYO.h, k = r.height / r.width;
+    VB.w = Math.max(90, Math.min(W, VB.w)); var h = VB.w * k;
+    VB.x = Math.max(-VB.w * .3, Math.min(W - VB.w * .7, VB.x)); VB.y = Math.max(-h * .3, Math.min(H - h * .7, VB.y));
+    $("dn-svg").setAttribute("viewBox", VB.x + " " + VB.y + " " + VB.w + " " + h);
+    $("dn-lab").style.fontSize = Math.max(7, VB.w / 22) + "px";
+    $("dn-yarim").setAttribute("width", VB.w / 90); $("dn-yarim").setAttribute("height", VB.w / 90);
+  }
+  (function(){
+    var el = $("dunyo"), pts = {}, harakat = 0;
+    function zoom(f, cx, cy){
+      var r = el.getBoundingClientRect(), px = VB.x + (cx - r.left) / r.width * VB.w, py = VB.y + (cy - r.top) / r.width * VB.w;
+      var nw = Math.max(90, Math.min(DUNYO.w, VB.w / f));
+      VB.x = px - (cx - r.left) / r.width * nw; VB.y = py - (cy - r.top) / r.width * nw; VB.w = nw; korinish();
+    }
+    el.addEventListener("wheel", function(e){ if (!VB) return; e.preventDefault(); zoom(e.deltaY < 0 ? 1.25 : 0.8, e.clientX, e.clientY); }, { passive: false });
+    el.addEventListener("pointerdown", function(e){
+      if (!VB || e.target.closest("button")) return;
+      try { el.setPointerCapture(e.pointerId); } catch(x){}
+      pts[e.pointerId] = { x: e.clientX, y: e.clientY }; if (Object.keys(pts).length === 1) harakat = 0;
+    });
+    el.addEventListener("pointermove", function(e){
+      var o = pts[e.pointerId]; if (!o) return;
+      var ids = Object.keys(pts), r = el.getBoundingClientRect();
+      if (ids.length === 1){
+        var dx = e.clientX - o.x, dy = e.clientY - o.y; harakat += Math.abs(dx) + Math.abs(dy);
+        VB.x -= dx / r.width * VB.w; VB.y -= dy / r.width * VB.w; korinish();
+      } else {
+        var q = pts[ids[0] == e.pointerId ? ids[1] : ids[0]], d0 = Math.hypot(o.x - q.x, o.y - q.y), d1 = Math.hypot(e.clientX - q.x, e.clientY - q.y);
+        harakat += 99; if (d0 > 0) zoom(d1 / d0, (e.clientX + q.x) / 2, (e.clientY + q.y) / 2);
+      }
+      o.x = e.clientX; o.y = e.clientY;
+    });
+    el.addEventListener("pointerup", function(e){
+      if (!pts[e.pointerId]) return; delete pts[e.pointerId];
+      if (harakat < 8 && !Object.keys(pts).length){
+        var t = document.elementFromPoint(e.clientX, e.clientY), p = t && t.closest && t.closest("[data-id]");
+        if (p) davlatOch(p.getAttribute("data-id"));
+      }
+    });
+    el.addEventListener("pointercancel", function(e){ delete pts[e.pointerId]; });
+    el.querySelector(".dn-btn").addEventListener("click", function(e){
+      var b = e.target.closest("[data-z]"); if (!b || !VB) return;
+      var z = +b.getAttribute("data-z"), r = el.getBoundingClientRect();
+      if (!z){ markazla(); korinish(); } else zoom(z, r.left + r.width / 2, r.top + r.height / 2);
+    });
+  })();
+  function davlatOch(id){
+    var c = DMAP[id], y = yerim(id), h = '<div class="dv-bosh"><span class="bq">' + c.b + '</span><div><div class="dv-ar">' + esc(c.ar) + '</div><b>' + esc(c.uz) + '</b></div></div>';
+    if (!XM.uy){
+      h += '<p class="soft">Shu davlatni uyingiz qilasizmi? Uy hech qachon qo\'ldan ketmaydi, lekin keyin uni o\'zgartirib bo\'lmaydi.</p><button class="btn wide" type="button" data-amal="uy">🏠 Shu davlat uyim bo\'lsin</button>';
+    } else {
+      var v = y ? y.v : 0, ch = "";
+      for (var i = 0; i < c.v; i++) ch += '<i class="' + (i < v ? "on" : "") + '"></i>';
+      h += '<div class="dv-vil">' + ch + '</div><p class="soft" style="text-align:center;margin:4px 0 6px">' + (y && y.uy ? "🏠 Sizning uyingiz" : v + " / " + c.v + " viloyat zabt etilgan") + (y && y.q ? " · 🏰 Qal'a bor" : "") + '</p>';
+      if (hujumMumkin(id)) h += '<button class="btn wide" type="button" data-amal="hujum">⚔️ Hujum qilish</button>' + (XM.nishon !== id ? '<button class="btn alt wide" type="button" data-amal="nishon">🎯 Nishonga olish</button>' : "");
+      else if (!y) h += '<p class="soft" style="text-align:center">🔒 Bu davlatga hali yo\'l yo\'q. Avval chegaradosh davlatni to\'liq zabt eting.</p>';
+      if (y && !y.uy && !y.q) h += '<button class="btn alt wide" type="button" data-amal="qala">🏰 Qal\'a qurish · 60 🏆</button><p class="soft" style="font-size:13px;text-align:center;margin:6px 0 0">Yutqazsangiz, viloyat o\'rniga qal\'a buziladi.</p>';
+    }
+    $("davlat").innerHTML = h; $("davlat").setAttribute("data-id", id); $("o-davlat").hidden = false;
+  }
+  $("o-davlat").addEventListener("click", function(e){
+    if (e.target === $("o-davlat") || e.target.closest("[data-yop]")){ $("o-davlat").hidden = true; return; }
+    var b = e.target.closest("[data-amal]"); if (!b) return;
+    var id = $("davlat").getAttribute("data-id"), a = b.getAttribute("data-amal"), c = DMAP[id];
+    b.disabled = true;
+    rpc(a === "uy" ? "p_uy_tanla" : a === "qala" ? "p_qala_qur" : "p_nishon_tanla", { p_token: token, p_davlat: id }).then(function(r){
+      b.disabled = false;
+      if (r.xato){ toast({ kubok: "Kubok yetmaydi — 60 🏆 kerak", bor: "Uy allaqachon tanlangan", mumkin_emas: "Bu davlatga hozir hujum qilib bo'lmaydi" }[r.xato] || "Xatolik"); return; }
+      $("o-davlat").hidden = true;
+      if (a === "uy"){ VB = null; toast("🏠 " + c.uz + " — endi sizning uyingiz!"); }
+      if (a === "qala") toast("🏰 " + c.uz + "da qal'a qurildi");
+      if (a === "nishon") toast("🎯 Nishon: " + c.uz);
+      return Promise.all([yangila(), yuklaXarita()]).then(function(){
+        if (a === "hujum") duelBoshla();
+        else if (a === "uy" && kutKod){ var k = kutKod; kutKod = null; duelBoshla({ p_kod: k }); }
+      });
+    }).catch(function(){ b.disabled = false; toast("Internet bilan bog'lanib bo'lmadi"); });
   });
+  function yuklaJahon(){
+    return rpc("p_jahongirlar", { p_token: token }).then(function(r){
+      $("dl-jahon").innerHTML = r.length ? r.map(function(x){
+        return '<div class="lb' + (x.men ? " me" : "") + '"><span class="n">' + x.orin + '</span><span class="av">' + avatarHtml(x.rasm, x.avatar) + '</span><span>' + esc(x.men ? "Siz" : x.ism) + ' ' + (x.uy || "") +
+          '</span><span class="x">🗺 ' + x.viloyat + (x.davlat ? " · 🌍 " + x.davlat : "") + '</span></div>';
+      }).join("") : '<p class="soft" style="margin:10px 0 0">Hali hech kim yer zabt etmadi. Birinchi bo\'ling!</p>';
+    });
+  }
   $("b-duel").addEventListener("click", function(){ ochish("duel"); });
 
   function yuklaTarix(){
@@ -556,7 +668,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
         var b = BEL[x.natija] || [x.natija, ""];
         return '<div class="lb"><span class="av">' + (x.raqib ? avatarHtml(x.raqib.rasm, x.raqib.avatar) : "❔") + '</span><span>' + esc(x.raqib ? x.raqib.ism : (x.kod ? "Do'st (" + x.kod + ")" : "Raqib")) +
           '<br><span class="soft">' + esc(x.vaqt) + (x.ball != null ? " · " + x.ball + (x.raqib_ball != null ? " : " + x.raqib_ball : "") : "") + '</span></span>' +
-          '<span class="x ' + b[1] + '">' + b[0] + (x.kubok_ozg ? " " + (x.kubok_ozg > 0 ? "+" : "") + x.kubok_ozg : "") + '</span></div>';
+          '<span class="x ' + b[1] + '">' + b[0] + (x.kubok_ozg ? " " + (x.kubok_ozg > 0 ? "+" : "") + x.kubok_ozg : "") + (x.yer ? " " + x.yer.davlat.bayroq + (x.yer.ozg === "oldi" ? "+1" : x.yer.ozg === "qala" ? "🏰" : "−1") : "") + '</span></div>';
       }).join("") : '<p class="soft" style="margin:10px 0 0">Hali duel o\'ynamadingiz. «⚔️ Duel boshlash» ni bosing!</p>';
     });
   }
@@ -567,11 +679,14 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     var b = $("dl-boshla"); b.disabled = true;
     return rpc("p_duel_boshla", Object.assign({ p_token: token }, args || {})).then(function(d){
       b.disabled = false;
-      if (d.xato){ toast({ kod: "Havola eskirgan yoki noto'g'ri", ozingiz: "Bu sizning chaqiruvingiz — do'stingiz ochishi kerak", band: "Bu duelda allaqachon raqib bor", oynagan: "Siz bu duelni o'ynab bo'lgansiz" }[d.xato] || "Xatolik"); return; }
+      if (d.xato){ toast({ kod: "Havola eskirgan yoki noto'g'ri", ozingiz: "Bu sizning chaqiruvingiz — do'stingiz ochishi kerak", band: "Bu duelda allaqachon raqib bor", oynagan: "Siz bu duelni o'ynab bo'lgansiz", uy: "Avval xaritadan uyingizni tanlang 🏠" }[d.xato] || "Xatolik");
+        if (d.xato === "uy"){ if (args && args.p_kod) kutKod = args.p_kod; if ($("s-duel").hidden) ochish("duel"); }
+        return; }
       O = { d: d, i: 0, javob: [], belgi: [] };
       $("vs-men").innerHTML = avatarHtml(men.rasm, men.avatar);
       $("vs-raqib").innerHTML = d.raqib ? avatarHtml(d.raqib.rasm, d.raqib.avatar) : "❔";
       $("vs-ism").textContent = d.raqib ? d.raqib.ism.split(" ")[0] + " · 🏆" + d.raqib.kubok : (d.kod ? "Do'stingiz" : "Raqib izlanmoqda…");
+      $("vs-nishon").textContent = d.nishon ? "🎯 " + d.nishon.bayroq + " " + d.nishon.uz + " uchun jang" : "";
       $("o-oyin").hidden = false; savolChiz();
     }).catch(function(){ b.disabled = false; toast("Internet bilan bog'lanib bo'lmadi"); });
   }
@@ -612,7 +727,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     $("savol").innerHTML = '<p class="q-matn">Natija hisoblanmoqda…</p>';
     rpc("p_duel_javob", { p_token: token, p_duel: O.d.duel, p_javoblar: O.javob }).then(function(r){
       $("o-oyin").hidden = true; natijaKor(r);
-      return Promise.all([yangila(), yuklaTarix(), yuklaReyting()]);
+      return Promise.all([yangila(), yuklaTarix(), yuklaReyting(), yuklaXarita(), yuklaJahon()]);
     }).catch(function(){ $("savol").innerHTML = '<p class="q-matn">Internet yo\'q.</p><button class="btn wide" type="button" id="qayta">↻ Qayta yuborish</button>'; $("qayta").addEventListener("click", topshir); });
   }
   function natijaKor(r){
@@ -621,11 +736,17 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     h += '<div class="ballar"><div><b>' + r.ball + '</b><span class="soft">Siz · ' + r.togri + '/10</span></div>' +
       (r.raqib_ball != null ? '<div><b>' + r.raqib_ball + '</b><span class="soft">Raqib · ' + r.raqib_togri + '/10</span></div>' : "") + '</div>';
     if (r.natija !== "kutilmoqda") h += '<div class="mukofot"><span class="chip">🏆 ' + (r.kubok_ozg > 0 ? "+" : "") + r.kubok_ozg + '</span><span class="chip">' + (r.xp > 0 ? "⭐ +" + r.xp + " XP" : "⭐ Bugungi XP to'ldi") + '</span>' + (r.natija === "yutdi" ? '<span class="chip">🎁 +1 sandiq</span>' : "") + '</div>';
-    else if (r.kod){
+    if (r.yer){
+      var yr = r.yer, dv = yr.davlat, nm = dv.bayroq + " <b>" + esc(dv.uz) + "</b>";
+      h += '<div class="card dv-ozg">' + (yr.ozg === "oldi" ? (yr.viloyat >= dv.jami ? "🎉 " + nm + " to'liq zabt etildi!" : "⚔️ " + nm + ": +1 viloyat (" + yr.viloyat + "/" + dv.jami + ")") :
+        yr.ozg === "qala" ? "🏰 Qal'a sizni himoya qildi — " + nm + " qo'lda qoldi" : "🏳️ " + nm + ": 1 viloyat boy berildi (" + yr.viloyat + "/" + dv.jami + ")") +
+        '<div class="dv-ar">' + esc(dv.ar) + '</div></div>';
+    }
+    if (r.natija === "kutilmoqda" && r.kod){
       var link = location.origin + location.pathname + "#duel=" + r.kod;
       h += '<p class="soft">Endi do\'stingizga havolani yuboring — u o\'ynagach, natija chiqadi.</p><div class="card" style="word-break:break-all;font-weight:900">' + esc(link) + '</div>' +
         '<div class="row2"><button class="btn alt" type="button" id="nusxa">📋 Nusxa</button><a class="btn" target="_blank" rel="noopener" href="https://t.me/share/url?url=' + encodeURIComponent(link) + '&text=' + encodeURIComponent("Tabassum'da arabcha duelga chaqiraman! ⚔️") + '">✈️ Telegram</a></div>';
-    } else h += '<p class="soft">Raqib o\'ynagach, natija «Oxirgi duellar» da chiqadi.</p>';
+    } else if (r.natija === "kutilmoqda") h += '<p class="soft">Raqib o\'ynagach, natija «Oxirgi duellar» da chiqadi.</p>';
     var xato = (r.javoblar || []).map(function(t, k){ var q = O.d.savollar[k], my = O.javob[k] && O.javob[k].j; return my === t.togri ? null : { q: q, my: my, t: t.togri }; }).filter(Boolean);
     if (xato.length) h += '<div class="card xatolar" style="text-align:left"><b style="font-weight:900">📝 Xatolar ustida ishlash</b>' + xato.map(function(x){
       var s = x.q.savol; return '<div class="row"><span style="flex:1">' + esc(s.ar || s.uz || (s.audio ? "🔊" : "")) + '</span><span class="soft">' + esc(x.my || "—") + '</span><b style="color:#3FA34D">' + esc(x.t) + '</b></div>';
@@ -679,7 +800,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     }
   };
   var eskiOchish = ochish;
-  ochish = function(b){ eskiOchish(b); if (b === "duel" && token){ yuklaTarix().catch(function(){}); setTimeout(function(){ var c = document.querySelector("#xarita .mz.cur"); if (c) c.scrollIntoView({ block: "center" }); }, 60); } };
+  ochish = function(b){ eskiOchish(b); if (b === "duel" && token){ yuklaTarix().catch(function(){}); yuklaJahon().catch(function(){}); yuklaXarita().catch(function(){}); } };
 
   boshla();
 })();
