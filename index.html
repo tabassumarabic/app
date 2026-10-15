@@ -7,7 +7,7 @@
 <meta name="description" content="Tabassum — arab tilini har kuni oz-ozdan, o'yin va bellashuvlar bilan o'rganish platformasi.">
 <meta name="theme-color" content="#0E1230">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Manrope:wght@600;700;800&family=Noto+Naskh+Arabic:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Noto+Naskh+Arabic:wght@700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
@@ -30,14 +30,6 @@ body.dB{--font:Nunito,system-ui,sans-serif;--bg:#FFF6E8;--ink:#3A2716;--soft:#8A
   --input:#FFFFFF;--inputBorder:#F0D9BC;--err:#C62828}
 body.dB .hero::after{content:"🐪";position:absolute;right:12px;bottom:6px;font-size:44px}
 body.dB .hero .btn{background:#fff;color:#E8573A;box-shadow:0 5px 0 rgba(0,0,0,.18)}
-/* ===== dizayn C · Samarqand firuzasi ===== */
-body.dC{--font:Manrope,system-ui,sans-serif;--bg:#F3F7FB;--ink:#0F2A4A;--soft:#5E7593;--card:#FFFFFF;--hero:linear-gradient(140deg,#0E6E8C,#16397A);--heroInk:#fff;
-  --accent:#1BA6B5;--accent2:#16397A;--chip:#E2F2F5;--chipInk:#0E6E8C;--track:#DCE8F0;--btn:#E3A72F;--btnInk:#10243F;--btnShadow:none;--btnR:12px;
-  --r:18px;--shadow:0 6px 18px rgba(15,42,74,.08);--border:1px solid #E1EAF2;--tabs:#FFFFFF;--tabInk:#7A8FA8;--tabOn:#0E6E8C;--tabOnInk:#fff;--tabShadow:0 8px 24px rgba(15,42,74,.12);
-  --input:#FFFFFF;--inputBorder:#D5E2EC;--err:#C62828}
-body.dC .hero::before{content:"";position:absolute;inset:0;opacity:.16;background:conic-gradient(from 45deg at 50% 50%,#fff 0 25%,transparent 0 50%,#fff 0 75%,transparent 0) 0 0/28px 28px}
-body.dC .hero > *{position:relative}
-body.dC .hero::after{content:"✦";position:absolute;right:14px;top:8px;font-size:28px;color:#E3A72F}
 
 /* ===== umumiy ===== */
 .brand{display:flex;align-items:center;gap:10px;justify-content:center;margin:18px 0 6px}
@@ -261,11 +253,10 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
       <div class="stat"><b id="p-orin">—</b><span>haftalik o'rin</span></div>
     </div>
     <div class="card">
-      <b style="font-weight:900">🎨 Dizayn <span class="soft">(sinov uchun)</span></b>
+      <b style="font-weight:900">🎨 Dizayn</b>
       <div class="dizayn" id="dizayn">
         <button type="button" data-d="A" style="background:#0E1230;color:#F2B84B">🌙 Tungi voha</button>
         <button type="button" data-d="B" style="background:#FFE7CC;color:#E8573A">🐪 Oltin qum</button>
-        <button type="button" data-d="C" style="background:#E2F2F5;color:#0E6E8C">✦ Samarqand</button>
       </div>
     </div>
     <div class="card">
@@ -347,9 +338,9 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 
   // ---------- dizayn ----------
   function dizayn(d){
-    if (["A","B","C"].indexOf(d) < 0) d = "A";
+    if (["A","B"].indexOf(d) < 0) d = "A";
     document.body.className = "d" + d; set("tb_dizayn", d);
-    document.querySelector('meta[name=theme-color]').content = { A: "#0E1230", B: "#FFF6E8", C: "#F3F7FB" }[d];
+    document.querySelector('meta[name=theme-color]').content = { A: "#0E1230", B: "#FFF6E8" }[d];
     document.querySelectorAll("#dizayn button").forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-d") === d); });
   }
   dizayn(get("tb_dizayn") || "A");
@@ -629,7 +620,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     var b = BOSH[r.natija] || BOSH.kutilmoqda, h = '<div class="em">' + b[0] + '</div><div class="big">' + b[1] + '</div>';
     h += '<div class="ballar"><div><b>' + r.ball + '</b><span class="soft">Siz · ' + r.togri + '/10</span></div>' +
       (r.raqib_ball != null ? '<div><b>' + r.raqib_ball + '</b><span class="soft">Raqib · ' + r.raqib_togri + '/10</span></div>' : "") + '</div>';
-    if (r.natija !== "kutilmoqda") h += '<div class="mukofot"><span class="chip">🏆 ' + (r.kubok_ozg > 0 ? "+" : "") + r.kubok_ozg + '</span><span class="chip">⭐ +' + r.xp + ' XP</span>' + (r.natija === "yutdi" ? '<span class="chip">🎁 +1 sandiq</span>' : "") + '</div>';
+    if (r.natija !== "kutilmoqda") h += '<div class="mukofot"><span class="chip">🏆 ' + (r.kubok_ozg > 0 ? "+" : "") + r.kubok_ozg + '</span><span class="chip">' + (r.xp > 0 ? "⭐ +" + r.xp + " XP" : "⭐ Bugungi XP to'ldi") + '</span>' + (r.natija === "yutdi" ? '<span class="chip">🎁 +1 sandiq</span>' : "") + '</div>';
     else if (r.kod){
       var link = location.origin + location.pathname + "#duel=" + r.kod;
       h += '<p class="soft">Endi do\'stingizga havolani yuboring — u o\'ynagach, natija chiqadi.</p><div class="card" style="word-break:break-all;font-weight:900">' + esc(link) + '</div>' +
