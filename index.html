@@ -532,7 +532,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   var DUNYO = null, DMAP = {}, XM = null, VB = null, kutKod = null;
   function dunyoYukla(){
     if (DUNYO) return Promise.resolve(DUNYO);
-    return fetch("dunyo.json?v=1").then(function(r){ return r.json(); }).then(function(j){ j.d.forEach(function(c){ DMAP[c.id] = c; }); DUNYO = j; return j; });
+    return fetch("dunyo.json?v=2").then(function(r){ return r.json(); }).then(function(j){ j.d.forEach(function(c){ DMAP[c.id] = c; }); DUNYO = j; return j; });
   }
   function yuklaXarita(){
     return Promise.all([dunyoYukla(), rpc("p_xaritam", { p_token: token })]).then(function(r){ XM = r[1]; xaritaChiz(); });
@@ -581,7 +581,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     $("dn-yarim").setAttribute("width", VB.w / 90); $("dn-yarim").setAttribute("height", VB.w / 90);
   }
   (function(){
-    var el = $("dunyo"), pts = {}, harakat = 0;
+    var el = $("dunyo"), pts = {}, harakat = 0, tekkan = null;
     function zoom(f, cx, cy){
       var r = el.getBoundingClientRect(), px = VB.x + (cx - r.left) / r.width * VB.w, py = VB.y + (cy - r.top) / r.width * VB.w;
       var nw = Math.max(90, Math.min(DUNYO.w, VB.w / f));
@@ -591,7 +591,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     el.addEventListener("pointerdown", function(e){
       if (!VB || e.target.closest("button")) return;
       try { el.setPointerCapture(e.pointerId); } catch(x){}
-      pts[e.pointerId] = { x: e.clientX, y: e.clientY }; if (Object.keys(pts).length === 1) harakat = 0;
+      pts[e.pointerId] = { x: e.clientX, y: e.clientY }; if (Object.keys(pts).length === 1){ harakat = 0; tekkan = e.target.closest("[data-id]"); }
     });
     el.addEventListener("pointermove", function(e){
       var o = pts[e.pointerId]; if (!o) return;
@@ -606,11 +606,14 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
       o.x = e.clientX; o.y = e.clientY;
     });
     el.addEventListener("pointerup", function(e){
-      if (!pts[e.pointerId]) return; delete pts[e.pointerId];
-      if (harakat < 8 && !Object.keys(pts).length){
-        var t = document.elementFromPoint(e.clientX, e.clientY), p = t && t.closest && t.closest("[data-id]");
-        if (p) davlatOch(p.getAttribute("data-id"));
-      }
+      delete pts[e.pointerId];
+    });
+    // bitta bosish: «click» da ochamiz — telefon pointerup dan keyin yuboradigan click ochilgan oynani yopib qo'ymasin
+    el.addEventListener("click", function(e){
+      if (!VB || harakat >= 10 || e.target.closest("button")) return;
+      var t = document.elementFromPoint(e.clientX, e.clientY), p = tekkan || (t && t.closest && t.closest("[data-id]"));
+      tekkan = null;
+      if (p) davlatOch(p.getAttribute("data-id"));
     });
     el.addEventListener("pointercancel", function(e){ delete pts[e.pointerId]; });
     el.querySelector(".dn-btn").addEventListener("click", function(e){
@@ -631,9 +634,10 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
       else if (!y) h += '<p class="soft" style="text-align:center">🔒 Bu davlatga hali yo\'l yo\'q. Avval chegaradosh davlatni to\'liq zabt eting.</p>';
       if (y && !y.uy && !y.q) h += '<button class="btn alt wide" type="button" data-amal="qala">🏰 Qal\'a qurish · 60 🏆</button><p class="soft" style="font-size:13px;text-align:center;margin:6px 0 0">Yutqazsangiz, viloyat o\'rniga qal\'a buziladi.</p>';
     }
-    $("davlat").innerHTML = h; $("davlat").setAttribute("data-id", id); $("o-davlat").hidden = false;
+    $("davlat").innerHTML = h; $("davlat").setAttribute("data-id", id); $("o-davlat").hidden = false; davlatOch.vaqt = Date.now();
   }
   $("o-davlat").addEventListener("click", function(e){
+    if (e.target === $("o-davlat") && Date.now() - (davlatOch.vaqt || 0) < 400) return;
     if (e.target === $("o-davlat") || e.target.closest("[data-yop]")){ $("o-davlat").hidden = true; return; }
     var b = e.target.closest("[data-amal]"); if (!b) return;
     var id = $("davlat").getAttribute("data-id"), a = b.getAttribute("data-amal"), c = DMAP[id];
