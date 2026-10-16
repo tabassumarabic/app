@@ -630,7 +630,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
       var xato = r.jami - r.togri, h = '<div class="card natija">';
       if (MQ.d.toplam) h += '<div class="yulduzlar">' + yulduzHtml(r.yulduz) + '</div>';
       else h += '<div class="em">💪</div>';
-      h += '<div class="big">' + r.togri + ' / ' + r.jami + ' to\'g\'ri</div><div class="mukofot"><span class="chip">⭐ +' + r.xp + ' XP</span><span class="chip">🔥 Olov davom etyapti</span></div>';
+      h += '<div class="big">' + r.togri + ' / ' + r.jami + ' to\'g\'ri</div><div class="mukofot"><span class="chip">' + (r.xp > 0 ? "⭐ +" + r.xp + " XP" : "⭐ Bugungi XP to'ldi") + '</span><span class="chip">🔥 Olov davom etyapti</span></div>';
       if (r.ochildi) h += '<div class="card" style="font-weight:900">🔓 Yangi mavzu ochildi: ' + esc(r.ochildi) + '</div>';
       if (MQ.d.toplam && r.yulduz === 0) h += '<p class="soft">Keyingi mavzu ochilishi uchun kamida 6 ta to\'g\'ri javob kerak. Yana urinib ko\'ring!</p>';
       if (r.chiqdi) h += '<p class="soft">✅ ' + r.chiqdi + ' ta so\'z «Xatolarim» dan chiqdi.</p>';
