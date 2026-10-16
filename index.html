@@ -99,6 +99,22 @@ input:focus{border-color:var(--accent)}
 .setrow:first-of-type{border-top:0}
 .setrow span{margin-left:auto;color:var(--soft)}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:92px;background:#111;color:#fff;padding:11px 18px;border-radius:14px;font-weight:800;z-index:40;max-width:calc(100% - 32px)}
+/* ===== Mashq ===== */
+.mv{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:var(--border);background:var(--card);color:var(--ink);border-radius:var(--r);box-shadow:var(--shadow);padding:14px;margin-bottom:10px;cursor:pointer;font:inherit}
+.mv b{font-weight:900;font-size:16px}
+.mv .mv-n{width:42px;height:42px;flex:none;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:17px;background:var(--accent);color:var(--btnInk)}
+.mv .mv-y{margin-left:auto;font-size:17px;letter-spacing:1px;white-space:nowrap}
+.mv.yopiq{opacity:.55;cursor:default}
+.mv.yopiq .mv-n{background:var(--track);color:var(--soft)}
+.mv.joriy{outline:3px solid var(--accent);outline-offset:-3px}
+.mq-fikr{text-align:center;font-weight:900;margin:12px 0 0}
+.mq-fikr.ok{color:#3FA34D}.mq-fikr.no{color:#E5484D}
+.yulduzlar{font-size:44px;letter-spacing:4px;margin:6px 0}
+.xt-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--track);cursor:pointer}
+.xt-row:first-child{border-top:0}
+.xt-row .em{font-size:28px;width:38px;text-align:center}
+.xt-row .ar{font-family:"Noto Naskh Arabic",serif;font-size:22px;direction:rtl}
+.xt-row .nuq{margin-left:auto;letter-spacing:2px;color:#3FA34D;font-size:13px}
 /* ===== Duel: dunyo xaritasi ===== */
 .dunyo{position:relative;height:58vh;min-height:340px;margin:0 -16px;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;
   background:radial-gradient(ellipse at center,#D3DFD7 0%,#AFC2B7 100%);border-top:3px double #6B4F2A;border-bottom:3px double #6B4F2A}
@@ -235,7 +251,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     </div>
     <div class="row2">
       <div class="card mini" id="b-duel" style="cursor:pointer"><div class="ic">⚔️</div><b>Duel</b><span class="soft">Raqib bilan bellash</span></div>
-      <div class="card mini"><div class="ic">📚</div><b>Mashq</b><span class="soft">Tez orada</span></div>
+      <div class="card mini" id="b-mashq" style="cursor:pointer"><div class="ic">📚</div><b>Mashq</b><span class="soft">Har kuni 5 daqiqa</span></div>
     </div>
     <div class="card">
       <b style="font-weight:900">🏆 Haftalik reyting</b>
@@ -244,7 +260,11 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   </section>
 
   <!-- ===== TEZ ORADA bo'limlari ===== -->
-  <section id="s-mashq" hidden><div class="card soon"><div class="ic">📚</div><h2>Mashq</h2><p class="soft">So'zlar, tinglash, o'qish va boshqa mavzular bo'yicha mashqlar tez orada qo'shiladi.</p></div></section>
+  <section id="s-mashq" hidden>
+    <div class="duel-top"><div><b style="font-size:18px;font-weight:900">📚 Mashq</b><div class="soft">Har kuni 5 daqiqa: so'zlar, tinglash va harflar</div></div></div>
+    <div class="card"><button class="setrow" id="m-xatolar" type="button">📝 Xatolarim<span id="m-xn">›</span></button></div>
+    <div id="m-yol"><p class="soft">Yuklanmoqda…</p></div>
+  </section>
   <section id="s-duel" hidden>
     <div class="duel-top"><div><b style="font-size:18px;font-weight:900" id="dl-joy"></b><div class="soft" id="dl-keyingi"></div></div><span class="chip k">🏆 <span id="dl-kubok">0</span></span></div>
     <div class="dunyo" id="dunyo">
@@ -298,6 +318,19 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   <div class="dots" id="dots"></div>
   <div class="vaqt"><u id="vaqt"></u></div>
   <div class="card" id="savol"></div>
+</div></div>
+
+<div class="olay" id="o-mashq" hidden><div class="in">
+  <div class="top-h"><b id="mq-sarlavha" style="font-size:18px;font-weight:900"></b><button class="x" type="button" id="mq-yop">✕</button></div>
+  <div class="dots" id="mq-dots"></div>
+  <div id="mq"></div>
+</div></div>
+
+<div class="olay" id="o-xatolar" hidden><div class="in">
+  <div class="top-h"><b style="font-size:20px;font-weight:900">📝 Xatolarim</b><button class="x" type="button" data-yopol>✕</button></div>
+  <p class="soft">Mashq va duelda xato qilingan so'zlar. Har biri «Xatolar ustida ishlash» da 3 marta to'g'ri topilsa, ro'yxatdan chiqadi. So'zni bossangiz, ovozi eshitiladi.</p>
+  <button class="btn wide" type="button" id="xt-ishla">💪 Xatolar ustida ishlash</button>
+  <div class="card" id="xt-royxat" style="margin-top:12px"></div>
 </div></div>
 
 <div class="varaq-fon" id="o-davlat" hidden><div class="varaq"><button class="x" type="button" data-yop>✕</button><div id="davlat"></div></div></div>
@@ -449,7 +482,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     return rpc("p_reyting", { p_token: token }).then(function(r){
       $("reyting").innerHTML = r && r.length ? r.map(function(x){
         return '<div class="lb' + (x.men ? " me" : "") + '"><span class="n">' + x.orin + '</span><span class="av">' + avatarHtml(x.rasm, x.avatar) + '</span>' + esc(x.men ? "Siz" : x.ism) + '<span class="x">' + x.xp + '</span></div>';
-      }).join("") : '<p class="soft" style="margin:10px 0 0">Bu hafta hali hech kim ball to\'plamadi. Mashq va duellar qo\'shilgach, reyting shu yerda chiqadi.</p>';
+      }).join("") : '<p class="soft" style="margin:10px 0 0">Bu hafta hali hech kim ball to\'plamadi. Mashq qiling yoki duel o\'ynang — reyting shu yerda chiqadi.</p>';
     });
   }
   function yangila(){ return rpc("p_men", { p_token: token }).then(function(m){ if (!m) throw new Error("kirish_kerak"); men = m; chiz(); }); }
@@ -528,6 +561,105 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   });
 
   // ================= DUEL =================
+  // ================= MASHQ =================
+  var MQ = null, MAVZU = [];
+  function yulduzHtml(n){ return Array(n + 1).join("⭐") + Array(4 - n).join("☆"); }
+  function yuklaMashq(){
+    return rpc("p_mavzular", { p_token: token }).then(function(r){
+      MAVZU = r.mavzular || [];
+      $("m-xn").textContent = r.xatolar + " ›";
+      var joriy = MAVZU.filter(function(m){ return m.ochiq && !m.yulduz; })[0];
+      $("m-yol").innerHTML = MAVZU.map(function(m, i){
+        return '<button type="button" class="mv' + (m.ochiq ? "" : " yopiq") + (m === joriy ? " joriy" : "") + '" data-mv="' + i + '">' +
+          '<span class="mv-n">' + (m.ochiq ? i + 1 : "🔒") + '</span><div><b>' + esc(m.toplam) + '</b><div class="soft">' + m.sozlar + " ta so'z" + (m === joriy ? " · bugungi mashq" : "") + '</div></div>' +
+          '<span class="mv-y">' + (m.ochiq ? yulduzHtml(m.yulduz) : "") + '</span></button>';
+      }).join("");
+    });
+  }
+  $("m-yol").addEventListener("click", function(e){
+    var b = e.target.closest("[data-mv]"); if (!b) return;
+    var m = MAVZU[+b.getAttribute("data-mv")];
+    if (!m.ochiq){ toast("🔒 Avval oldingi mavzudan kamida ⭐ oling (6/10)"); return; }
+    mashqBoshla(m.toplam);
+  });
+  $("b-mashq").addEventListener("click", function(){ ochish("mashq"); });
+  function mashqBoshla(toplam){
+    return rpc("p_mashq_boshla", { p_token: token, p_toplam: toplam || null }).then(function(d){
+      if (d.xato){ toast({ bosh: "Xatolar yo'q — barakalla! 🎉", yopiq: "Bu mavzu hali yopiq" }[d.xato] || "Xatolik"); return; }
+      MQ = { d: d, i: 0, javob: [], belgi: [] };
+      $("mq-sarlavha").textContent = toplam || "💪 Xatolar ustida ishlash";
+      $("o-xatolar").hidden = true; $("o-mashq").hidden = false;
+      if (toplam) mqOrgan(); else mqSavol();
+    }).catch(function(){ toast("Internet bilan bog'lanib bo'lmadi"); });
+  }
+  function mqOrgan(){
+    $("mq-dots").innerHTML = "";
+    $("mq").innerHTML = '<p class="soft">Avval so\'zlarni ko\'rib chiqing. Kartani bossangiz, so\'z o\'qib beriladi.</p><div class="kartalar">' +
+      MQ.d.sozlar.map(function(c){ return kartaHtml(c).replace('class="krt"', 'class="krt" style="animation:none"'); }).join("") +
+      '</div><button class="btn wide" type="button" id="mq-bosh">✏️ Mashqni boshlash</button>';
+    $("mq-bosh").addEventListener("click", mqSavol);
+  }
+  function mqSavol(){
+    var q = MQ.d.savollar[MQ.i], s = q.savol, h = '<div class="card"><div class="q-matn">' + esc(s.matn) + '</div>';
+    $("mq-dots").innerHTML = MQ.d.savollar.map(function(_, k){ return '<i class="' + (k < MQ.i ? MQ.belgi[k] : k === MQ.i ? "now" : "") + '"></i>'; }).join("");
+    if (s.ar) h += '<div class="q-ar">' + esc(s.ar) + '</div>';
+    if (s.uz) h += '<div class="q-uz"><span class="em">' + esc(s.em || "") + '</span>' + esc(s.uz) + '</div>';
+    if (s.audio) h += '<button class="tingla" type="button" id="mq-tingla">🔊</button>';
+    var arVar = q.tur === "mano_soz" || q.tur === "harf";
+    h += '<div class="vars">' + s.var.map(function(v, k){ return '<button type="button" class="var' + (arVar ? " ar" : "") + '" data-mk="' + k + '">' + esc(v) + '</button>'; }).join("") + '</div><div id="mq-fikr"></div></div>';
+    $("mq").innerHTML = h; MQ.tanlandi = false;
+    if (s.audio){ var tg = function(){ ovoz.src = s.audio; ovoz.currentTime = 0; ovoz.play().catch(function(){}); }; $("mq-tingla").addEventListener("click", tg); tg(); }
+  }
+  $("mq").addEventListener("click", function(e){
+    var b = e.target.closest("[data-mk]"); if (!b || MQ.tanlandi) return;
+    MQ.tanlandi = true;
+    var q = MQ.d.savollar[MQ.i], j = q.savol.var[+b.getAttribute("data-mk")], ok = j === q.togri;
+    MQ.javob.push({ id: q.id, j: j }); MQ.belgi.push(ok ? "ok" : "no");
+    document.querySelectorAll("#mq [data-mk]").forEach(function(x){ if (q.savol.var[+x.getAttribute("data-mk")] === q.togri) x.classList.add("ok"); });
+    if (!ok) b.classList.add("no");
+    var keyingi = function(){ MQ.i++; if (MQ.i < MQ.d.savollar.length) mqSavol(); else mqTopshir(); };
+    if (ok){ $("mq-fikr").innerHTML = '<p class="mq-fikr ok">✅ To\'g\'ri!</p>'; setTimeout(keyingi, 700); }
+    else {
+      $("mq-fikr").innerHTML = '<p class="mq-fikr no">To\'g\'ri javob: ' + esc(q.togri) + '</p><button class="btn wide" type="button" id="mq-davom" style="margin-top:10px">Davom etish ›</button>';
+      $("mq-davom").addEventListener("click", keyingi);
+    }
+  });
+  function mqTopshir(){
+    $("mq").innerHTML = '<p class="q-matn">Natija hisoblanmoqda…</p>';
+    rpc("p_mashq_javob", { p_token: token, p_mashq: MQ.d.mashq, p_javoblar: MQ.javob }).then(function(r){
+      var xato = r.jami - r.togri, h = '<div class="card natija">';
+      if (MQ.d.toplam) h += '<div class="yulduzlar">' + yulduzHtml(r.yulduz) + '</div>';
+      else h += '<div class="em">💪</div>';
+      h += '<div class="big">' + r.togri + ' / ' + r.jami + ' to\'g\'ri</div><div class="mukofot"><span class="chip">⭐ +' + r.xp + ' XP</span><span class="chip">🔥 Olov davom etyapti</span></div>';
+      if (r.ochildi) h += '<div class="card" style="font-weight:900">🔓 Yangi mavzu ochildi: ' + esc(r.ochildi) + '</div>';
+      if (MQ.d.toplam && r.yulduz === 0) h += '<p class="soft">Keyingi mavzu ochilishi uchun kamida 6 ta to\'g\'ri javob kerak. Yana urinib ko\'ring!</p>';
+      if (r.chiqdi) h += '<p class="soft">✅ ' + r.chiqdi + ' ta so\'z «Xatolarim» dan chiqdi.</p>';
+      if (xato) h += '<p class="soft">📝 ' + xato + ' ta xato «Xatolarim» ga yozildi.</p>';
+      h += '<button class="btn wide" type="button" id="mq-yana" style="margin-top:8px">↻ Yana mashq</button><button class="link" type="button" id="mq-qayt">📚 Mavzularga qaytish</button></div>';
+      $("mq-dots").innerHTML = ""; $("mq").innerHTML = h;
+      $("mq-yana").addEventListener("click", function(){ mashqBoshla(MQ.d.toplam); });
+      $("mq-qayt").addEventListener("click", function(){ $("o-mashq").hidden = true; ochish("mashq"); });
+      return Promise.all([yangila(), yuklaMashq(), yuklaReyting()]);
+    }).catch(function(){ $("mq").innerHTML = '<p class="q-matn">Internet yo\'q.</p><button class="btn wide" type="button" id="mq-qayta">↻ Qayta yuborish</button>'; $("mq-qayta").addEventListener("click", mqTopshir); });
+  }
+  $("mq-yop").addEventListener("click", function(){
+    if (MQ && MQ.i > 0 && MQ.i < MQ.d.savollar.length && !confirm("Mashqni to'xtatasizmi? Natija saqlanmaydi.")) return;
+    $("o-mashq").hidden = true; yuklaMashq().catch(function(){});
+  });
+  function xatolarKor(){
+    return rpc("p_xatolarim", { p_token: token }).then(function(r){
+      $("xt-royxat").innerHTML = r.length ? r.map(function(x){
+        return '<div class="xt-row" data-audio="' + esc(x.audio || "") + '"><span class="em">' + esc(x.emoji) + '</span><div><div class="ar">' + esc(x.ar) + '</div><span class="soft">' + esc(x.uz) + '</span></div>' +
+          '<span class="nuq">' + Array(x.togri + 1).join("●") + '<span class="soft">' + Array(4 - x.togri).join("○") + '</span></span></div>';
+      }).join("") : '<p class="soft" style="margin:0">Hozircha xato yo\'q. Barakalla! 🎉</p>';
+      $("xt-ishla").disabled = !r.length;
+      $("o-xatolar").hidden = false;
+    }).catch(function(){ toast("Internet bilan bog'lanib bo'lmadi"); });
+  }
+  $("m-xatolar").addEventListener("click", xatolarKor);
+  $("xt-ishla").addEventListener("click", function(){ mashqBoshla(null); });
+  $("xt-royxat").addEventListener("click", function(e){ var x = e.target.closest("[data-audio]"); if (x && x.getAttribute("data-audio")){ ovoz.src = x.getAttribute("data-audio"); ovoz.play().catch(function(){}); } });
+
   // ================= DUEL: dunyo xaritasi =================
   var DUNYO = null, DMAP = {}, XM = null, VB = null, kutKod = null;
   function dunyoYukla(){
@@ -804,7 +936,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     }
   };
   var eskiOchish = ochish;
-  ochish = function(b){ eskiOchish(b); if (b === "duel" && token){ yuklaTarix().catch(function(){}); yuklaJahon().catch(function(){}); yuklaXarita().catch(function(){}); } };
+  ochish = function(b){ eskiOchish(b); if (b === "mashq" && token) yuklaMashq().catch(function(){}); if (b === "duel" && token){ yuklaTarix().catch(function(){}); yuklaJahon().catch(function(){}); yuklaXarita().catch(function(){}); } };
 
   boshla();
 })();
