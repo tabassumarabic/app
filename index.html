@@ -99,6 +99,41 @@ input:focus{border-color:var(--accent)}
 .setrow:first-of-type{border-top:0}
 .setrow span{margin-left:auto;color:var(--soft)}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:92px;background:#111;color:#fff;padding:11px 18px;border-radius:14px;font-weight:800;z-index:40;max-width:calc(100% - 32px)}
+/* ===== Karvon ===== */
+.kv-kunlar{display:flex;gap:6px;margin:10px 0 4px}
+.kv-kunlar span{flex:1;text-align:center;border-radius:12px;padding:8px 0;background:var(--track);color:var(--soft);font-weight:900;font-size:12px}
+.kv-kunlar span.on{background:#3FA34D;color:#fff}
+.kv-sanoq{font-size:42px;font-weight:900;text-align:center;letter-spacing:2px;margin:6px 0}
+.kv-jamoa{border-left:6px solid var(--jr,#999)}
+.kv-azo{display:flex;align-items:center;gap:8px;padding:6px 0}
+.kv-azo .av{width:30px;height:30px;font-size:16px}
+.kv-azo i{width:9px;height:9px;border-radius:50%;background:var(--track);margin-left:auto}
+.kv-azo i.on{background:#3FA34D}
+.kv-yol{margin:8px 0 12px}
+.kv-yol .q{display:flex;align-items:center;gap:8px;margin:6px 0;font-weight:900;font-size:13px}
+.kv-yol .q .nm{width:92px;flex:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kv-yol .q .yo{flex:1;height:26px;border-radius:99px;background:var(--track);position:relative}
+.kv-yol .q .yo u{position:absolute;left:0;top:0;bottom:0;border-radius:99px;opacity:.35;transition:width .6s}
+.kv-yol .q .yo b{position:absolute;top:50%;transform:translate(-50%,-50%);font-size:20px;transition:left .6s}
+.kv-yol .q .bl{width:52px;text-align:right}
+.kv-yol .q.men .nm{text-decoration:underline}
+.kv-boshliq{text-align:center;font-weight:900;margin:2px 0 10px}
+.kv-boshliq.men{color:var(--accent)}
+.var .mas{display:block;font-size:11px;font-weight:800;opacity:.8;margin-top:4px;font-family:Nunito,system-ui,sans-serif}
+.var.yubor{outline:3px solid var(--accent)}
+.kv-xabar{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.kv-xabar button{border:0;border-radius:99px;padding:8px 12px;background:var(--chip);color:var(--chipInk);font-weight:800;cursor:pointer}
+.kv-xabarlar{min-height:22px;text-align:center;font-size:13px;color:var(--soft);margin-top:8px}
+.kv-bolak{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;direction:rtl;margin:10px 0}
+.kv-bolak button{font-family:"Noto Naskh Arabic",serif;font-size:22px;border:2px solid var(--inputBorder);background:var(--card);color:var(--ink);border-radius:14px;padding:6px 14px;cursor:pointer}
+.kv-qator{min-height:58px;border:2px dashed var(--inputBorder);border-radius:16px;padding:6px}
+.kv-daraja{display:grid;gap:10px}
+.kv-daraja button{border:2px solid var(--inputBorder);background:var(--card);color:var(--ink);border-radius:16px;padding:16px;font-weight:900;font-size:17px;cursor:pointer}
+.kv-daraja button.on{border-color:var(--accent);background:var(--chip);color:var(--chipInk)}
+.kv-podium{display:flex;align-items:flex-end;justify-content:center;gap:8px;margin:14px 0}
+.kv-podium div{flex:1;max-width:120px;text-align:center;border-radius:14px 14px 0 0;color:#fff;font-weight:900;padding:10px 4px}
+.kv-slayd{text-align:center;padding:10px 4px}
+.kv-slayd .ic{font-size:64px}
 /* ===== Mashq ===== */
 .mv{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:var(--border);background:var(--card);color:var(--ink);border-radius:var(--r);box-shadow:var(--shadow);padding:14px;margin-bottom:10px;cursor:pointer;font:inherit}
 .mv b{font-weight:900;font-size:16px}
@@ -244,10 +279,10 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   <section id="s-bugun" hidden>
     <div class="hello"><span class="ar">أَهْلًا</span><b style="font-size:18px" id="b-ism"></b>
       <span class="chips"><span class="chip" title="Ketma-ket kunlar">🔥 <span id="b-olov">0</span></span><span class="chip" title="XP">⭐ <span id="b-xp">0</span></span></span></div>
-    <div class="card hero">
-      <div class="kicker">Tez orada</div>
+    <div class="card hero" id="b-karvon" style="cursor:pointer">
+      <div class="kicker">Har yakshanba 20:00</div>
       <div class="big">🐪 Karvon poygasi</div>
-      <div class="soft">Haftalik jamoaviy o'yin. Hafta davomida faol bo'lib, chipta yig'asiz va dam olish kuni jamoangiz bilan poygaga chiqasiz.</div>
+      <div class="soft">Haftalik jamoaviy o'yin. Hafta davomida 3 kun mashq yoki duel qilib chipta oling va yakshanba jamoangiz bilan poygaga chiqing!</div>
     </div>
     <div class="row2">
       <div class="card mini" id="b-duel" style="cursor:pointer"><div class="ic">⚔️</div><b>Duel</b><span class="soft">Raqib bilan bellash</span></div>
@@ -278,7 +313,10 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     <div class="card tarix"><b style="font-weight:900">👑 Jahongirlar</b><div id="dl-jahon"></div></div>
     <div class="card tarix"><b style="font-weight:900">🕘 Oxirgi duellar</b><div id="dl-tarix"></div></div>
   </section>
-  <section id="s-karvon" hidden><div class="card soon"><div class="ic">🐪</div><h2>Karvon poygasi</h2><p class="soft">Haftada bir marta jamoaviy o'yin, oyda bir marta katta turnir. Tez orada.</p></div></section>
+  <section id="s-karvon" hidden>
+    <div class="duel-top"><div><b style="font-size:18px;font-weight:900">🐪 Karvon poygasi</b><div class="soft" id="kv-sana">Har yakshanba 20:00</div></div></div>
+    <div id="kv"><p class="soft">Yuklanmoqda…</p></div>
+  </section>
 
   <!-- ===== PROFIL ===== -->
   <section id="s-profil" hidden>
@@ -318,6 +356,25 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   <div class="dots" id="dots"></div>
   <div class="vaqt"><u id="vaqt"></u></div>
   <div class="card" id="savol"></div>
+</div></div>
+
+<div class="olay" id="o-karvon" hidden><div class="in">
+  <div class="top-h"><b id="kq-sarlavha" style="font-size:17px;font-weight:900"></b><span class="chip" id="kq-n" style="margin-left:auto"></span></div>
+  <div class="vaqt"><u id="kq-vaqt"></u></div>
+  <div class="kv-yol" id="kq-yol"></div>
+  <div id="kq"></div>
+</div></div>
+
+<div class="olay" id="o-kv-video" hidden><div class="in" style="max-width:none;padding:10px">
+  <div class="top-h"><b style="font-size:18px;font-weight:900">🎥 Kutish xonasi</b><button class="x" type="button" id="kv-video-yop">✕</button></div>
+  <div id="kv-jitsi" style="height:calc(100vh - 90px);border-radius:16px;overflow:hidden;background:#000"></div>
+</div></div>
+
+<div class="olay" id="o-kv-qanday" hidden><div class="in">
+  <div class="top-h"><b style="font-size:20px;font-weight:900">📖 Qanday o'ynaladi?</b><button class="x" type="button" data-yopol>✕</button></div>
+  <div class="card kv-slayd" id="kv-slayd"></div>
+  <div class="dots" id="kv-slayd-n"></div>
+  <button class="btn wide" type="button" id="kv-slayd-keyingi">Keyingisi ›</button>
 </div></div>
 
 <div class="olay" id="o-mashq" hidden><div class="in">
@@ -561,6 +618,195 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   });
 
   // ================= DUEL =================
+  // ================= KARVON =================
+  var KV = null, KVT = null, KVQ = { qi: -1, tanlangan: null, qator: [] }, JAAS_APP = "vpaas-magic-cookie-de707f76c9e147338dae0e36e5359d7e";
+  var RAUND = { 1: ["🎧", "Tinglash", "So'zni eshiting va to'g'risini toping"], 2: ["💬", "Vaziyatlar", "Shunday paytda arabcha nima deysiz?"],
+                3: ["🔀", "Tartiblash", "So'zlarni to'g'ri tartibda tering"], 4: ["💡", "Qiziqarli faktlar", "Arab tili va arab dunyosi haqida"],
+                5: ["👑", "Final: Shoh tuya sinovi", "Karvonboshi qiyinlikni tanlaydi: oson 1×, o'rta 2×, qiyin 3×"] };
+  var KUNLAR = ["Du", "Se", "Ch", "Pa", "Ju", "Sh"], OYLAR = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
+  var XABAR = { aniq: "👍 Aniq", ishonmayman: "🤔 Ishonmayman", tezroq: "⏱ Tezroq", barakalla: "👏 Barakalla" };
+  function kvVaqt(ms){ ms = Math.max(0, Math.round(ms / 1000)); var h = Math.floor(ms / 3600), m = Math.floor(ms % 3600 / 60), c = ms % 60;
+    return h ? h + " soat " + m + " daqiqa" : (m < 10 ? "0" : "") + m + ":" + (c < 10 ? "0" : "") + c; }
+  function kvYukla(){
+    if (!token) return Promise.resolve();
+    return rpc("p_karvon", { p_token: token }).then(function(d){ KV = d; KV.olindi = Date.now(); kvChiz(); });
+  }
+  function kvKuzat(){
+    clearInterval(KVT);
+    KVT = setInterval(function(){
+      var korinadi = !$("s-karvon").hidden || !$("o-karvon").hidden;
+      if (!korinadi){ clearInterval(KVT); KVT = null; return; }
+      kvYukla().catch(function(){});
+    }, 1500);
+  }
+  function kvQolgan(){ return KV ? KV.qolgan - (Date.now() - KV.olindi) : 0; }
+  function kvAzolar(j){
+    return j.azolar.map(function(a){ return '<div class="kv-azo"><span class="av">' + avatarHtml(a.rasm, a.avatar) + '</span><span>' + esc(a.men ? "Siz" : a.ism) + '</span><i class="' + (a.onlayn ? "on" : "") + '" title="onlayn"></i></div>'; }).join("");
+  }
+  function kvSana(d){ var t = new Date(d.boshlanish); return "Yakshanba, " + t.getDate() + "-" + OYLAR[t.getMonth()] + ", " + ("0" + t.getHours()).slice(-2) + ":" + ("0" + t.getMinutes()).slice(-2); }
+  function kvChiz(){
+    var d = KV, h = "", oyinda = ["raund", "tanlov", "savol", "javob"].indexOf(d.faza) >= 0;
+    $("kv-sana").textContent = d.sinov ? "🧪 Sinov poygasi" : kvSana(d);
+    if (oyinda && d.jamoa){ kvOyin(); if ($("o-karvon").hidden){ $("o-karvon").hidden = false; kvKuzat(); } return; }
+    if (!$("o-karvon").hidden && !oyinda){ $("o-karvon").hidden = true; }
+    var meniki = d.jamoalar.filter(function(j){ return j.id === d.jamoa; })[0];
+    if (d.faza === "tugadi" && d.natija){
+      var jj = d.natija.jamoalar || [], men = jj.filter(function(j){ return j.jamoa === d.jamoa; })[0];
+      h += '<div class="card natija"><div class="em">🏁</div><div class="big">Poyga tugadi!</div><div class="kv-podium">' +
+        [jj[1], jj[0], jj[2]].map(function(j, i){ return j ? '<div style="background:' + esc(j.rang) + ';height:' + [90, 130, 70][i] + 'px">' + ["🥈", "🥇", "🥉"][i] + '<br>' + esc(j.nom) + '<br>' + j.ball + '</div>' : ""; }).join("") + '</div>' +
+        (men ? '<div class="mukofot"><span class="chip">' + men.orin + '-o\'rin</span><span class="chip">⭐ +' + men.xp + ' XP</span></div>' : "") +
+        jj.map(function(j){ return '<div class="lb"><span class="n">' + j.orin + '</span><span style="color:' + esc(j.rang) + '">🐪</span><span>' + esc(j.nom) + '<br><span class="soft">' + esc(j.azolar.join(", ")) + '</span></span><span class="x">' + j.ball + '</span></div>'; }).join("") +
+        '<p class="soft">Keyingi poyga — kelasi yakshanba 20:00. Hafta davomida 3 kun mashq yoki duel qilib, chipta oling!</p></div>';
+    } else if (d.faza === "kutish" || oyinda){
+      h += '<div class="card hero" style="text-align:center"><div class="kicker">' + (oyinda ? "Poyga ketyapti" : d.pauza ? "⏸ Ustoz boshlanishni biroz kechiktirdi" : "Poyga boshlanishiga") + '</div>' +
+        (oyinda || d.pauza ? "" : '<div class="kv-sanoq" id="kv-sanoq">' + kvVaqt(kvQolgan()) + '</div>') + '</div>';
+      if (d.qatnashaman){
+        h += meniki ? '<div class="card kv-jamoa" style="--jr:' + esc(meniki.rang) + '"><b style="font-weight:900">🐪 Jamoangiz: ' + esc(meniki.nom) + '</b>' + kvAzolar(meniki) + '</div>'
+                    : '<div class="card"><b style="font-weight:900">🐪 Jamoangiz hali belgilanmagan</b><p class="soft" style="margin:6px 0 0">Ustoz jamoalarga joylayapti. Joylanmasangiz, boshlanishda o\'zingiz bir jamoaga qo\'shilasiz.</p></div>';
+        h += '<button class="btn wide" type="button" id="kv-video">🎥 Kutish xonasiga kirish</button>';
+      } else h += '<div class="card"><p class="soft" style="margin:0">Bu poygada qatnashmayapsiz. Natijalarni shu yerda kuzatishingiz mumkin.</p></div>';
+      if (d.jamoalar.length) h += '<div class="card"><b style="font-weight:900">Karvonlar</b>' + d.jamoalar.map(function(j){ return '<div class="lb"><span style="color:' + esc(j.rang) + '">🐪</span><span>' + esc(j.nom) + ' <span class="soft">· ' + j.azolar.length + ' kishi</span></span><span class="x">' + j.ball + '</span></div>'; }).join("") + '</div>';
+    } else {
+      var ochiq = d.royxat_ochiq;
+      h += '<div class="card hero"><div class="kicker">' + (d.sinov ? "Sinov poygasi" : "Keyingi poyga") + '</div><div class="big">' + esc(d.sinov ? kvVaqt(kvQolgan()) + " dan keyin" : kvSana(d)) + '</div>' +
+        '<div class="soft">Ishtirokchilar: ' + d.ishtirokchilar + ' kishi</div></div>';
+      if (!d.sinov){
+        var kun0 = new Date(d.kun + "T00:00:00"), bor = d.kunlar || [], kunlar = "";
+        for (var i = 0; i < 6; i++){ var t = new Date(kun0.getTime() - (6 - i) * 864e5), iso = t.getFullYear() + "-" + ("0" + (t.getMonth() + 1)).slice(-2) + "-" + ("0" + t.getDate()).slice(-2);
+          kunlar += '<span class="' + (bor.indexOf(iso) >= 0 ? "on" : "") + '">' + KUNLAR[i] + '</span>'; }
+        h += '<div class="card"><b style="font-weight:900">🎟 Chipta: ' + Math.min(3, bor.length) + ' / 3 faol kun</b><div class="kv-kunlar">' + kunlar + '</div>' +
+          '<p class="soft" style="margin:4px 0 0">' + (d.chipta ? "Chiptangiz bor! ✅" : "Dushanba–shanba kamida 3 kun mashq yoki duel qiling.") + '</p></div>';
+      }
+      if (d.qatnashaman) h += '<div class="card"><b style="font-weight:900">✅ Siz ro\'yxatdasiz</b><p class="soft" style="margin:6px 0 0">' + (meniki ? "Jamoangiz: " + esc(meniki.nom) : "Ustoz yakshanba kuni jamoalarga joylaydi.") + ' Poygadan 15 daqiqa oldin shu yerga kiring.</p></div>';
+      else if (ochiq && d.chipta) h += '<button class="btn wide" type="button" id="kv-qatnash">🐪 Qatnashaman</button>';
+      else h += '<button class="btn wide" type="button" disabled>' + (ochiq ? "🎟 Chipta yo'q" : "Ro'yxat yopildi") + '</button>';
+    }
+    h += '<button class="btn alt wide" type="button" id="kv-qanday" style="margin-top:10px">📖 Qanday o\'ynaladi?</button>';
+    if ($("kv").getAttribute("data-h") !== h){ $("kv").innerHTML = h; $("kv").setAttribute("data-h", h); }
+    else if ($("kv-sanoq")) $("kv-sanoq").textContent = kvVaqt(kvQolgan());
+  }
+  $("kv").addEventListener("click", function(e){
+    var b = e.target.closest("button"); if (!b) return;
+    if (b.id === "kv-qatnash"){ b.disabled = true; rpc("p_karvon_qatnash", { p_token: token }).then(function(r){
+        if (r.xato) toast({ chipta: "Chipta yo'q: 3 kun mashq yoki duel kerak", kech: "Ro'yxat yopilgan" }[r.xato] || "Xatolik"); else toast("🐪 Ro'yxatga yozildingiz!");
+        return kvYukla(); }).catch(function(){ b.disabled = false; toast("Internet bilan bog'lanib bo'lmadi"); }); }
+    if (b.id === "kv-qanday") kvSlayd(0);
+    if (b.id === "kv-video") kvVideo();
+  });
+  $("b-karvon").addEventListener("click", function(){ ochish("karvon"); });
+
+  // ---- qanday o'ynaladi ----
+  var SLAYD = [["🎟", "Chipta oling", "Dushanba–shanba kamida 3 kun mashq yoki duel qiling. Keyin yakshanba 18:00 gacha «Qatnashaman» tugmasini bosing."],
+               ["🐪", "Jamoangiz — karvoningiz", "Ustoz sizni karvonlarga bo'ladi. Har savolda navbat bilan bittangiz karvonboshi bo'lasiz: u javob beradi, qolganlar variantni bosib maslahat beradi."],
+               ["🏁", "4 raund + final", "Tinglash, vaziyatlar, tartiblash va qiziqarli faktlar. Finalda karvonboshi qiyinlikni tanlaydi: oson 1×, o'rta 2×, qiyin 3×. Xato bo'lsa ball kuymaydi. G'olib karvonga 1000 XP!"]];
+  function kvSlayd(i){
+    var x = SLAYD[i];
+    $("kv-slayd").innerHTML = '<div class="ic">' + x[0] + '</div><h2>' + esc(x[1]) + '</h2><p>' + esc(x[2]) + '</p>';
+    $("kv-slayd-n").innerHTML = SLAYD.map(function(_, k){ return '<i class="' + (k <= i ? "now" : "") + '"></i>'; }).join("");
+    $("kv-slayd-keyingi").textContent = i < SLAYD.length - 1 ? "Keyingisi ›" : "Tushundim ✅";
+    $("kv-slayd-keyingi").setAttribute("data-i", i);
+    $("o-kv-qanday").hidden = false;
+  }
+  $("kv-slayd-keyingi").addEventListener("click", function(){ var i = +this.getAttribute("data-i") + 1; if (i < SLAYD.length) kvSlayd(i); else $("o-kv-qanday").hidden = true; });
+
+  // ---- kutish xonasi (video) ----
+  function kvVideo(){
+    if (!KV || !KV.xona) return;
+    $("o-kv-video").hidden = false;
+    var boshla = function(){
+      if (kvVideo.api) return;
+      kvVideo.api = new JitsiMeetExternalAPI("8x8.vc", { roomName: JAAS_APP + "/" + KV.xona, parentNode: $("kv-jitsi"), userInfo: { displayName: men.ism },
+        configOverwrite: { prejoinPageEnabled: true, disableDeepLinking: true, subject: "🐪 Karvon kutish xonasi" }, interfaceConfigOverwrite: { SHOW_PROMOTIONAL_CLOSE_PAGE: false } });
+      kvVideo.api.addListener("readyToClose", kvVideoYop);
+    };
+    if (window.JitsiMeetExternalAPI) return boshla();
+    var sc = document.createElement("script"); sc.src = "https://8x8.vc/" + JAAS_APP + "/external_api.js"; sc.onload = boshla;
+    sc.onerror = function(){ toast("Video ulanmadi — internetni tekshiring"); }; document.head.appendChild(sc);
+  }
+  function kvVideoYop(){ if (kvVideo.api){ try { kvVideo.api.dispose(); } catch(e){} kvVideo.api = null; } $("kv-jitsi").innerHTML = ""; $("o-kv-video").hidden = true; }
+  $("kv-video-yop").addEventListener("click", kvVideoYop);
+
+  // ---- o'yin ----
+  function kvOyin(){
+    var d = KV, rd = RAUND[d.raund] || RAUND[1], s = d.savol, qi = s ? s.qi : -1;
+    if (kvVideo.api) kvVideoYop();
+    $("kq-sarlavha").textContent = rd[0] + " " + (d.raund < 5 ? d.raund + "-raund: " : "") + rd[1];
+    $("kq-n").textContent = (qi >= 0 ? qi + 1 : "–") + " / " + d.jami;
+    var muddat = s ? s.muddat : 6000, q = kvQolgan();
+    $("kq-vaqt").style.width = d.faza === "savol" ? Math.max(0, Math.min(100, q * 100 / muddat)) + "%" : "0%";
+    var eng = Math.max.apply(null, d.jamoalar.map(function(j){ return j.ball; }).concat([1]));
+    $("kq-yol").innerHTML = d.jamoalar.map(function(j){ var p = 6 + j.ball * 84 / eng;
+      return '<div class="q' + (j.id === d.jamoa ? " men" : "") + '"><span class="nm" style="color:' + esc(j.rang) + '">' + esc(j.nom) + '</span><span class="yo"><u style="width:' + p + '%;background:' + esc(j.rang) + '"></u><b style="left:' + p + '%">🐪</b></span><span class="bl">' + j.ball + '</span></div>'; }).join("");
+    if (qi !== KVQ.qi){ KVQ = { qi: qi, tanlangan: null, qator: [], audio: false }; }
+    var h = "";
+    if (d.faza === "raund"){
+      h = '<div class="card natija"><div class="em">' + rd[0] + '</div><div class="big">' + (d.raund < 5 ? d.raund + "-raund" : "Final") + '</div><p style="font-weight:900;font-size:18px;margin:6px 0">' + esc(rd[1]) + '</p><p class="soft">' + esc(rd[2]) + '</p><div class="kv-sanoq">' + Math.ceil(q / 1000) + '</div></div>';
+    } else if (d.faza === "tanlov"){
+      h = '<div class="card"><div class="q-matn">👑 Qiyinlikni tanlang</div>';
+      if (d.boshliq) h += '<div class="kv-daraja">' + [["oson", "🟢 Oson · 1×"], ["orta", "🟡 O'rta · 2×"], ["qiyin", "🔴 Qiyin · 3×"]].map(function(x){ return '<button type="button" data-daraja="' + x[0] + '" class="' + (d.tanlov === x[0] ? "on" : "") + '">' + x[1] + '</button>'; }).join("") + '</div><p class="soft" style="text-align:center">Xato bo\'lsa 0 ball, lekin to\'plangan ball kuymaydi.</p>';
+      else h += '<p class="kv-boshliq">Karvonboshi ' + esc(d.boshliq_ism || "") + ' tanlayapti…</p><p style="text-align:center;font-weight:900">' + (d.tanlov ? { oson: "🟢 Oson · 1×", orta: "🟡 O'rta · 2×", qiyin: "🔴 Qiyin · 3×" }[d.tanlov] : "") + '</p>';
+      h += '<div class="kv-sanoq">' + Math.ceil(q / 1000) + '</div></div>';
+    } else if (s){
+      var sv = s.s, javob = d.faza === "javob", tj = d.jamoa_javob, togri = javob && d.ochiq ? d.ochiq.togri : null;
+      h = '<p class="kv-boshliq' + (d.boshliq ? " men" : "") + '">' + (d.boshliq ? "👑 Siz karvonboshisiz — javobni siz berasiz!" : "👑 Karvonboshi: " + esc(d.boshliq_ism || "") + " · siz maslahat bering") + '</p><div class="card">';
+      if (s.daraja && s.tur === "final") h += '<p class="soft" style="text-align:center;margin:0">' + { oson: "🟢 Oson · 1×", orta: "🟡 O'rta · 2×", qiyin: "🔴 Qiyin · 3×" }[s.daraja] + '</p>';
+      h += '<div class="q-matn">' + esc(sv.matn) + '</div>';
+      if (sv.ar && typeof sv.ar === "string") h += '<div class="q-ar">' + esc(sv.ar) + '</div>';
+      if (sv.uz) h += '<div class="q-uz">' + esc(sv.uz) + '</div>';
+      if (sv.audio) h += '<button class="tingla" type="button" id="kq-tingla">🔊</button>';
+      var mas = {}; (d.maslahat || []).forEach(function(m){ (mas[m.javob] = mas[m.javob] || []).push(m.ism.split(" ")[0]); });
+      if (sv.bolak){
+        var qator = javob ? (togri || "").split(" ") : tj ? tj.split(" ") : KVQ.qator;
+        h += '<div class="kv-qator kv-bolak">' + qator.map(function(w, k){ return '<button type="button" data-qk="' + k + '">' + esc(w) + '</button>'; }).join("") + '</div>';
+        if (!javob && !tj){
+          var qoldi = sv.bolak.slice(); KVQ.qator.forEach(function(w){ var i = qoldi.indexOf(w); if (i >= 0) qoldi.splice(i, 1); });
+          h += '<div class="kv-bolak">' + qoldi.map(function(w){ return '<button type="button" data-bk="' + esc(w) + '">' + esc(w) + '</button>'; }).join("") + '</div>';
+          if (KVQ.qator.length === sv.bolak.length) h += '<button class="btn wide" type="button" id="kq-yubor">' + (d.boshliq ? "✅ Javobni yuborish" : "💡 Maslahat berish") + '</button>';
+        }
+        Object.keys(mas).forEach(function(m){ h += '<p class="soft" style="text-align:center;margin:4px 0">💡 ' + esc(mas[m].join(", ")) + ': <span class="dv-ar">' + esc(m) + '</span></p>'; });
+      } else {
+        var arv = sv.ar === true || sv.arvar;
+        h += '<div class="vars">' + sv.var.map(function(v, k){
+          var cls = "var" + (arv ? " ar" : "") + (javob && v === togri ? " ok" : "") + (javob && v === tj && v !== togri ? " no" : "") + (!javob && v === tj ? " yubor" : "") + (!javob && !tj && v === KVQ.tanlangan ? " tanlangan" : "");
+          return '<button type="button" class="' + cls + '" data-kk="' + k + '">' + esc(v) + (mas[v] ? '<span class="mas">💡 ' + esc(mas[v].join(", ")) + '</span>' : "") + '</button>';
+        }).join("") + '</div>';
+      }
+      if (javob){
+        var mj = d.ochiq && d.ochiq.jamoalar.filter(function(x){ return x.jamoa === d.jamoa; })[0];
+        h += '<p class="mq-fikr ' + (mj && mj.togri ? "ok" : "no") + '">' + (mj && mj.togri ? "✅ To'g'ri! +" + mj.ball : tj ? "❌ Noto'g'ri" : "⏱ Javob berilmadi") + '</p>';
+      } else if (tj) h += '<p class="mq-fikr ok">✅ Karvonboshi javob berdi</p>';
+      h += '</div>';
+      if (!javob) h += '<div class="kv-xabar">' + Object.keys(XABAR).map(function(k){ return '<button type="button" data-xabar="' + k + '">' + XABAR[k] + '</button>'; }).join("") + '</div>';
+      h += '<div class="kv-xabarlar">' + (d.xabarlar || []).map(function(x){ return esc(x.ism.split(" ")[0]) + ": " + XABAR[x.kod]; }).join(" · ") + '</div>';
+    }
+    if ($("kq").getAttribute("data-h") !== h){ $("kq").innerHTML = h; $("kq").setAttribute("data-h", h); }
+    if (s && s.s && s.s.audio && d.faza === "savol" && !KVQ.audio){ KVQ.audio = true; ovoz.src = s.s.audio; ovoz.currentTime = 0; ovoz.play().catch(function(){}); }
+  }
+  function kvYubor(javob){
+    var d = KV; if (!d.savol) return;
+    if (!d.boshliq) KVQ.tanlangan = javob;
+    rpc("p_karvon_javob", { p_token: token, p_karvon: d.karvon, p_qi: d.savol.qi, p_javob: javob }).then(function(r){
+      if (r.xato === "vaqt") toast("Vaqt tugadi"); else if (r.maslahat) toast("💡 Maslahatingiz jamoaga ko'rindi");
+      return kvYukla();
+    }).catch(function(){ toast("Internet bilan bog'lanib bo'lmadi"); });
+    kvOyin();
+  }
+  $("kq").addEventListener("click", function(e){
+    var d = KV; if (!d) return;
+    var t = e.target.closest("button"); if (!t) return;
+    if (t.id === "kq-tingla" && d.savol && d.savol.s.audio){ ovoz.src = d.savol.s.audio; ovoz.currentTime = 0; ovoz.play().catch(function(){}); return; }
+    if (d.faza === "tanlov" && t.getAttribute("data-daraja")){
+      rpc("p_karvon_tanlov", { p_token: token, p_karvon: d.karvon, p_qi: KV.savol ? KV.savol.qi : -1, p_daraja: t.getAttribute("data-daraja") }).then(kvYukla).catch(function(){});
+      return;
+    }
+    if (t.getAttribute("data-xabar")){ rpc("p_karvon_xabar", { p_token: token, p_karvon: d.karvon, p_kod: t.getAttribute("data-xabar") }).then(kvYukla).catch(function(){}); return; }
+    if (d.faza !== "savol" || d.jamoa_javob) return;
+    if (t.getAttribute("data-kk") != null){ kvYubor(d.savol.s.var[+t.getAttribute("data-kk")]); return; }
+    if (t.getAttribute("data-bk") != null){ KVQ.qator.push(t.getAttribute("data-bk")); kvOyin(); return; }
+    if (t.getAttribute("data-qk") != null){ KVQ.qator.splice(+t.getAttribute("data-qk"), 1); kvOyin(); return; }
+    if (t.id === "kq-yubor") kvYubor(KVQ.qator.join(" "));
+  });
+
   // ================= MASHQ =================
   var MQ = null, MAVZU = [];
   function yulduzHtml(n){ return Array(n + 1).join("⭐") + Array(4 - n).join("☆"); }
@@ -936,7 +1182,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     }
   };
   var eskiOchish = ochish;
-  ochish = function(b){ eskiOchish(b); if (b === "mashq" && token) yuklaMashq().catch(function(){}); if (b === "duel" && token){ yuklaTarix().catch(function(){}); yuklaJahon().catch(function(){}); yuklaXarita().catch(function(){}); } };
+  ochish = function(b){ eskiOchish(b); if (b === "mashq" && token) yuklaMashq().catch(function(){}); if (b === "karvon" && token){ kvYukla().catch(function(){}); kvKuzat(); } if (b === "duel" && token){ yuklaTarix().catch(function(){}); yuklaJahon().catch(function(){}); yuklaXarita().catch(function(){}); } };
 
   boshla();
 })();
