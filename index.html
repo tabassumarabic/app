@@ -670,7 +670,8 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
       var ochiq = d.royxat_ochiq;
       h += '<div class="card hero"><div class="kicker">' + (d.sinov ? "Sinov poygasi" : "Keyingi poyga") + '</div><div class="big">' + esc(d.sinov ? kvVaqt(kvQolgan()) + " dan keyin" : kvSana(d)) + '</div>' +
         '<div class="soft">Ishtirokchilar: ' + d.ishtirokchilar + ' kishi</div></div>';
-      if (!d.sinov){
+      if (!d.sinov && !d.chipta_shart) h += '<div class="card"><b style="font-weight:900">🎉 Bu poyga uchun chipta shart emas!</b><p class="soft" style="margin:6px 0 0">«Qatnashaman» ni bosing — ro\'yxat shanba kuni oxirigacha ochiq. Keyingi poygalardan chipta kerak bo\'ladi: hafta davomida 3 kun mashq yoki duel.</p></div>';
+      else if (!d.sinov){
         var kun0 = new Date(d.kun + "T00:00:00"), bor = d.kunlar || [], kunlar = "";
         for (var i = 0; i < 6; i++){ var t = new Date(kun0.getTime() - (6 - i) * 864e5), iso = t.getFullYear() + "-" + ("0" + (t.getMonth() + 1)).slice(-2) + "-" + ("0" + t.getDate()).slice(-2);
           kunlar += '<span class="' + (bor.indexOf(iso) >= 0 ? "on" : "") + '">' + KUNLAR[i] + '</span>'; }
@@ -696,7 +697,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   $("b-karvon").addEventListener("click", function(){ ochish("karvon"); });
 
   // ---- qanday o'ynaladi ----
-  var SLAYD = [["🎟", "Chipta oling", "Dushanba–shanba kamida 3 kun mashq yoki duel qiling. Keyin yakshanba 18:00 gacha «Qatnashaman» tugmasini bosing."],
+  var SLAYD = [["🎟", "Chipta oling", "Dushanba–shanba kamida 3 kun mashq yoki duel qiling. Keyin shanba kuni oxirigacha «Qatnashaman» tugmasini bosing."],
                ["🐪", "Jamoangiz — karvoningiz", "Ustoz sizni karvonlarga bo'ladi. Har savolda navbat bilan bittangiz karvonboshi bo'lasiz: u javob beradi, qolganlar variantni bosib maslahat beradi."],
                ["🏁", "4 raund + final", "Tinglash, vaziyatlar, tartiblash va qiziqarli faktlar. Finalda karvonboshi qiyinlikni tanlaydi: oson 1×, o'rta 2×, qiyin 3×. Xato bo'lsa ball kuymaydi. G'olib karvonga 1000 XP!"]];
   function kvSlayd(i){
