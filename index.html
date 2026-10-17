@@ -6,6 +6,13 @@
 <title>Tabassum — arab tilini o'yin bilan o'rganing</title>
 <meta name="description" content="Tabassum — arab tilini har kuni oz-ozdan, o'yin va bellashuvlar bilan o'rganish platformasi.">
 <meta name="theme-color" content="#0E1230">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="ikonka/favicon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="ikonka/apple-180.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tabassum">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Noto+Naskh+Arabic:wght@700&display=swap" rel="stylesheet">
 <style>
@@ -279,6 +286,14 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   <section id="s-bugun" hidden>
     <div class="hello"><span class="ar">أَهْلًا</span><b style="font-size:18px" id="b-ism"></b>
       <span class="chips"><span class="chip" title="Ketma-ket kunlar">🔥 <span id="b-olov">0</span></span><span class="chip" title="XP">⭐ <span id="b-xp">0</span></span></span></div>
+    <div class="card" id="b-ornat" hidden>
+      <div style="display:flex;align-items:center;gap:12px">
+        <img src="ikonka/ikonka-192.png" alt="" width="48" height="48" style="border-radius:12px;flex:none">
+        <div style="flex:1;min-width:0"><b style="font-weight:900">📲 Telefonga o'rnating</b><div class="soft" style="font-size:13px">Bosh ekranda Tabassum ikonkasi bo'ladi</div></div>
+        <button type="button" id="b-ornat-yop" aria-label="Yopish" style="flex:none;border:0;background:none;color:var(--soft);font-size:18px;font-weight:900;cursor:pointer;padding:4px 6px">✕</button>
+      </div>
+      <button class="btn wide" type="button" id="b-ornat-btn" style="margin-top:12px">📲 O'rnatish</button>
+    </div>
     <div class="card hero" id="b-karvon" style="cursor:pointer">
       <div class="kicker">Har yakshanba 20:00</div>
       <div class="big">🐪 Karvon poygasi</div>
@@ -341,6 +356,8 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     </div>
     <div class="card">
       <button class="setrow" id="o-kartalar-btn" type="button">🃏 Kartalarim<span id="p-kartalar">›</span></button>
+      <button class="setrow" id="p-eslatma" type="button">🔔 Eslatmalar<span id="p-eslatma-h">›</span></button>
+      <button class="setrow" id="p-ornat" type="button">📲 Telefonga o'rnatish<span id="p-ornat-h">›</span></button>
       <button class="setrow" id="o-profil" type="button">✏️ Profilni tahrirlash<span>›</span></button>
       <button class="setrow" id="o-rasm" type="button">🖼 Rasm qo'yish<span>›</span></button>
       <button class="setrow" id="o-parol" type="button">🔑 Parolni o'zgartirish<span>›</span></button>
@@ -375,6 +392,11 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   <div class="card kv-slayd" id="kv-slayd"></div>
   <div class="dots" id="kv-slayd-n"></div>
   <button class="btn wide" type="button" id="kv-slayd-keyingi">Keyingisi ›</button>
+</div></div>
+
+<div class="olay" id="o-ornat" hidden><div class="in">
+  <div class="top-h"><b style="font-size:20px;font-weight:900">📲 Telefonga o'rnatish</b><button class="x" type="button" data-yopol>✕</button></div>
+  <div class="card" id="ornat-yol"></div>
 </div></div>
 
 <div class="olay" id="o-mashq" hidden><div class="in">
@@ -618,6 +640,67 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   });
 
   // ================= DUEL =================
+  // ================= TELEFONGA O'RNATISH VA ESLATMALAR =================
+  var VAPID = "BF5_ZUTsbV0Jzvy_gUVVJPQ4khgZiVHqI3f90QAxUBc6npBJkN-MJNcvAU32wNxi19AlMip694A3uxuB3Xe-QlY", ORNAT = null, SWR = null;
+  var IOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var TG = /Telegram/i.test(navigator.userAgent) || !!window.TelegramWebviewProxy;
+  function ornatilgan(){ return (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true; }
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").then(function(r){ SWR = r; eslatmaHolat(); }).catch(function(){});
+  addEventListener("beforeinstallprompt", function(e){ e.preventDefault(); ORNAT = e; ornatKor(); });
+  addEventListener("appinstalled", function(){ ORNAT = null; ornatKor(); toast("📲 O'rnatildi! Endi bosh ekrandan oching"); });
+  function ornatKor(){
+    var bor = ornatilgan();
+    $("b-ornat").hidden = bor || get("tb_ornat_yop") === "1";
+    $("p-ornat").hidden = bor;
+  }
+  function ornat(){
+    if (ORNAT){ ORNAT.prompt(); ORNAT.userChoice.then(function(){ ORNAT = null; ornatKor(); }); return; }
+    var h;
+    if (TG) h = '<p><b>Telegram ichida o\'rnatib bo\'lmaydi.</b></p><p>Yuqoridagi ⋮ yoki ··· tugmasini bosib, <b>«Brauzerda ochish»</b> ni tanlang. Keyin shu yerga qaytib, «O\'rnatish» ni bosing.</p>';
+    else if (IOS) h = '<p><b>iPhone (Safari):</b></p><ol><li>Pastdagi <b>«Ulashish»</b> tugmasini bosing (⬆️ chiqib turgan kvadrat).</li><li>Ro\'yxatdan <b>«Bosh ekranga qo\'shish»</b> («На экран Домой» / «Add to Home Screen») ni tanlang.</li><li><b>«Qo\'shish»</b> ni bosing.</li></ol><p class="soft">Safari\'dan boshqa brauzerda bo\'lsangiz, havolani Safari\'da oching.</p>';
+    else h = '<p><b>Android (Chrome):</b></p><ol><li>Yuqoridagi <b>⋮</b> menyuni bosing.</li><li><b>«Ilovani o\'rnatish»</b> yoki <b>«Bosh ekranga qo\'shish»</b> ni tanlang.</li><li><b>«O\'rnatish»</b> ni bosing.</li></ol>';
+    $("ornat-yol").innerHTML = h + '<div style="text-align:center"><img src="ikonka/ikonka-192.png" alt="" width="72" height="72" style="border-radius:18px"><div class="soft">Bosh ekranda shu ikonka paydo bo\'ladi</div></div>';
+    $("o-ornat").hidden = false;
+  }
+  $("b-ornat-btn").addEventListener("click", ornat);
+  $("p-ornat").addEventListener("click", ornat);
+  $("b-ornat-yop").addEventListener("click", function(){ set("tb_ornat_yop", "1"); ornatKor(); });
+  ornatKor();
+
+  function b64Uint8(b){ var p = "=".repeat((4 - b.length % 4) % 4), s2 = atob((b + p).replace(/-/g, "+").replace(/_/g, "/")), a = new Uint8Array(s2.length);
+    for (var i = 0; i < s2.length; i++) a[i] = s2.charCodeAt(i); return a; }
+  function pushBor(){ return "serviceWorker" in navigator && "PushManager" in window && "Notification" in window; }
+  var ESLATMA = false;
+  function eslatmaHolat(){
+    if (!SWR || !pushBor()){ ESLATMA = false; eslatmaKor(); return Promise.resolve(false); }
+    return SWR.pushManager.getSubscription().then(function(o){ ESLATMA = !!o && Notification.permission === "granted"; eslatmaKor(); return ESLATMA; });
+  }
+  function eslatmaKor(){
+    $("p-eslatma-h").textContent = ESLATMA ? "✅ yoqilgan" : "o'chiq ›";
+    if (KV) kvChiz();
+  }
+  function eslatmaYoq(){
+    if (!pushBor() || !SWR){
+      if (IOS && !ornatilgan()){ toast("iPhone'da avval ilovani bosh ekranga o'rnating, keyin eslatmani yoqing"); ornat(); }
+      else toast("Bu brauzer eslatmalarni qo'llamaydi. Chrome yoki Safari'da oching");
+      return Promise.resolve();
+    }
+    return Notification.requestPermission().then(function(p){
+      if (p !== "granted"){ toast("Eslatmaga ruxsat berilmadi. Telefon sozlamalaridan ruxsat bering"); return; }
+      return SWR.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: b64Uint8(VAPID) }).then(function(o){
+        return rpc("p_push_saqla", { p_token: token, p_sub: o.toJSON() });
+      }).then(function(r){ if (r && r.ok) toast("🔔 Eslatma yoqildi! Karvondan 30 daqiqa oldin xabar keladi"); return eslatmaHolat(); });
+    }).catch(function(){ toast("Eslatmani yoqib bo'lmadi. Qayta urinib ko'ring"); });
+  }
+  function eslatmaOchir(){
+    return SWR.pushManager.getSubscription().then(function(o){
+      if (!o) return;
+      var ep = o.endpoint;
+      return o.unsubscribe().then(function(){ return rpc("p_push_ochir", { p_token: token, p_endpoint: ep }); });
+    }).then(function(){ toast("🔕 Eslatmalar o'chirildi"); return eslatmaHolat(); }).catch(function(){});
+  }
+  $("p-eslatma").addEventListener("click", function(){ if (ESLATMA){ if (confirm("Eslatmalar o'chirilsinmi?")) eslatmaOchir(); } else eslatmaYoq(); });
+
   // ================= KARVON =================
   var KV = null, KVT = null, KVQ = { qi: -1, tanlangan: null, qator: [] }, JAAS_APP = "vpaas-magic-cookie-de707f76c9e147338dae0e36e5359d7e";
   var RAUND = { 1: ["🎧", "Tinglash", "So'zni eshiting va to'g'risini toping"], 2: ["💬", "Vaziyatlar", "Shunday paytda arabcha nima deysiz?"],
@@ -678,6 +761,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
         h += '<div class="card"><b style="font-weight:900">🎟 Chipta: ' + Math.min(3, bor.length) + ' / 3 faol kun</b><div class="kv-kunlar">' + kunlar + '</div>' +
           '<p class="soft" style="margin:4px 0 0">' + (d.chipta ? "Chiptangiz bor! ✅" : "Dushanba–shanba kamida 3 kun mashq yoki duel qiling.") + '</p></div>';
       }
+      if (d.qatnashaman && !ESLATMA) h += '<div class="card"><b style="font-weight:900">🔔 Poygani unutmang!</b><p class="soft" style="margin:6px 0 10px">Eslatmani yoqsangiz, yakshanba 19:30 da telefoningizga xabar keladi.</p><button class="btn wide" type="button" id="kv-eslatma">🔔 Eslatmani yoqish</button></div>';
       if (d.qatnashaman) h += '<div class="card"><b style="font-weight:900">✅ Siz ro\'yxatdasiz</b><p class="soft" style="margin:6px 0 0">' + (meniki ? "Jamoangiz: " + esc(meniki.nom) : "Ustoz yakshanba kuni jamoalarga joylaydi.") + ' Poygadan 15 daqiqa oldin shu yerga kiring.</p></div>';
       else if (ochiq && d.chipta) h += '<button class="btn wide" type="button" id="kv-qatnash">🐪 Qatnashaman</button>';
       else h += '<button class="btn wide" type="button" disabled>' + (ochiq ? "🎟 Chipta yo'q" : "Ro'yxat yopildi") + '</button>';
@@ -693,6 +777,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
         return kvYukla(); }).catch(function(){ b.disabled = false; toast("Internet bilan bog'lanib bo'lmadi"); }); }
     if (b.id === "kv-qanday") kvSlayd(0);
     if (b.id === "kv-video") kvVideo();
+    if (b.id === "kv-eslatma") eslatmaYoq();
   });
   $("b-karvon").addEventListener("click", function(){ ochish("karvon"); });
 
