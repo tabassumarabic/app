@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Platforma paneli — Tabassum</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E1230">
+<link rel="icon" href="ikonka/favicon-64.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Noto+Naskh+Arabic:wght@600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{--bg:#0E1230;--card:#1A1F45;--ink:#F3EEDC;--soft:#A9A6C9;--line:#2E3566;--brand:#F2B84B;--brand-ink:#1B1640;--red:#F87171;--green:#4ADE80}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,sans-serif;font-weight:700}
+button,input,select{font:inherit}
+.tepa{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.tepa .ich{max-width:1000px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:900}
+.logo img{width:38px;height:38px;border-radius:10px}
+.logo small{display:block;color:var(--brand);font-size:12px}
+.men{margin-left:auto;color:var(--soft);font-size:14px}
+.men a{color:var(--brand)}
+nav.tablar{max-width:1000px;margin:0 auto;padding:0 16px 10px;display:flex;gap:8px;overflow-x:auto}
+nav.tablar a{flex:none;padding:9px 16px;border-radius:99px;background:var(--card);color:var(--soft);text-decoration:none;font-weight:900;border:1px solid var(--line)}
+nav.tablar a.on{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+main{max-width:1000px;margin:0 auto;padding:16px 16px 60px}
+.top h1{margin:6px 0 2px;font-size:26px}.top p{margin:0 0 14px;color:var(--soft)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;margin-bottom:16px}
+.head{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}.head h3{margin:0;font-size:17px}.sp{margin-left:auto;display:flex;gap:8px}
+.bosh{color:var(--soft);font-size:14px}
+.btn{border:0;border-radius:14px;padding:12px 18px;background:var(--brand);color:var(--brand-ink);font-weight:900;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.sm{padding:8px 14px;font-size:14px;border-radius:12px}
+.btn.alt{background:#2A3164;color:var(--ink)}
+.btn:disabled{opacity:.5}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.row:first-child{border-top:0}
+.ava{width:40px;height:40px;flex:none;border-radius:50%;display:grid;place-items:center;background:#2A3164;font-size:20px;overflow:hidden}
+.ava img{width:100%;height:100%;object-fit:cover}
+.g{flex:1;min-width:150px}.g b{display:block}.g span{display:block;color:var(--soft);font-size:13px}
+.del{border:0;background:none;color:var(--red);font-weight:800;cursor:pointer;padding:6px}
+.chip{font-size:12px;font-weight:900;padding:4px 10px;border-radius:99px;white-space:nowrap}
+.chip.toxt{background:#203A2E;color:var(--green)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.stat{display:flex;align-items:center;gap:12px;margin:0}.stat i{font-style:normal;font-size:26px}.stat b{font-size:24px;display:block}.stat span{color:var(--soft);font-size:13px}
+input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#121640;color:var(--ink)}
+.ov-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.ov-row:first-child{border-top:0}
+.ov-row.joriy{background:#232A5C;border-radius:14px;padding:10px;margin:0 -10px}
+.ov-ar{font-family:"Noto Naskh Arabic","Traditional Arabic",serif;font-size:30px;direction:rtl;min-width:130px;text-align:center;line-height:1.5;word-spacing:18px}
+.ov-row .g{flex:1;min-width:120px}
+.ov-rec{background:#B3261E !important;color:#fff !important;animation:ovp 1s infinite}
+@keyframes ovp{50%{opacity:.6}}
+.kirish{max-width:380px;margin:12vh auto;padding:0 16px;text-align:center}
+.kirish input{width:100%;margin:6px 0 12px;padding:14px;border-radius:14px;border:1px solid var(--line);background:#121640;color:var(--ink);font-size:17px}
+.kirish label{display:block;text-align:left;color:var(--soft);font-size:14px}
+.xato{color:var(--red);min-height:22px}
+.olay{position:fixed;inset:0;z-index:30;background:var(--bg);padding:10px}
+.olay .top-h{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.olay .x{margin-left:auto;border:0;background:#2A3164;color:var(--ink);border-radius:50%;width:40px;height:40px;font-size:18px;cursor:pointer}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;background:#000;color:#fff;padding:11px 18px;border-radius:14px;font-weight:800;z-index:40;max-width:calc(100% - 32px)}
+@media (max-width:600px){.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="kirish" id="kirish" hidden>
+  <img src="ikonka/ikonka-192.png" alt="" width="72" height="72" style="border-radius:18px">
+  <h1 style="margin:10px 0 2px">Platforma paneli</h1>
+  <p class="bosh">Tabassum platformasi (ilova) uchun: foydalanuvchilar, Karvon, ovozlar</p>
+  <form id="f-kirish" onsubmit="return false" novalidate>
+    <label for="k-login">Login</label><input id="k-login" autocomplete="username" autocapitalize="off" placeholder="Tabassum_arabic">
+    <label for="k-pin">Parol (4 ta raqam)</label><input id="k-pin" type="password" inputmode="numeric" maxlength="4" autocomplete="current-password" style="letter-spacing:.4em;text-align:center">
+    <p class="xato" id="k-xato"></p>
+    <button class="btn" type="submit" style="width:100%">Kirish</button>
+  </form>
+  <p class="bosh" style="margin-top:20px">🏫 Markaz ishlari (arizalar, guruhlar, to'lovlar) — <a href="../tabassum/ustoz.html" style="color:var(--brand)">Markaz paneli</a></p>
+</div>
+
+<div id="ilova" hidden>
+  <header class="tepa">
+    <div class="ich">
+      <a class="logo" href="#"><img src="ikonka/ikonka-192.png" alt=""><span>Tabassum<small>📱 Platforma paneli</small></span></a>
+      <span class="men"><span id="men-ism"></span> · <a href="../tabassum/ustoz.html">🏫 Markaz paneli</a> · <a href="#" id="chiq">Chiqish</a></span>
+    </div>
+    <nav class="tablar" id="tablar">
+      <a href="#foydalanuvchilar" data-b="foydalanuvchilar">👥 Foydalanuvchilar</a>
+      <a href="#karvon" data-b="karvon">🐪 Karvon</a>
+      <a href="#ovozlar" data-b="ovozlar">🎙 Ovozlar</a>
+    </nav>
+  </header>
+  <main>
+    <section data-s="foydalanuvchilar" hidden>
+      <div class="top"><h1>👥 Foydalanuvchilar</h1><p>Platformada ro'yxatdan o'tganlar (tabassumarabic.github.io/app)</p></div>
+      <div class="stats">
+        <div class="card stat"><i>👥</i><div><b id="f-jami">–</b><span>Jami</span></div></div>
+        <div class="card stat"><i>🆕</i><div><b id="f-bugun">–</b><span>Bugun</span></div></div>
+        <div class="card stat"><i>📅</i><div><b id="f-hafta">–</b><span>Oxirgi 7 kun</span></div></div>
+      </div>
+      <div class="card">
+        <div class="head"><h3>Ro'yxat</h3><div class="sp"><input class="qidir" id="f-qidir" placeholder="🔎 Ism yoki telefon"><button class="btn sm alt" id="f-yangila">↻</button></div></div>
+        <div id="foydalanuvchilar"><p class="bosh">Yuklanmoqda…</p></div>
+      </div>
+    </section>
+    <!-- KARVON -->
+    <section data-s="karvon" hidden>
+      <div class="top"><div><h1>🐪 Karvon poygasi</h1><p>Platformadagi yakshanba 20:00 jamoaviy o'yini</p></div></div>
+      <div class="card" id="kv-holat"><p class="bosh">Yuklanmoqda…</p></div>
+      <div class="card">
+        <div class="head"><h3>🐪 Jamoalar</h3><div class="sp"><button class="btn sm alt" id="kv-jamoa-qosh">➕ Jamoa qo'shish</button></div></div>
+        <div id="kv-jamoalar"></div>
+      </div>
+      <div class="card">
+        <div class="head"><h3>🎟 Ishtirokchilar</h3></div>
+        <p class="bosh" style="margin-top:0">Har bir o'quvchini jamoaga joylang. Joylanmaganlar boshlanishda eng kichik jamoaga o'zi qo'shiladi.</p>
+        <div id="kv-ishtirok"></div>
+      </div>
+    </section>
+
+    <!-- OVOZLAR -->
+    <section data-s="ovozlar" hidden>
+      <div class="top"><div><h1>🎙 Ovozlar</h1><p>Kunlik dars tinglash so'zlarini o'z ovozingiz bilan yozing — o'quvchilarga darhol boradi</p></div></div>
+      <div class="card">
+        <div class="head"><h3 id="ov-hol">Yuklanmoqda…</h3><div class="sp"><select id="ov-kurs" style="padding:8px 10px;border-radius:12px;border:2px solid var(--line);font:inherit;font-weight:700"></select></div></div>
+        <div class="bar" style="height:10px;border-radius:99px;background:var(--line);overflow:hidden;margin-bottom:12px"><u id="ov-bar" style="display:block;height:100%;width:0;background:var(--brand)"></u></div>
+        <p class="bosh" style="margin-top:0">Qanday: <b>🎙 Yozish</b> → so'zni aniq, bir marta ayting → <b>⏹</b> → eshitib ko'ring → <b>💾 Saqlash</b>. Boshi va oxiridagi jimlik o'zi kesiladi.<br>
+          Klaviatura: <b>Probel</b> — yozish / to'xtatish, <b>Enter</b> — saqlash va keyingisi. Yozilmaganlarini hozircha kompyuter o'qiydi (▶ 🤖).</p>
+        <div id="ovozlar"></div>
+      </div>
+    </section>
+
+    <section data-s="ruxsatsiz" hidden><div class="card"><h3>Bu panelga ruxsat yo'q</h3><p class="bosh">Platforma paneli direktor, administrator va ustozlar uchun.</p></div></section>
+  </main>
+</div>
+
+<div class="olay" id="o-video" hidden>
+  <div class="top-h"><b style="font-size:18px">🎥 Karvon kutish xonasi</b><button class="x" type="button" id="video-yop">✕</button></div>
+  <div id="video" style="height:calc(100vh - 80px);border-radius:16px;overflow:hidden;background:#000"></div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+  "use strict";
+  var SUPA = "https://qubrgtzfjmpyojaltfnf.supabase.co", KEY = "sb_publishable_32_AlXAqmxrZ0pr9UjFZJQ_XiNjsCy_", KALIT = "tb_platforma_panel";
+  var BOLIMLAR = { direktor: ["foydalanuvchilar", "karvon", "ovozlar"], administrator: ["foydalanuvchilar", "karvon"], ustoz: ["karvon", "ovozlar"] };
+  var token = null, men = null, ruxsat = [];
+  try { token = localStorage.getItem(KALIT); } catch(e){}
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return "&#" + c.charCodeAt(0) + ";"; }); }
+  function toast(t){ var e = $("toast"); e.textContent = t; e.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(function(){ e.hidden = true; }, 3500); }
+  function xom(nom, args){
+    return fetch(SUPA + "/rest/v1/rpc/" + nom, { method: "POST", headers: { apikey: KEY, "Content-Type": "application/json" }, body: JSON.stringify(args || {}) })
+      .then(function(r){ return r.text().then(function(t){ var d = t ? JSON.parse(t) : null; if (!r.ok) throw new Error((d && d.message) || ("HTTP " + r.status)); return d; }); });
+  }
+  function rpc(nom, args){ args = args || {}; args.p_token = token; return xom(nom, args); }
+  function chiqish(){ try { localStorage.removeItem(KALIT); } catch(e){} token = null; location.hash = ""; location.reload(); }
+  function xato(ex){
+    if (/kirish_kerak|ruxsat_yoq/.test(ex && ex.message)) { chiqish(); return; }
+    toast("Ombor bilan bog'lanib bo'lmadi. Internetni tekshiring.");
+  }
+  function bolim(){
+    var b = (location.hash || "").slice(1);
+    if (ruxsat.indexOf(b) < 0) b = ruxsat.length ? ruxsat[0] : "ruxsatsiz";
+    document.querySelectorAll("main section").forEach(function(s){ s.hidden = s.getAttribute("data-s") !== b; });
+    document.querySelectorAll("#tablar a").forEach(function(a){ a.classList.toggle("on", a.getAttribute("data-b") === b); });
+  }
+  addEventListener("hashchange", bolim);
+
+  // ---------- kirish ----------
+  $("f-kirish").addEventListener("submit", function(){
+    var b = this.querySelector("button"); b.disabled = true; $("k-xato").textContent = "";
+    xom("login", { p_login: $("k-login").value, p_pin: $("k-pin").value }).then(function(d){
+      b.disabled = false;
+      if (!d || d.xato){ $("k-xato").textContent = d && d.xato === "blok" ? "Ko'p urinish — 15 daqiqadan keyin qayta urinib ko'ring" : "Login yoki parol noto'g'ri"; return; }
+      token = d.token; try { localStorage.setItem(KALIT, token); } catch(e){}
+      boshla();
+    }).catch(function(){ b.disabled = false; $("k-xato").textContent = "Internet bilan bog'lanib bo'lmadi"; });
+  });
+  $("chiq").addEventListener("click", function(e){ e.preventDefault(); rpc("chiqish").catch(function(){}).then(chiqish); });
+
+  // ---------- foydalanuvchilar ----------
+  var F = [];
+  function yuklaFoyd(){
+    if (ruxsat.indexOf("foydalanuvchilar") < 0) return Promise.resolve();
+    return rpc("p_foydalanuvchilar").then(function(d){
+      $("f-jami").textContent = d.jami; $("f-bugun").textContent = d.bugun; $("f-hafta").textContent = d.hafta;
+      F = d.royxat || []; chizFoyd();
+    });
+  }
+  function chizFoyd(){
+    var q = $("f-qidir").value.trim().toLowerCase().replace(/\s/g, "");
+    var l = F.filter(function(u){ return !q || (u.ism || "").toLowerCase().replace(/\s/g, "").indexOf(q) >= 0 || (u.tel || "").replace(/\D/g, "").indexOf(q.replace(/\D/g, "") || "§") >= 0; });
+    $("foydalanuvchilar").innerHTML = l.length ? l.map(function(u){
+      var av = u.rasm ? '<img src="' + esc(u.rasm) + '" alt="">' : esc(u.avatar || "🙂");
+      return '<div class="row"><span class="ava">' + av + '</span><div class="g"><b>' + esc(u.ism) + '</b>' +
+        '<span>' + (u.tel ? esc(u.tel) : "telefonsiz") + (u.yil ? " · " + u.yil + "-yil" : "") + " · " + esc(u.sana) + " · ⭐ " + u.xp + '</span></div>' +
+        (u.tel ? '<button class="btn sm alt" data-parol="' + u.id + '">🔑 Parolni yangilash</button>' : "") +
+        (u.rasm ? '<button class="del" data-rasm="' + u.id + '">Rasmni o\'chirish</button>' : "") + '</div>';
+    }).join("") : '<p class="bosh">Hech kim topilmadi.</p>';
+  }
+  $("f-qidir").addEventListener("input", chizFoyd);
+  $("f-yangila").addEventListener("click", function(){ yuklaFoyd().catch(xato); });
+  $("foydalanuvchilar").addEventListener("click", function(e){
+    var p = e.target.getAttribute("data-parol"), r0 = e.target.getAttribute("data-rasm");
+    if (p){
+      var u = F.filter(function(x){ return String(x.id) === p; })[0];
+      var yangi = prompt("«" + u.ism + "» uchun yangi vaqtinchalik parol (kamida 6 belgi):", String(100000 + Math.floor(Math.random() * 900000)));
+      if (!yangi) return;
+      rpc("p_parol_tikla_admin", { p_id: +p, p_parol: yangi }).then(function(r){
+        if (r.xato) return toast(r.xato === "qisqa" ? "Parol kamida 6 belgi bo'lsin" : "Xatolik");
+        alert("✅ Parol yangilandi.\n\nO'quvchiga ayting:\nTelefon: " + u.tel + "\nParol: " + yangi + "\n\nKirgach, Profil → «Parolni o'zgartirish» dan o'zi yangilasin.");
+      }).catch(xato);
+    }
+    if (r0 && confirm("Bu foydalanuvchining rasmi o'chirilsinmi? (nomaqbul rasm bo'lsa)")) rpc("p_rasm_ochir_admin", { p_id: +r0 }).then(function(){ toast("Rasm o'chirildi"); return yuklaFoyd(); }).catch(xato);
+  });
+
+  // ---------- 🎙 ustoz ovozi ----------
+  var OV = { kurs: "fonetika", royxat: [], joriy: -1, yangi: {}, mik: null, rec: null, ijro: new Audio() };
+  var APP = "https://tabassumarabic.github.io/app/";
+  function yuklaOvoz(){
+    if (ruxsat.indexOf("ovozlar") < 0) return Promise.resolve();
+    return rpc("ovoz_royxat", { p_kurs: OV.kurs }).then(function(d){
+      OV.royxat = d.royxat || [];
+      $("ov-kurs").innerHTML = (d.kurslar || [OV.kurs]).map(function(k){ return '<option value="' + esc(k) + '"' + (k === OV.kurs ? " selected" : "") + '>' + esc(k) + '</option>'; }).join("");
+      if (OV.joriy < 0) OV.joriy = Math.max(0, OV.royxat.findIndex(function(x){ return !x.yozildi; }));
+      chizOvoz();
+    });
+  }
+  function chizOvoz(){
+    var n = OV.royxat.filter(function(x){ return x.yozildi; }).length, j = OV.royxat.length;
+    $("ov-hol").textContent = "Yozilgan: " + n + " / " + j;
+    $("ov-bar").style.width = (j ? n * 100 / j : 0) + "%";
+    $("ovozlar").innerHTML = OV.royxat.map(function(x, i){
+      var yangi = OV.yangi[x.matn], yoz = OV.rec && OV.rec.i === i;
+      return '<div class="ov-row' + (i === OV.joriy ? " joriy" : "") + '" data-ov="' + i + '"><span class="ov-ar">' + esc(x.matn) + '</span>' +
+        '<div class="g"><b>' + (yangi ? "🆕 Yangi yozuv — saqlang" : x.yozildi ? "✅ Sizning ovozingiz" : "🤖 Kompyuter ovozi") + '</b><span>' + x.kunlar.join(", ") + '-kun' + (x.vaqt ? " · " + esc(x.vaqt) : "") + '</span></div>' +
+        '<button class="btn sm' + (yoz ? " ov-rec" : " alt") + '" data-ova="yoz">' + (yoz ? "⏹ To'xtatish" : "🎙 Yozish") + '</button>' +
+        '<button class="btn sm alt" data-ova="eshit">' + (yangi ? "▶ Yangi" : x.yozildi ? "▶ Meniki" : "▶ 🤖") + '</button>' +
+        (yangi ? '<button class="btn sm" data-ova="saqla">💾 Saqlash</button>' : "") +
+        (x.yozildi && !yangi ? '<button class="del" data-ova="ochir">O\'chirish</button>' : "") + '</div>';
+    }).join("") || '<p class="bosh">Bu kursda tinglash so\'zlari yo\'q.</p>';
+  }
+  function ovEshit(i){
+    var x = OV.royxat[i], y = OV.yangi[x.matn];
+    if (y){ OV.ijro.src = y.url; OV.ijro.play().catch(function(){}); return; }
+    if (x.yozildi) return rpc("ovoz_ol", { p_matn: x.matn }).then(function(r){ if (r.uri){ OV.ijro.src = r.uri; OV.ijro.play().catch(function(){}); } }).catch(xato);
+    OV.ijro.src = APP + x.fayl; OV.ijro.play().catch(function(){});
+  }
+  function ovWav(buf){
+    var d = buf.getChannelData(0), n = d.length, b = new ArrayBuffer(44 + n * 2), v = new DataView(b), p = 0;
+    function s4(t){ for (var k = 0; k < 4; k++) v.setUint8(p++, t.charCodeAt(k)); }
+    s4("RIFF"); v.setUint32(p, 36 + n * 2, true); p += 4; s4("WAVE"); s4("fmt "); v.setUint32(p, 16, true); p += 4;
+    v.setUint16(p, 1, true); p += 2; v.setUint16(p, 1, true); p += 2; v.setUint32(p, buf.sampleRate, true); p += 4;
+    v.setUint32(p, buf.sampleRate * 2, true); p += 4; v.setUint16(p, 2, true); p += 2; v.setUint16(p, 16, true); p += 2;
+    s4("data"); v.setUint32(p, n * 2, true); p += 4;
+    for (var k = 0; k < n; k++, p += 2){ var q = Math.max(-1, Math.min(1, d[k])); v.setInt16(p, q < 0 ? q * 0x8000 : q * 0x7FFF, true); }
+    return b;
+  }
+  function ovTayyorla(blob){
+    var AC = window.AudioContext || window.webkitAudioContext, ctx = new AC();
+    return blob.arrayBuffer().then(function(a){ return ctx.decodeAudioData(a); }).then(function(buf){
+      ctx.close();
+      var d = buf.getChannelData(0), eng = 0, k;
+      for (k = 0; k < d.length; k++) eng = Math.max(eng, Math.abs(d[k]));
+      var chegara = Math.max(0.02, eng * 0.08), bosh = 0, oxir = d.length - 1;
+      while (bosh < d.length && Math.abs(d[bosh]) < chegara) bosh++;
+      while (oxir > bosh && Math.abs(d[oxir]) < chegara) oxir--;
+      var pad = Math.round(buf.sampleRate * 0.15);
+      bosh = Math.max(0, bosh - pad); oxir = Math.min(d.length - 1, oxir + pad);
+      var dur = (oxir - bosh + 1) / buf.sampleRate;
+      if (eng < 0.01 || dur < 0.2) throw new Error("jim");
+      var off = new OfflineAudioContext(1, Math.ceil(dur * 16000), 16000), src = off.createBufferSource(), kesik = off.createBuffer(1, oxir - bosh + 1, buf.sampleRate);
+      kesik.copyToChannel(d.slice(bosh, oxir + 1), 0);
+      src.buffer = kesik; src.connect(off.destination); src.start();
+      return off.startRendering();
+    }).then(function(out){
+      var w = ovWav(out), u8 = new Uint8Array(w), bin = "";
+      for (var k = 0; k < u8.length; k += 0x8000) bin += String.fromCharCode.apply(null, u8.subarray(k, k + 0x8000));
+      return { b64: btoa(bin), url: URL.createObjectURL(new Blob([w], { type: "audio/wav" })) };
+    });
+  }
+  function ovYoz(i){
+    if (OV.rec){ var r0 = OV.rec; OV.rec = null; r0.m.stop(); return; }
+    var bosla = function(stream){
+      var m = new MediaRecorder(stream), bo = [];
+      OV.rec = { i: i, m: m }; OV.joriy = i; chizOvoz();
+      m.ondataavailable = function(e){ if (e.data.size) bo.push(e.data); };
+      m.onstop = function(){
+        var x = OV.royxat[i];
+        ovTayyorla(new Blob(bo, { type: m.mimeType || "audio/webm" })).then(function(t){ OV.yangi[x.matn] = t; chizOvoz(); ovEshit(i); })
+          .catch(function(ex){ toast(/jim/.test(ex && ex.message) ? "Ovoz eshitilmadi — mikrofonga yaqinroq gapiring" : "Ovozni o'qib bo'lmadi"); chizOvoz(); });
+      };
+      m.start();
+    };
+    if (OV.mik) return bosla(OV.mik);
+    navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } })
+      .then(function(st){ OV.mik = st; bosla(st); }).catch(function(){ toast("Mikrofonga ruxsat bering (brauzer manzil qatoridagi 🎤 belgisi)"); });
+  }
+  function ovSaqla(i){
+    var x = OV.royxat[i], y = OV.yangi[x.matn]; if (!y) return Promise.resolve();
+    return rpc("ovoz_saqla", { p_matn: x.matn, p_base64: y.b64 }).then(function(r){
+      if (r.xato){ toast("Saqlab bo'lmadi: " + r.xato); return; }
+      delete OV.yangi[x.matn]; x.yozildi = true; x.vaqt = "hozir";
+      var k = OV.royxat.findIndex(function(z, n){ return n > i && !z.yozildi; });
+      OV.joriy = k >= 0 ? k : i; chizOvoz(); toast("💾 Saqlandi");
+      var el = document.querySelector('.ov-row[data-ov="' + OV.joriy + '"]'); if (el) el.scrollIntoView({ block: "center", behavior: "smooth" });
+    }).catch(xato);
+  }
+  $("ovozlar").addEventListener("click", function(e){
+    var b = e.target.closest("[data-ova]"), row = e.target.closest("[data-ov]"); if (!row) return;
+    var i = +row.getAttribute("data-ov"); OV.joriy = i;
+    if (!b){ chizOvoz(); return; }
+    var a = b.getAttribute("data-ova");
+    if (a === "yoz") ovYoz(i);
+    if (a === "eshit") ovEshit(i);
+    if (a === "saqla") ovSaqla(i);
+    if (a === "ochir" && confirm("Bu ovoz o'chirilsinmi? O'rniga yana kompyuter ovozi ishlaydi.")) rpc("ovoz_ochir", { p_matn: OV.royxat[i].matn }).then(yuklaOvoz).catch(xato);
+  });
+  $("ov-kurs").addEventListener("change", function(){ OV.kurs = this.value; OV.joriy = -1; yuklaOvoz().catch(xato); });
+  document.addEventListener("keydown", function(e){
+    var sek = document.querySelector('main section[data-s="ovozlar"]');
+    if (!sek || sek.hidden || OV.joriy < 0 || /INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) return;
+    if (e.code === "Space"){ e.preventDefault(); ovYoz(OV.rec ? OV.rec.i : OV.joriy); }
+    if (e.key === "Enter"){ e.preventDefault(); ovSaqla(OV.joriy); }
+  });
+
+
+  // ---------- karvon poygasi ----------
+  var KV = null, KVT = null;
+  function kvVaqt(sek){ sek = Math.max(0, Math.round(sek)); var h = Math.floor(sek / 3600), m = Math.floor(sek % 3600 / 60), c = sek % 60;
+    return (h ? h + ":" + ("0" + m).slice(-2) : m) + ":" + ("0" + c).slice(-2); }
+  function kvSoat(iso){ var t = new Date(iso); return ("0" + t.getDate()).slice(-2) + "." + ("0" + (t.getMonth() + 1)).slice(-2) + " " + ("0" + t.getHours()).slice(-2) + ":" + ("0" + t.getMinutes()).slice(-2); }
+  function yuklaKarvon(){
+    if (ruxsat.indexOf("karvon") < 0) return Promise.resolve();
+    return rpc("karvon_ustoz").then(function(d){ KV = d; chizKarvon(); });
+  }
+  function chizKarvon(){
+    var d = KV, h = '<div class="head"><h3>' + (d.sinov ? "🧪 Sinov poygasi" : "🐪 Yakshanba poygasi") + ' · ' + kvSoat(d.boshlanish) + '</h3></div>', holat;
+    if (d.holat === "tugadi") holat = "🏁 Poyga tugadi";
+    else if (d.pauza) holat = "⏸ To'xtatilgan — o'quvchilar kutyapti";
+    else if (d.holat === "oyin") holat = "▶️ O'yin ketyapti: " + (d.savol || "–") + " / 45 savol · tugashiga " + kvVaqt((d.jami_sek || 0) - d.sekund);
+    else if (d.sekund < 0) holat = "⏳ Boshlanishiga " + kvVaqt(-d.sekund) + (d.sinov ? "" : (d.royxat_ochiq ? " · ro'yxat shanba oxirigacha ochiq" : " · ro'yxat yopildi") + (d.chipta_shart ? "" : " · 🎉 chipta shart emas"));
+    else holat = "⏳ Boshlanmoqda…";
+    h += '<p style="font-weight:800;margin:0 0 12px">' + holat + '</p><div style="display:flex;gap:8px;flex-wrap:wrap">';
+    if (d.holat !== "tugadi"){
+      h += '<button class="btn sm" data-kv="video">🎥 Kutish xonasi</button>';
+      h += d.pauza ? '<button class="btn sm" data-kv="davom">▶️ Davom ettirish</button>' : '<button class="btn sm alt" data-kv="toxtat">⏸ To\'xtatish</button>';
+      if (d.holat === "royxat") h += '<button class="btn sm alt" data-kv="hozir">▶️ Hozir boshlash</button>';
+      if (d.sinov) h += '<button class="btn sm alt" data-kv="bekor">✖ Sinovni bekor qilish</button>';
+    }
+    if (!d.sinov || d.holat === "tugadi") h += '<button class="btn sm alt" data-kv="sinov">🧪 Sinov poygasi ochish</button>';
+    h += '</div>';
+    if (d.natija && d.natija.jamoalar) h += '<div style="margin-top:14px">' + d.natija.jamoalar.map(function(j){
+      return '<div class="row"><span class="ava" style="background:' + esc(j.rang) + ';color:#fff">' + j.orin + '</span><div class="g"><b>' + esc(j.nom) + ' · ' + j.ball + ' ball</b><span>' + esc(j.azolar.join(", ")) + ' · +' + j.xp + ' XP</span></div></div>';
+    }).join("") + '</div>';
+    $("kv-holat").innerHTML = h;
+    var soni = {}; d.ishtirokchilar.forEach(function(p){ soni[p.jamoa] = (soni[p.jamoa] || 0) + 1; });
+    $("kv-jamoa-qosh").hidden = d.holat !== "royxat";
+    $("kv-jamoalar").innerHTML = d.jamoalar.length ? d.jamoalar.map(function(j){
+      return '<div class="row"><span class="ava" style="background:' + esc(j.rang) + ';color:#fff">🐪</span><div class="g"><b>' + esc(j.nom) + '</b><span>' + (soni[j.id] || 0) + ' kishi · ' + j.ball + ' ball</span></div>' +
+        (d.holat === "royxat" ? '<button class="del" style="color:inherit" data-jn="' + j.id + '">✏️ Nomi</button><button class="del" data-jo="' + j.id + '">O\'chirish</button>' : "") + '</div>';
+    }).join("") : '<p class="bosh">Hali jamoa yo\'q. «➕ Jamoa qo\'shish» ni bosing (jamoa tuzilmasa, boshlanishda o\'zi tuziladi).</p>';
+    $("kv-ishtirok").innerHTML = d.ishtirokchilar.length ? d.ishtirokchilar.map(function(p){
+      var tanla = '<select data-ju="' + p.user + '"' + (d.holat === "tugadi" ? " disabled" : "") + ' style="padding:8px 10px;border-radius:12px;border:2px solid var(--line);font:inherit;font-weight:700"><option value="">— joylanmagan —</option>' +
+        d.jamoalar.map(function(j){ return '<option value="' + j.id + '"' + (p.jamoa === j.id ? " selected" : "") + '>' + esc(j.nom) + '</option>'; }).join("") + '</select>';
+      return '<div class="row"><span class="ava">' + esc(p.avatar || "🙂") + '</span><div class="g"><b>' + esc(p.ism) + (p.onlayn ? ' <span class="chip toxt">● onlayn</span>' : "") + '</b><span>Faol kunlar: ' + p.kunlar + '</span></div>' + tanla + '</div>';
+    }).join("") : '<p class="bosh">Hali hech kim «Qatnashaman» ni bosmagan.</p>';
+  }
+  $("kv-holat").addEventListener("click", function(e){
+    var b = e.target.closest("[data-kv]"); if (!b) return;
+    var a = b.getAttribute("data-kv"), ish;
+    if (a === "video") return kvVideo();
+    if (a === "toxtat") ish = rpc("karvon_pauza", { p_karvon: KV.karvon, p_toxtat: true });
+    if (a === "davom") ish = rpc("karvon_pauza", { p_karvon: KV.karvon, p_toxtat: false });
+    if (a === "hozir"){ if (!confirm("Poyga 15 soniyadan keyin boshlansinmi?")) return; ish = rpc("karvon_hozir", { p_karvon: KV.karvon }); }
+    if (a === "bekor"){ if (!confirm("Sinov poygasi bekor qilinsinmi?")) return; ish = rpc("karvon_sinov_yop", { p_karvon: KV.karvon }); }
+    if (a === "sinov"){
+      var m = prompt("Sinov poygasi necha daqiqadan keyin boshlansin?", "10"); if (m === null) return;
+      ish = rpc("karvon_sinov", { p_daqiqa: Math.max(1, parseInt(m, 10) || 10) }).then(function(r){ if (r.xato === "bor") toast("Faol sinov poygasi allaqachon bor"); else toast("🧪 Sinov poygasi ochildi — o'quvchilar «Qatnashaman» ni bosishi mumkin"); });
+    }
+    b.disabled = true;
+    ish.then(yuklaKarvon).catch(xato).then(function(){ b.disabled = false; });
+  });
+  $("kv-jamoa-qosh").addEventListener("click", function(){
+    var nom = prompt("Jamoa nomi (bo'sh qoldirsangiz, o'zi qo'yiladi):", ""); if (nom === null) return;
+    rpc("karvon_jamoa_qosh", { p_karvon: KV.karvon, p_nom: nom || null }).then(yuklaKarvon).catch(xato);
+  });
+  $("kv-jamoalar").addEventListener("click", function(e){
+    var n = e.target.getAttribute("data-jn"), o = e.target.getAttribute("data-jo");
+    if (n){ var nom = prompt("Yangi nom:", ""); if (nom) rpc("karvon_jamoa_nom", { p_jamoa: +n, p_nom: nom }).then(yuklaKarvon).catch(xato); }
+    if (o && confirm("Jamoa o'chirilsinmi? A'zolari joylanmagan bo'lib qoladi.")) rpc("karvon_jamoa_ochir", { p_jamoa: +o }).then(yuklaKarvon).catch(xato);
+  });
+  $("kv-ishtirok").addEventListener("change", function(e){
+    var u = e.target.getAttribute("data-ju"); if (!u) return;
+    rpc("karvon_joyla", { p_karvon: KV.karvon, p_user: +u, p_jamoa: e.target.value ? +e.target.value : null }).then(function(){ toast("Joylandi"); return yuklaKarvon(); }).catch(xato);
+  });
+  setInterval(function(){
+    var sek = document.querySelector('main section[data-s="karvon"]');
+    if (sek && !sek.hidden && !document.querySelector("#kv-ishtirok select:focus")) yuklaKarvon().catch(function(){});
+  }, 3000);
+
+  // kutish xonasi (Jitsi) — ustoz moderator bo'lib kiradi
+  var KVAPI = null;
+  function kvVideo(){
+    if (!KV || !KV.xona) return;
+    $("o-video").hidden = false;
+    var boshla = function(){
+      if (KVAPI) return;
+      var opt = { roomName: KV.app + "/" + KV.xona, parentNode: $("video"), userInfo: { displayName: KV.ism || "Ustoz" },
+                  configOverwrite: { prejoinPageEnabled: true, disableDeepLinking: true, subject: "🐪 Karvon kutish xonasi" }, interfaceConfigOverwrite: { SHOW_PROMOTIONAL_CLOSE_PAGE: false } };
+      if (KV.jwt) opt.jwt = KV.jwt;
+      KVAPI = new JitsiMeetExternalAPI("8x8.vc", opt);
+      KVAPI.addListener("readyToClose", videoYop);
+    };
+    if (window.JitsiMeetExternalAPI) return boshla();
+    var sc = document.createElement("script"); sc.src = "https://8x8.vc/" + KV.app + "/external_api.js"; sc.onload = boshla;
+    sc.onerror = function(){ toast("Video ulanmadi — internetni tekshiring"); }; document.head.appendChild(sc);
+  }
+  function videoYop(){ if (KVAPI){ try { KVAPI.dispose(); } catch(e){} KVAPI = null; } $("video").innerHTML = ""; $("o-video").hidden = true; }
+  $("video-yop").addEventListener("click", videoYop);
+
+
+  // ---------- boshlash ----------
+  function boshla(){
+    if (!token){ $("kirish").hidden = false; $("ilova").hidden = true; return; }
+    rpc("men").then(function(m){
+      if (!m || !m.rol){ chiqish(); return; }
+      men = m; ruxsat = BOLIMLAR[m.rol] || [];
+      $("kirish").hidden = true; $("ilova").hidden = false;
+      $("men-ism").textContent = m.ism;
+      document.querySelectorAll("#tablar a").forEach(function(a){ a.hidden = ruxsat.indexOf(a.getAttribute("data-b")) < 0; });
+      bolim();
+      return Promise.all([yuklaFoyd(), yuklaKarvon(), yuklaOvoz()]);
+    }).catch(xato);
+  }
+  boshla();
+})();
+</script>
+</body>
+</html>

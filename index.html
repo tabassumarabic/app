@@ -311,14 +311,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
         <p class="soft" style="text-align:center;margin:12px 0 0">Parolni unutdingizmi? Administratorga yozing.</p>
       </form>
 
-      <form id="f-markaz" novalidate onsubmit="return false" hidden>
-        <p class="soft" style="margin:0 0 4px">Tabassum markazi o'quvchilari uchun — platforma tekin.</p>
-        <label for="m-login">Login</label><input id="m-login" autocomplete="username" autocapitalize="off" placeholder="Tabassum_arabic">
-        <label for="m-pin">Parol (4 ta raqam)</label><input id="m-pin" type="password" inputmode="numeric" maxlength="4" autocomplete="current-password" style="letter-spacing:.4em;text-align:center">
-        <div class="err" id="m-err" role="alert"></div>
-        <button class="btn wide" type="submit">Kirish</button>
-      </form>
-      <button class="link" id="markaz-link" type="button">🎓 Markaz o'quvchisimisiz? Shu yerdan kiring</button>
+      <p class="soft" id="parol-unut" style="text-align:center;font-size:13px;margin:12px 0 0" hidden>Parolni unutdingizmi? Ustozingizga ayting — yangi parol berib yuboradi.</p>
     </div>
   </section>
 
@@ -562,15 +555,11 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 
   // ---------- kirish / ro'yxat ----------
   function rejim(r){
-    $("f-royxat").hidden = r !== "royxat"; $("f-kirish").hidden = r !== "kirish"; $("f-markaz").hidden = r !== "markaz";
+    $("f-royxat").hidden = r !== "royxat"; $("f-kirish").hidden = r !== "kirish"; $("parol-unut").hidden = r !== "kirish";
     $("t-royxat").classList.toggle("on", r === "royxat"); $("t-kirish").classList.toggle("on", r === "kirish");
-    $("markaz-link").textContent = r === "markaz" ? "← Oddiy ro'yxatdan o'tish" : "🎓 Markaz o'quvchisimisiz? Shu yerdan kiring";
-    $("markaz-link").setAttribute("data-r", r === "markaz" ? "royxat" : "markaz");
   }
   $("t-royxat").addEventListener("click", function(){ rejim("royxat"); });
   $("t-kirish").addEventListener("click", function(){ rejim("kirish"); });
-  $("markaz-link").addEventListener("click", function(){ rejim(this.getAttribute("data-r") || "markaz"); });
-  $("m-pin").addEventListener("input", function(){ this.value = this.value.replace(/\D/g, "").slice(0, 4); });
 
   function telTekshir(v){ var d = String(v).replace(/\D/g, ""); return /^998\d{9}$/.test(d) || /^\d{9}$/.test(d); }
   var XATO = { blok: "Ko'p marta xato. 15 daqiqadan keyin urinib ko'ring", ism: "Ismingizni yozing (kamida 2 harf)", tel: "Telefon raqamni to'liq yozing",
@@ -598,12 +587,6 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     if (!telTekshir($("k-tel").value)){ e.textContent = XATO.tel; return; }
     e.textContent = ""; b.disabled = true;
     rpc("p_kirish", { p_tel: $("k-tel").value, p_parol: $("k-parol").value }).then(function(d){ tayyor(d, e, b); }, tarmoq(e, b));
-  });
-  $("f-markaz").addEventListener("submit", function(){
-    var e = $("m-err"), b = this.querySelector("button[type=submit]");
-    if (!/^\d{4}$/.test($("m-pin").value)){ e.textContent = "Parol 4 ta raqamdan iborat"; return; }
-    e.textContent = ""; b.disabled = true;
-    rpc("p_markaz_kirish", { p_login: $("m-login").value, p_pin: $("m-pin").value }).then(function(d){ tayyor(d, e, b); }, tarmoq(e, b));
   });
 
   // ---------- ma'lumotlarni chizish ----------
