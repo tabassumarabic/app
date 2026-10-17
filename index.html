@@ -86,6 +86,11 @@ input:focus{border-color:var(--accent)}
 .tab{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10.5px;font-weight:800;color:var(--tabInk);padding:6px 8px;border-radius:16px;border:0;background:none;cursor:pointer}
 .tab i{font-style:normal;font-size:20px}
 .tab.on{background:var(--tabOn);color:var(--tabOnInk)}
+.tab{font-family:"Noto Naskh Arabic",serif;font-size:12.5px;font-weight:700;line-height:1.2;padding:5px 6px;min-width:58px}
+.tab.markaz{margin-top:-30px;background:none;color:var(--tabInk)}
+.tab.markaz i{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;font-size:27px;background:var(--accent);color:var(--btnInk);border:5px solid var(--bg);box-shadow:var(--tabShadow);margin-bottom:1px}
+.tab.markaz.on{background:none;color:var(--tabInk)}
+.tab.markaz.on i{box-shadow:0 0 0 4px var(--tabOn)}
 /* profil */
 .prof{text-align:center;padding-top:6px}
 .ava{width:96px;height:96px;border-radius:50%;margin:0 auto;display:grid;place-items:center;font-size:46px;background:var(--chip);border:4px solid var(--accent);overflow:hidden}
@@ -316,7 +321,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     </div>
     <div class="row2">
       <div class="card mini" id="b-duel" style="cursor:pointer"><div class="ic">⚔️</div><b>Duel</b><span class="soft">Raqib bilan bellash</span></div>
-      <div class="card mini" id="b-mashq" style="cursor:pointer"><div class="ic">📚</div><b>Mashq</b><span class="soft">Har kuni 5 daqiqa</span></div>
+      <div class="card mini" id="b-mashq" style="cursor:pointer"><div class="ic">📚</div><b>Kunlik dars</b><span class="soft">Har kuni 5–10 daqiqa</span></div>
     </div>
     <div class="card">
       <b style="font-weight:900">🏆 Haftalik reyting</b>
@@ -326,7 +331,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 
   <!-- ===== TEZ ORADA bo'limlari ===== -->
   <section id="s-mashq" hidden>
-    <div class="duel-top"><div><b style="font-size:18px;font-weight:900">📚 Mashq</b><div class="soft">Har kuni 5 daqiqa: so'zlar, tinglash va harflar</div></div></div>
+    <div class="duel-top"><div><b style="font-size:20px;font-weight:900;font-family:'Noto Naskh Arabic',serif">📚 دَرْسُ الْيَوْمِ</b><div class="soft">Kunlik dars · har kuni 5–10 daqiqa</div></div></div>
     <div class="card"><button class="setrow" id="m-xatolar" type="button">📝 Xatolarim<span id="m-xn">›</span></button></div>
     <div id="m-yol"><p class="soft">Yuklanmoqda…</p></div>
   </section>
@@ -453,11 +458,11 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 </div></div>
 
 <nav class="tabs" id="tabs" hidden>
-  <button class="tab" data-t="bugun" type="button"><i>🏠</i>Bugun</button>
-  <button class="tab" data-t="mashq" type="button"><i>📚</i>Mashq</button>
-  <button class="tab" data-t="duel" type="button"><i>⚔️</i>Duel</button>
-  <button class="tab" data-t="karvon" type="button"><i>🐪</i>Karvon</button>
-  <button class="tab" data-t="profil" type="button"><i>👤</i>Profil</button>
+  <button class="tab" data-t="bugun" type="button" aria-label="Bosh sahifa"><i>🏠</i>الرَّئِيسِيَّةُ</button>
+  <button class="tab" data-t="duel" type="button" aria-label="Duel"><i>⚔️</i>مُبَارَزَةٌ</button>
+  <button class="tab markaz" data-t="mashq" type="button" aria-label="Kunlik dars"><i>📚</i>دَرْسُ الْيَوْمِ</button>
+  <button class="tab" data-t="karvon" type="button" aria-label="Karvon poygasi"><i>🐪</i>الْقَافِلَةُ</button>
+  <button class="tab" data-t="profil" type="button" aria-label="Profil"><i>👤</i>حِسَابِي</button>
 </nav>
 
 <dialog id="d-profil">
