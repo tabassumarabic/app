@@ -106,6 +106,17 @@ input:focus{border-color:var(--accent)}
 .setrow:first-of-type{border-top:0}
 .setrow span{margin-left:auto;color:var(--soft)}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:92px;background:#111;color:#fff;padding:11px 18px;border-radius:14px;font-weight:800;z-index:40;max-width:calc(100% - 32px)}
+/* ===== Daraja testi ===== */
+.dt-matn{font-family:"Noto Naskh Arabic",serif;font-size:21px;line-height:1.9;direction:rtl;text-align:right;background:var(--chip);color:var(--ink);border-radius:14px;padding:12px 14px;margin:0 0 14px}
+.dt-nishon{width:120px;height:120px;border-radius:50%;margin:6px auto 10px;display:grid;place-items:center;background:var(--accent);color:var(--btnInk);font-weight:900;font-size:40px;box-shadow:0 0 0 10px var(--chip)}
+.dt-nishon small{display:block;font-size:13px;margin-top:-10px}
+.dt-konikma{display:flex;align-items:center;gap:10px;margin:8px 0;font-weight:800;font-size:14px}
+.dt-konikma span:first-child{width:118px;flex:none}
+.dt-konikma .bar{flex:1;margin:0}
+.dt-qadam{display:flex;gap:4px;justify-content:center;margin:2px 0 12px}
+.dt-qadam i{font-style:normal;font-size:11px;font-weight:900;padding:4px 7px;border-radius:99px;background:var(--track);color:var(--soft)}
+.dt-qadam i.on{background:var(--accent);color:var(--btnInk)}
+.dt-qadam i.ot{background:#3FA34D;color:#fff}
 /* ===== Karvon ===== */
 .kv-kunlar{display:flex;gap:6px;margin:10px 0 4px}
 .kv-kunlar span{flex:1;text-align:center;border-radius:12px;padding:8px 0;background:var(--track);color:var(--soft);font-weight:900;font-size:12px}
@@ -299,6 +310,10 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
       <div class="big">🐪 Karvon poygasi</div>
       <div class="soft">Haftalik jamoaviy o'yin. Hafta davomida 3 kun mashq yoki duel qilib chipta oling va yakshanba jamoangiz bilan poygaga chiqing!</div>
     </div>
+    <div class="card" id="b-daraja" style="cursor:pointer;display:block;width:100%;text-align:left">
+      <b style="font-weight:900" id="b-daraja-t">🎯 Darajangizni bilib oling</b>
+      <div class="soft" id="b-daraja-s" style="font-size:13px">15 daqiqalik test: lug'at, grammatika, o'qish va tinglash</div>
+    </div>
     <div class="row2">
       <div class="card mini" id="b-duel" style="cursor:pointer"><div class="ic">⚔️</div><b>Duel</b><span class="soft">Raqib bilan bellash</span></div>
       <div class="card mini" id="b-mashq" style="cursor:pointer"><div class="ic">📚</div><b>Mashq</b><span class="soft">Har kuni 5 daqiqa</span></div>
@@ -356,6 +371,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     </div>
     <div class="card">
       <button class="setrow" id="o-kartalar-btn" type="button">🃏 Kartalarim<span id="p-kartalar">›</span></button>
+      <button class="setrow" id="p-daraja" type="button">🎯 Darajam<span id="p-daraja-h">›</span></button>
       <button class="setrow" id="p-eslatma" type="button">🔔 Eslatmalar<span id="p-eslatma-h">›</span></button>
       <button class="setrow" id="p-ornat" type="button">📲 Telefonga o'rnatish<span id="p-ornat-h">›</span></button>
       <button class="setrow" id="o-profil" type="button">✏️ Profilni tahrirlash<span>›</span></button>
@@ -392,6 +408,13 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   <div class="card kv-slayd" id="kv-slayd"></div>
   <div class="dots" id="kv-slayd-n"></div>
   <button class="btn wide" type="button" id="kv-slayd-keyingi">Keyingisi ›</button>
+</div></div>
+
+<div class="olay" id="o-daraja" hidden><div class="in">
+  <div class="top-h"><b style="font-size:19px;font-weight:900">🎯 Daraja testi</b><button class="x" type="button" id="dt-yop">✕</button></div>
+  <div class="dt-qadam" id="dt-qadam"></div>
+  <div class="dots" id="dt-dots"></div>
+  <div id="dt"></div>
 </div></div>
 
 <div class="olay" id="o-ornat" hidden><div class="in">
@@ -568,7 +591,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 
   var boshla = function(){
     if (!token){ authKor(); return; }
-    yangila().then(function(){ ochish((location.hash || "#bugun").slice(1)); return yuklaReyting(); })
+    yangila().then(function(){ ochish((location.hash || "#bugun").slice(1)); yuklaDaraja().catch(function(){}); return yuklaReyting(); })
       .catch(function(ex){
         if (/kirish_kerak/.test(ex && ex.message)){ set("tb_p_token", null); token = null; authKor(); }
         else { authKor(); $("k-err").textContent = "Internet bilan bog'lanib bo'lmadi"; }
@@ -640,6 +663,115 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   });
 
   // ================= DUEL =================
+  // ================= DARAJA TESTI =================
+  var DARAJALAR = ["A0", "A1", "A2", "B1", "B2", "C1", "C2"];
+  var DN = { yangi: ["🌱", "Noldan", "Yangi boshlovchi", "Arab harflaridan boshlaysiz — Fonetika kursi aynan siz uchun."],
+             A0: ["🔤", "A0", "Harflar", "Harflar va eng oddiy so'zlarni bilasiz. Endi A1 — oddiy gaplar."],
+             A1: ["🌿", "A1", "Boshlang'ich", "Oddiy gaplarni tushunasiz va tuza olasiz. Keyingi qadam — A2."],
+             A2: ["🌳", "A2", "Elementar", "Kundalik mavzularda gaplasha olasiz. Keyingi qadam — B1."],
+             B1: ["⛰️", "B1", "O'rta", "Mustaqil foydalanuvchisiz: matn o'qiysiz, fikr bildirasiz. Keyingisi — B2."],
+             B2: ["🏔️", "B2", "O'rtadan yuqori", "Murakkab mavzularda erkin fikrlaysiz. Endi C1 sari!"],
+             C1: ["🦅", "C1", "Yuqori", "Tilni chuqur bilasiz: uslub va nozik ma'nolarni his qilasiz."],
+             C2: ["👑", "C2", "Mukammal", "Ona tili darajasiga yaqin. Barakalla!"] };
+  var TURLAR = { lugat: "📖 Lug'at", grammatika: "🧩 Grammatika", oqish: "📄 O'qish", tinglash: "🎧 Tinglash" };
+  var DT = null, DTH = null;
+  function dtQadam(daraja, otdi){
+    var k = daraja ? DARAJALAR.indexOf(daraja) : -1;
+    $("dt-qadam").innerHTML = DARAJALAR.map(function(x, i){ return '<i class="' + (i < k || (otdi && i <= k) ? "ot" : i === k ? "on" : "") + '">' + x + '</i>'; }).join("");
+  }
+  function yuklaDaraja(){
+    return rpc("p_daraja_holat", { p_token: token }).then(function(r){
+      DTH = r; var o = r.oxirgi;
+      $("b-daraja-t").textContent = o ? "🎯 Darajangiz: " + DN[o.natija][1] + " · " + DN[o.natija][2] : r.davom ? "🎯 Daraja testini davom ettiring" : "🎯 Darajangizni bilib oling";
+      $("b-daraja-s").textContent = o ? (o.mumkin ? "Qayta topshirish mumkin — o'sganingizni ko'ring!" : "Test " + o.sana + " · qayta: " + o.keyingi + " dan") : "15 daqiqalik test: lug'at, grammatika, o'qish va tinglash";
+      $("p-daraja-h").textContent = o ? DN[o.natija][1] + " ›" : "›";
+    });
+  }
+  function dtOch(){
+    $("o-daraja").hidden = false; $("dt-dots").innerHTML = ""; dtQadam(null);
+    $("dt").innerHTML = '<p class="soft">Yuklanmoqda…</p>';
+    yuklaDaraja().then(function(){
+      var o = DTH.oxirgi;
+      if (o && !o.mumkin) return dtNatija(o);
+      $("dt").innerHTML = '<div class="card"><div class="q-matn">Arab tili darajangizni aniqlaymiz</div>' +
+        '<p>• Test osondan (A0) boshlanadi va har bosqichda qiyinlashadi — <b>A0 dan C2 gacha</b>.</p>' +
+        '<p>• Har bosqichda 5 ta savol: lug\'at, grammatika, o\'qish va tinglash.</p>' +
+        '<p>• Javoblar oxirida baholanadi. Bilmasangiz, taxmin qilmang — eng yaqinini tanlang.</p>' +
+        '<p>• Taxminan <b>15 daqiqa</b>. Quloqchin taqsangiz yaxshi 🎧</p>' +
+        '<p class="soft">Test 30 kunda bir marta topshiriladi.</p>' +
+        '<button class="btn wide" type="button" id="dt-boshla">' + (DTH.davom ? "▶️ Davom ettirish" : "🎯 Testni boshlash") + '</button></div>';
+      $("dt-boshla").addEventListener("click", dtBoshla);
+    }).catch(function(){ $("dt").innerHTML = '<p class="soft">Internet bilan bog\'lanib bo\'lmadi.</p>'; });
+  }
+  function dtBoshla(){
+    rpc("p_daraja_boshla", { p_token: token }).then(function(r){
+      if (r.xato === "kut") return dtNatija(r.oxirgi);
+      DT = { d: r, i: 0, javob: [], tanlov: null }; dtSavol();
+    }).catch(function(){ toast("Internet bilan bog'lanib bo'lmadi"); });
+  }
+  function dtSavol(){
+    var q = DT.d.savollar[DT.i], h = '<div class="card">';
+    dtQadam(DT.d.daraja);
+    $("dt-dots").innerHTML = DT.d.savollar.map(function(_, k){ return '<i class="' + (k < DT.i ? "ok" : k === DT.i ? "now" : "") + '"></i>'; }).join("");
+    h += '<p class="soft" style="text-align:center;margin:0 0 4px">' + DT.d.bosqich + '-bosqich · ' + TURLAR[q.tur] + '</p><div class="q-matn">' + esc(q.savol) + '</div>';
+    if (q.matn) h += '<div class="dt-matn">' + esc(q.matn) + '</div>';
+    if (q.ar) h += '<div class="q-ar">' + esc(q.ar) + '</div>';
+    if (q.audio) h += '<button class="tingla" type="button" id="dt-tingla">🔊</button>';
+    h += '<div class="vars">' + q.v.map(function(v, k){ return '<button type="button" class="var' + (q.ar_v ? " ar" : "") + '" data-dk="' + k + '">' + esc(v) + '</button>'; }).join("") + '</div>' +
+      '<button class="btn wide" type="button" id="dt-keyingi" disabled style="margin-top:14px">Keyingisi ›</button></div>';
+    $("dt").innerHTML = h; DT.tanlov = null;
+    if (q.audio){ var tg = function(){ ovoz.src = q.audio; ovoz.currentTime = 0; ovoz.play().catch(function(){}); }; $("dt-tingla").addEventListener("click", tg); tg(); }
+  }
+  $("dt").addEventListener("click", function(e){
+    var b = e.target.closest("[data-dk]");
+    if (b && DT){ DT.tanlov = DT.d.savollar[DT.i].v[+b.getAttribute("data-dk")];
+      document.querySelectorAll("#dt [data-dk]").forEach(function(x){ x.classList.toggle("tanlangan", x === b); }); $("dt-keyingi").disabled = false; return; }
+    if (e.target.id === "dt-keyingi" && DT && DT.tanlov != null){
+      DT.javob.push({ id: DT.d.savollar[DT.i].id, j: DT.tanlov }); DT.i++;
+      if (DT.i < DT.d.savollar.length) dtSavol(); else dtTopshir();
+    }
+    if (e.target.id === "dt-ariza") dtAriza(e.target);
+    if (e.target.id === "dt-tamom"){ $("o-daraja").hidden = true; }
+  });
+  function dtTopshir(){
+    $("dt").innerHTML = '<p class="q-matn">Tekshirilmoqda…</p>';
+    rpc("p_daraja_javob", { p_token: token, p_sessiya: DT.d.sessiya, p_javoblar: DT.javob }).then(function(r){
+      if (r.tugadi){ DT = null; yuklaDaraja().catch(function(){}); return dtNatija(r.natija); }
+      var oldin = DT.d.daraja; DT = { d: r, i: 0, javob: [], tanlov: null };
+      dtQadam(oldin, true); $("dt-dots").innerHTML = "";
+      $("dt").innerHTML = '<div class="card natija"><div class="em">✅</div><div class="big">' + oldin + ' bosqichi tugadi!</div><p class="soft">Keyingi bosqich qiyinroq. Shoshilmang 🙂</p><button class="btn wide" type="button" id="dt-davom">Davom etish ›</button></div>';
+      $("dt-davom").addEventListener("click", dtSavol);
+    }).catch(function(){ $("dt").innerHTML = '<p class="q-matn">Internet yo\'q.</p><button class="btn wide" type="button" id="dt-qayta">↻ Qayta yuborish</button>'; $("dt-qayta").addEventListener("click", dtTopshir); });
+  }
+  function dtNatija(o){
+    var n = DN[o.natija] || DN.yangi, k = o.konikma || {};
+    dtQadam(o.natija === "yangi" ? null : o.natija, true); $("dt-dots").innerHTML = "";
+    var h = '<div class="card natija"><div class="dt-nishon">' + n[1] + '</div><div class="big">' + n[0] + ' ' + esc(n[2]) + '</div><p>' + esc(n[3]) + '</p>';
+    h += '<div style="text-align:left;margin:12px 0">' + Object.keys(TURLAR).filter(function(t){ return k[t]; }).map(function(t){
+      var p = Math.round(k[t].ok * 100 / k[t].jami);
+      return '<div class="dt-konikma"><span>' + TURLAR[t] + '</span><div class="bar"><u style="width:' + p + '%"></u></div><span>' + k[t].ok + '/' + k[t].jami + '</span></div>'; }).join("") + '</div>';
+    h += '<button class="btn wide" type="button" id="dt-ariza">📝 Shu darajadagi guruhga yozilish</button>' +
+      '<p class="soft" style="font-size:13px">Tugmani bossangiz, markaz administratori siz bilan bog\'lanadi.</p>' +
+      '<p class="soft">Test: ' + esc(o.sana) + ' · qayta topshirish: ' + esc(o.keyingi) + ' dan keyin</p>' +
+      '<button class="link" type="button" id="dt-tamom">Yopish</button></div>';
+    $("dt").innerHTML = h;
+  }
+  function dtAriza(b){
+    b.disabled = true;
+    rpc("p_daraja_ariza", { p_token: token }).then(function(r){
+      if (r.ok){ b.textContent = "✅ Ariza yuborildi"; toast("📝 Ariza yuborildi! Administrator tez orada bog'lanadi"); return; }
+      b.disabled = false;
+      toast({ bor: "Arizangiz allaqachon yuborilgan — tez orada bog'lanamiz", tel: "Profilingizda telefon raqami yo'q" }[r.xato] || "Xatolik");
+      if (r.xato === "bor"){ b.disabled = true; b.textContent = "✅ Ariza yuborilgan"; }
+    }).catch(function(){ b.disabled = false; toast("Internet bilan bog'lanib bo'lmadi"); });
+  }
+  $("dt-yop").addEventListener("click", function(){
+    if (DT && !confirm("Testni keyinroq davom ettirasizmi? (2 soat ichida shu joydan davom etadi)")) return;
+    $("o-daraja").hidden = true; DT = null; yuklaDaraja().catch(function(){});
+  });
+  $("b-daraja").addEventListener("click", dtOch);
+  $("p-daraja").addEventListener("click", dtOch);
+
   // ================= TELEFONGA O'RNATISH VA ESLATMALAR =================
   var VAPID = "BF5_ZUTsbV0Jzvy_gUVVJPQ4khgZiVHqI3f90QAxUBc6npBJkN-MJNcvAU32wNxi19AlMip694A3uxuB3Xe-QlY", ORNAT = null, SWR = null;
   var IOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
