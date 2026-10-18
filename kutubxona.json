@@ -1,0 +1,1216 @@
+{
+ "qoidalar": [
+  {
+   "id": "harakatlar",
+   "bolim": "Fonetika",
+   "nom": "Harakatlar: fatha, kasra, zamma",
+   "ar": "الْحَرَكَاتُ",
+   "qisqa": "Harakat — harf ustiga yoki ostiga qo'yiladigan kichik belgi; u harfga qisqa unli (a, i, u) beradi.",
+   "matn": [
+    "Arab yozuvida qisqa unlilar harf sifatida yozilmaydi. Ularning o'rniga harf ustiga yoki ostiga kichik belgi qo'yiladi — bu belgilar «harakat» deyiladi.",
+    "Fatha — harf ustidagi kichik qiya chiziq, «a» o'qiladi. Kasra — harf ostidagi qiya chiziq, «i» o'qiladi. Zamma (damma) — harf ustidagi kichik vov, «u» o'qiladi.",
+    "Fathani aytganda og'iz ochiladi, kasrada lablar yon tomonga yoyiladi, zammada lablar yumaloqlanib oldinga cho'ziladi."
+   ],
+   "jadval": {
+    "ustunlar": [
+     "Belgi",
+     "Nomi",
+     "Tovush",
+     "Misol"
+    ],
+    "qatorlar": [
+     [
+      "ـَ",
+      "fatha",
+      "a",
+      "بَ — ba"
+     ],
+     [
+      "ـِ",
+      "kasra",
+      "i",
+      "بِ — bi"
+     ],
+     [
+      "ـُ",
+      "zamma (damma)",
+      "u",
+      "بُ — bu"
+     ]
+    ]
+   },
+   "misollar": [
+    {
+     "ar": "أَ — إِ — أُ",
+     "uz": "a — i — u"
+    },
+    {
+     "ar": "مَنْ",
+     "uz": "kim? (man)"
+    },
+    {
+     "ar": "مِنْ",
+     "uz": "-dan (min)"
+    },
+    {
+     "ar": "أَنَا",
+     "uz": "men (ana)"
+    }
+   ],
+   "eslatma": "Bitta harakat ma'noni o'zgartiradi: مَنْ (man) — «kim?», مِنْ (min) — «-dan». Harakatga diqqat bilan qarang."
+  },
+  {
+   "id": "sukun",
+   "bolim": "Fonetika",
+   "nom": "Sukun — unlisiz harf",
+   "ar": "السُّكُونُ",
+   "qisqa": "Sukun (ـْ) qo'yilgan harf unlisiz o'qiladi va oldingi bo'g'inga qo'shilib ketadi.",
+   "matn": [
+    "Sukun — harf ustidagi kichik halqa (ـْ). U «bu harfda unli yo'q» degan belgi.",
+    "Sukunli harf yolg'iz o'qilmaydi, oldingi harakatli harfga qo'shilib bitta yopiq bo'g'in hosil qiladi: مَنْ = ma + n → «man».",
+    "Fathadan keyin sukunli و yoki ي kelsa, yumshoq «aw» / «ay» bo'lib o'qiladi: يَوْمٌ — «yawm», بَيْتٌ — «bayt»."
+   ],
+   "misollar": [
+    {
+     "ar": "مَنْ",
+     "uz": "kim? (man)"
+    },
+    {
+     "ar": "أَنْتَ",
+     "uz": "sen (anta)"
+    },
+    {
+     "ar": "بَحْرٌ",
+     "uz": "dengiz (bahrun)"
+    },
+    {
+     "ar": "مَطْبَخٌ",
+     "uz": "oshxona (matbaxun)"
+    },
+    {
+     "ar": "بَيْتٌ",
+     "uz": "uy (baytun)"
+    }
+   ],
+   "eslatma": "Sukunli harfga o'zingizdan «a» yoki «i» qo'shib yubormang: أَنْتَ — «anta», «anata» emas."
+  },
+  {
+   "id": "mad",
+   "bolim": "A0 · 1-dars",
+   "nom": "Uzun unlilar (mad harflari)",
+   "ar": "حُرُوفُ الْمَدِّ",
+   "qisqa": "ا، و، ي harflari oldingi mos harakatdan keyin kelsa, unlini ikki barobar cho'zadi: ā, ū, ī.",
+   "matn": [
+    "Arab tilida qisqa va uzun unlilar farq qiladi. Uzun unli uchun harakatdan keyin maxsus harf yoziladi — bu harflar «mad harflari» deyiladi.",
+    "Fathadan keyin alif (ـَا) — uzun «ā», zammadan keyin vov (ـُو) — uzun «ū», kasradan keyin ya (ـِي) — uzun «ī».",
+    "Uzun unlini qisqasidan ikki barobar uzoqroq ayting: بَ (ba) — بَا (bā)."
+   ],
+   "jadval": {
+    "ustunlar": [
+     "Qisqa",
+     "Uzun",
+     "Misol"
+    ],
+    "qatorlar": [
+     [
+      "بَ — ba",
+      "بَا — bā",
+      "بَابٌ — eshik"
+     ],
+     [
+      "بُ — bu",
+      "بُو — bū",
+      "حَاسُوبٌ — kompyuter"
+     ],
+     [
+      "بِ — bi",
+      "بِي — bī",
+      "حَلِيبٌ — sut"
+     ]
+    ]
+   },
+   "misollar": [
+    {
+     "ar": "كِتَابٌ",
+     "uz": "kitob (kitābun)"
+    },
+    {
+     "ar": "نُورٌ",
+     "uz": "nur, yorug'lik (nūrun)"
+    },
+    {
+     "ar": "حَلِيبٌ",
+     "uz": "sut (halībun)"
+    },
+    {
+     "ar": "سَاعَةٌ",
+     "uz": "soat (sā'atun)"
+    }
+   ],
+   "eslatma": "Mad harfining o'zida harakat bo'lmaydi. Agar ya yoki vov oldida fatha bo'lsa, u uzun unli emas: بَيْتٌ — «bayt», «bīt» emas."
+  },
+  {
+   "id": "tanvin",
+   "bolim": "A0 · 1-dars",
+   "nom": "Tanvin — so'z oxiridagi «n»",
+   "ar": "التَّنْوِينُ",
+   "qisqa": "Tanvin — so'z oxirida qo'sh harakat; u unlidan keyin «n» tovushini qo'shadi: -un, -an, -in.",
+   "matn": [
+    "Ba'zan so'z oxiridagi harakat ikki marta yoziladi. Bu «tanvin» deyiladi va harakatdan keyin «n» eshitiladi, lekin «ن» harfi yozilmaydi.",
+    "Tanvin odatda noaniq so'zlarda keladi: كِتَابٌ — «(bir) kitob».",
+    "Tanvin fatha ko'pincha qo'shimcha alif bilan yoziladi: شُكْرًا. Lekin ة dan keyin alif yozilmaydi: سَاعَةً."
+   ],
+   "jadval": {
+    "ustunlar": [
+     "Belgi",
+     "Nomi",
+     "Tovush",
+     "Misol"
+    ],
+    "qatorlar": [
+     [
+      "ـٌ",
+      "tanvin zamma",
+      "-un",
+      "كِتَابٌ — kitābun"
+     ],
+     [
+      "ـً",
+      "tanvin fatha",
+      "-an",
+      "شُكْرًا — shukran"
+     ],
+     [
+      "ـٍ",
+      "tanvin kasra",
+      "-in",
+      "بِخَيْرٍ — bixayrin"
+     ]
+    ]
+   },
+   "misollar": [
+    {
+     "ar": "قَلَمٌ",
+     "uz": "qalam (qalamun)"
+    },
+    {
+     "ar": "شُكْرًا",
+     "uz": "rahmat (shukran)"
+    },
+    {
+     "ar": "أَهْلًا وَسَهْلًا",
+     "uz": "xush kelibsiz (ahlan va sahlan)"
+    },
+    {
+     "ar": "أَنَا بِخَيْرٍ",
+     "uz": "men yaxshiman (ana bixayrin)"
+    }
+   ],
+   "eslatma": "Tanvin va «الْ» bir so'zda birga kelmaydi: كِتَابٌ — «kitob», الْكِتَابُ — «(o'sha) kitob». Gap oxirida to'xtaganda tanvin odatda o'qilmaydi, ـًا esa «-ā» bo'lib qoladi."
+  },
+  {
+   "id": "shadda",
+   "bolim": "A0 · 1-dars",
+   "nom": "Shadda — qo'sh harf",
+   "ar": "الشَّدَّةُ",
+   "qisqa": "Shadda (ـّ) qo'yilgan harf ikki marta — avval sukun bilan, keyin harakat bilan o'qiladi.",
+   "matn": [
+    "Shadda — harf ustidagi kichik «w» ga o'xshash belgi. U harfni qo'shaloq qiladi: harf bir marta yoziladi, lekin ikki marta o'qiladi.",
+    "Masalan, مُعَلِّمٌ: لّ = لْ + لِ, ya'ni «mu'al-limun». Birinchi «l» sukunli, ikkinchisi kasrali.",
+    "Shadda bilan birga harakat ham yoziladi: fatha va zamma shadda ustida, kasra esa shadda ostida (yoki harf ostida) turadi."
+   ],
+   "misollar": [
+    {
+     "ar": "مُعَلِّمٌ",
+     "uz": "o'qituvchi (mu'allimun)"
+    },
+    {
+     "ar": "ثَلَّاجَةٌ",
+     "uz": "muzlatkich (sallājatun)"
+    },
+    {
+     "ar": "تُفَّاحَةٌ",
+     "uz": "olma (tuffāhatun)"
+    },
+    {
+     "ar": "طَبَّاخٌ",
+     "uz": "oshpaz (tabbāxun)"
+    },
+    {
+     "ar": "سَيَّارَةٌ",
+     "uz": "mashina (sayyāratun)"
+    }
+   ],
+   "eslatma": "Shaddani tashlab ketsangiz, so'z boshqa so'zga aylanishi yoki ma'nosiz bo'lib qolishi mumkin. Qo'sh harfni o'zbekchadagi «katta», «olla» so'zlaridagidek aniq ayting."
+  },
+  {
+   "id": "hadha-hadhihi",
+   "bolim": "A0 · 2-dars",
+   "nom": "هٰذَا va هٰذِهِ — «bu» (erkak va ayol jinsi)",
+   "ar": "اِسْمُ الْإِشَارَةِ",
+   "qisqa": "Muzakkar (erkak jinsidagi) so'zga هٰذَا, muannas (ayol jinsidagi) so'zga هٰذِهِ ishlatiladi.",
+   "matn": [
+    "O'zbek tilida «bu» bitta. Arab tilida esa ikkita: هٰذَا va هٰذِهِ. Qaysi biri kerakligi keyingi so'zning jinsiga bog'liq.",
+    "Arab tilida har bir ot (hatto narsa ham) muzakkar yoki muannas bo'ladi. Muannas so'zlar ko'pincha ة bilan tugaydi.",
+    "Odamlar haqida ham shunday: yigit — هٰذَا عَلِيٌّ, qiz — هٰذِهِ سَارَةُ."
+   ],
+   "jadval": {
+    "ustunlar": [
+     "Muzakkar — هٰذَا",
+     "Muannas — هٰذِهِ"
+    ],
+    "qatorlar": [
+     [
+      "هٰذَا كِتَابٌ — Bu kitob",
+      "هٰذِهِ حَقِيبَةٌ — Bu sumka"
+     ],
+     [
+      "هٰذَا قَلَمٌ — Bu qalam",
+      "هٰذِهِ سَاعَةٌ — Bu soat"
+     ],
+     [
+      "هٰذَا طَالِبٌ — Bu talaba (yigit)",
+      "هٰذِهِ طَالِبَةٌ — Bu talaba (qiz)"
+     ],
+     [
+      "هٰذَا تِلْفَازٌ — Bu televizor",
+      "هٰذِهِ ثَلَّاجَةٌ — Bu muzlatkich"
+     ]
+    ]
+   },
+   "misollar": [
+    {
+     "ar": "هٰذَا بَيْتٌ",
+     "uz": "Bu uy"
+    },
+    {
+     "ar": "هٰذِهِ سَيَّارَةٌ",
+     "uz": "Bu mashina"
+    },
+    {
+     "ar": "هٰذَا عَلِيٌّ، وَهٰذِهِ لَيْلَى",
+     "uz": "Bu Ali, bu esa Laylo"
+    },
+    {
+     "ar": "هٰذِهِ بِنْتٌ",
+     "uz": "Bu qiz"
+    }
+   ],
+   "eslatma": "هٰذَا va هٰذِهِ da «ha» harfidan keyin kichik tik alif (ـٰ) bor, shuning uchun katta alif yozilmasa ham «hāzā», «hāzihi» deb cho'zib o'qiladi."
+  },
+  {
+   "id": "ta-marbuta",
+   "bolim": "A0 · 2-dars",
+   "nom": "Ta marbuta (ة) — muannas belgisi",
+   "ar": "التَّاءُ الْمَرْبُوطَةُ",
+   "qisqa": "So'z oxiridagi ة ko'pincha so'z muannas ekanini bildiradi; ة qo'shib erkak jinsidan ayol jinsini yasash mumkin.",
+   "matn": [
+    "ة — «yopiq ta» (ta marbuta). U faqat so'z oxirida keladi va ustida ikki nuqtali ه ga o'xshaydi.",
+    "Kasb va millat so'zlariga ة qo'shsak, ayol jinsi hosil bo'ladi: طَالِبٌ — طَالِبَةٌ, مِصْرِيٌّ — مِصْرِيَّةٌ.",
+    "Gap davom etsa ة «t» bo'lib o'qiladi, to'xtaganda esa «-a(h)» deb aytiladi. So'zga qo'shimcha ulansa, ة oddiy ت ga aylanadi: حَقِيبَةٌ — حَقِيبَتِي."
+   ],
+   "jadval": {
+    "ustunlar": [
+     "Muzakkar",
+     "Muannas"
+    ],
+    "qatorlar": [
+     [
+      "طَالِبٌ — talaba (yigit)",
+      "طَالِبَةٌ — talaba (qiz)"
+     ],
+     [
+      "مُعَلِّمٌ — o'qituvchi (erkak)",
+      "مُعَلِّمَةٌ — o'qituvchi (ayol)"
+     ],
+     [
+      "صَدِيقٌ — do'st",
+      "صَدِيقَةٌ — dugona"
+     ],
+     [
+      "أُوزْبَكِيٌّ — o'zbek (yigit)",
+      "أُوزْبَكِيَّةٌ — o'zbek (qiz)"
+     ]
+    ]
+   },
+   "misollar": [
+    {
+     "ar": "أَنَا طَالِبَةٌ",
+     "uz": "Men talabaman (qiz aytyapti)"
+    },
+    {
+     "ar": "هٰذِهِ صَدِيقَتِي",
+     "uz": "Bu mening dugonam"
+    },
+    {
+     "ar": "أَنَا مِصْرِيَّةٌ",
+     "uz": "Men misrlikman (qiz)"
+    },
+    {
+     "ar": "هٰذِهِ جَامِعَةٌ",
+     "uz": "Bu universitet"
+    }
+   ],
+   "eslatma": "Ba'zi so'zlar ة siz ham muannas: بِنْتٌ (qiz), أُخْتٌ (opa yoki singil) — ular ma'nosiga ko'ra ayol jinsida. Shuning uchun: هٰذِهِ بِنْتٌ."
+  },
+  {
+   "id": "egalik-ka-ki",
+   "bolim": "A0 · 2-dars",
+   "nom": "Egalik: «mening», «sening» (ـِي، ـكَ، ـكِ)",
+   "ar": "الضَّمِيرُ الْمُتَّصِلُ",
+   "qisqa": "«Mening» — so'z oxiriga ـِي, «sening» yigitga — ـكَ, qizga — ـكِ qo'shiladi.",
+   "matn": [
+    "O'zbekchada «kitobim», «kitobing» deymiz. Arab tilida ham egalik so'z oxiriga qo'shimcha bo'lib ulanadi.",
+    "«Sening» ikki xil: yigitga gapirganda ـكَ (-ka), qizga gapirganda ـكِ (-ki). Ular faqat oxirgi harakat bilan farq qiladi.",
+    "Qo'shimcha ulanganda tanvin tushib qoladi: كِتَابٌ → كِتَابُكَ. ة esa ت ga aylanadi: حَقِيبَةٌ → حَقِيبَتُكِ."
+   ],
+   "jadval": {
+    "ustunlar": [
+     "Kimniki",
+     "Qo'shimcha",
+     "Misol"
+    ],
+    "qatorlar": [
+     [
+      "mening",
+      "ـِي",
+      "كِتَابِي — kitobim"
+     ],
+     [
+      "sening (yigit)",
+      "ـكَ",
+      "كِتَابُكَ — kitobing"
+     ],
+     [
+      "sening (qiz)",
+      "ـكِ",
+      "كِتَابُكِ — kitobing"
+     ]
+    ]
+   },
+   "misollar": [
+    {
+     "ar": "كَيْفَ حَالُكَ؟",
+     "uz": "Ahvoling qalay? (yigitga)"
+    },
+    {
+     "ar": "كَيْفَ حَالُكِ؟",
+     "uz": "Ahvoling qalay? (qizga)"
+    },
+    {
+     "ar": "مَا اسْمُكَ؟",
+     "uz": "Isming nima? (yigitga)"
+    },
+    {
+     "ar": "هٰذِهِ حَقِيبَتِي",
+     "uz": "Bu mening sumkam"
+    },
+    {
+     "ar": "هٰذَا هَاتِفُكِ",
+     "uz": "Bu sening telefoning (qizga)"
+    }
+   ],
+   "eslatma": "Ko'p uchraydigan xato: qizga ham كَيْفَ حَالُكَ؟ deyish. Kimga gapirayotganingizga qarang: yigitga — ـكَ, qizga — ـكِ."
+  },
+  {
+   "id": "man-ma",
+   "bolim": "A0 · 3-dars",
+   "nom": "مَنْ؟ va مَا؟ — «kim?» va «nima?»",
+   "ar": "مَنْ؟ وَمَا؟",
+   "qisqa": "Odam haqida مَنْ؟ (kim?), narsa haqida مَا؟ (nima?) deb so'raladi.",
+   "matn": [
+    "مَنْ؟ — «kim?». Faqat odamlar haqida so'raganda ishlatiladi: مَنْ هٰذَا؟ — Bu kim?",
+    "مَا؟ — «nima?». Narsalar, joylar, hayvonlar haqida so'raganda ishlatiladi: مَا هٰذَا؟ — Bu nima?",
+    "Savoldan keyin هٰذَا yoki هٰذِهِ ni jinsga qarab tanlaymiz: مَنْ هٰذِهِ؟ — Bu (qiz) kim?"
+   ],
+   "jadval": {
+    "ustunlar": [
+     "Savol",
+     "Javob"
+    ],
+    "qatorlar": [
+     [
+      "مَنْ هٰذَا؟ — Bu kim?",
+      "هٰذَا أَخِي — Bu mening akam (ukam)"
+     ],
+     [
+      "مَنْ هٰذِهِ؟ — Bu kim?",
+      "هٰذِهِ أُخْتِي — Bu mening opam (singlim)"
+     ],
+     [
+      "مَا هٰذَا؟ — Bu nima?",
+      "هٰذَا حَاسُوبٌ — Bu kompyuter"
+     ],
+     [
+      "مَا هٰذِهِ؟ — Bu nima?",
+      "هٰذِهِ جَامِعَةٌ — Bu universitet"
+     ]
+    ]
+   },
+   "misollar": [
+    {
+     "ar": "مَنْ هٰذَا؟ هٰذَا صَدِيقِي",
+     "uz": "Bu kim? Bu mening do'stim"
+    },
+    {
+     "ar": "مَا هٰذَا؟ هٰذَا خُبْزٌ",
+     "uz": "Bu nima? Bu non"
+    },
+    {
+     "ar": "مَا اسْمُكِ؟",
+     "uz": "Isming nima? (qizga)"
+    },
+    {
+     "ar": "مَنْ أَنْتَ؟",
+     "uz": "Sen kimsan? (yigitga)"
+    }
+   ],
+   "eslatma": "مَنْ (man — kim?) va مِنْ (min — -dan) ni adashtirmang: مِنْ أَيْنَ أَنْتَ؟ — Qayerdansan?"
+  },
+  {
+   "id": "fel-men-sen",
+   "bolim": "A0 · 3-dars",
+   "nom": "Hozirgi zamon fe'li: «men» va «sen»",
+   "ar": "الْفِعْلُ الْمُضَارِعُ",
+   "qisqa": "«Men» uchun fe'l أَ bilan, «sen» uchun تَ bilan boshlanadi: أَكْتُبُ — yozaman, تَكْتُبُ — yozasan.",
+   "matn": [
+    "Arab fe'lida «kim bajaryapti» degan ma'no so'z boshidagi harfdan bilinadi.",
+    "«Men» (أَنَا) — fe'l boshida أَ: أَكْتُبُ, أَجْلِسُ. «Sen» (أَنْتَ) — fe'l boshida تَ: تَكْتُبُ, تَجْلِسُ. Oxiri ikkalasida ham zamma (ـُ).",
+    "O'rtadagi harakat har fe'lda har xil (أَكْتُبُ, أَفْتَحُ, أَجْلِسُ) — uni so'z bilan birga yodlang.",
+    "Fe'l oldidan أَنَا yoki أَنْتَ yozilmasa ham bo'ladi, chunki boshidagi harf kimligini aytib turibdi."
+   ],
+   "jadval": {
+    "ustunlar": [
+     "Ma'no",
+     "Men (أَنَا)",
+     "Sen (أَنْتَ)"
+    ],
+    "qatorlar": [
+     [
+      "yozmoq",
+      "أَكْتُبُ",
+      "تَكْتُبُ"
+     ],
+     [
+      "ochmoq",
+      "أَفْتَحُ",
+      "تَفْتَحُ"
+     ],
+     [
+      "o'tirmoq",
+      "أَجْلِسُ",
+      "تَجْلِسُ"
+     ],
+     [
+      "kirmoq",
+      "أَدْخُلُ",
+      "تَدْخُلُ"
+     ],
+     [
+      "ichmoq",
+      "أَشْرَبُ",
+      "تَشْرَبُ"
+     ]
+    ]
+   },
+   "misollar": [
+    {
+     "ar": "أَنَا أَكْتُبُ",
+     "uz": "Men yozaman"
+    },
+    {
+     "ar": "أَنْتَ تَفْتَحُ الْبَابَ",
+     "uz": "Sen eshikni ochasan"
+    },
+    {
+     "ar": "أَنَا أَشْرَبُ حَلِيبًا",
+     "uz": "Men sut ichaman"
+    },
+    {
+     "ar": "أَنْتَ تَدْخُلُ، وَأَنَا أَخْرُجُ",
+     "uz": "Sen kirasan, men esa chiqaman"
+    }
+   ],
+   "eslatma": "Bu yerdagi «sen» shakli yigitga (أَنْتَ) gapirganda ishlatiladi. Qizga (أَنْتِ) gapirganda fe'l boshqacha bo'ladi — buni keyingi darslarda o'rganamiz."
+  }
+ ],
+ "hikoyalar": [
+  {
+   "id": "juha-kalit",
+   "daraja": "A0",
+   "em": "🔑",
+   "nom_ar": "جُحَا وَالْمِفْتَاحُ",
+   "nom_uz": "Juha va kalit",
+   "juha": true,
+   "gaplar": [
+    {
+     "ar": "سَعِيدٌ: مَسَاءُ الْخَيْرِ يَا جُحَا! مَاذَا تَفْعَلُ هُنَا؟",
+     "uz": "Said: Xayrli kech, Juha! Bu yerda nima qilyapsan?"
+    },
+    {
+     "ar": "جُحَا: مَسَاءُ النُّورِ! أَبْحَثُ عَنْ مِفْتَاحِي.",
+     "uz": "Juha: Xayrli kech! Kalitimni qidiryapman."
+    },
+    {
+     "ar": "سَعِيدٌ: وَأَيْنَ الْمِفْتَاحُ؟",
+     "uz": "Said: Kalit qayerda edi?"
+    },
+    {
+     "ar": "جُحَا: فِي الْبَيْتِ.",
+     "uz": "Juha: Uyda."
+    },
+    {
+     "ar": "سَعِيدٌ: فِي الْبَيْتِ؟! لِمَاذَا تَبْحَثُ هُنَا؟",
+     "uz": "Said: Uydami?! Unda nega bu yerda qidiryapsan?"
+    },
+    {
+     "ar": "جُحَا: الْبَيْتُ مُظْلِمٌ، وَهُنَا نُورٌ!",
+     "uz": "Juha: Uy qorong'i, bu yer esa yorug'!"
+    }
+   ],
+   "lugat": {
+    "جُحَا": "Juha",
+    "سَعِيدٌ": "Said (ism)",
+    "مَسَاءُ": "kech (مَسَاءُ الْخَيْرِ — Xayrli kech)",
+    "الْخَيْرِ": "yaxshilik (Xayrli ...)",
+    "يَا": "ey (murojaat)",
+    "مَاذَا": "nima?",
+    "تَفْعَلُ": "(sen) qilyapsan",
+    "هُنَا": "bu yerda",
+    "النُّورِ": "nur (مَسَاءُ النُّورِ — «Xayrli kech»ga javob)",
+    "أَبْحَثُ": "(men) qidiryapman",
+    "عَنْ": "...ni (أَبْحَثُ عَنْ — ...ni qidiraman)",
+    "مِفْتَاحِي": "mening kalitim",
+    "وَأَيْنَ": "qayerda? (و — «va»)",
+    "الْمِفْتَاحُ": "kalit",
+    "فِي": "ichida, -da",
+    "الْبَيْتِ": "uy (فِي الْبَيْتِ — uyda)",
+    "لِمَاذَا": "nega? nima uchun?",
+    "تَبْحَثُ": "(sen) qidiryapsan",
+    "الْبَيْتُ": "uy",
+    "مُظْلِمٌ": "qorong'i",
+    "وَهُنَا": "bu yer esa",
+    "نُورٌ": "yorug'lik, nur"
+   },
+   "savollar": [
+    {
+     "savol": "Juha nimani qidiryapti?",
+     "v": [
+      "Telefonini",
+      "Kalitini",
+      "Kitobini",
+      "Sumkasini"
+     ],
+     "t": 1
+    },
+    {
+     "savol": "Juhaning kaliti qayerda edi?",
+     "v": [
+      "Uyda",
+      "Ko'chada",
+      "Saidda",
+      "Mashinada"
+     ],
+     "t": 0
+    },
+    {
+     "savol": "Juha nega bu yerda qidiryapti?",
+     "v": [
+      "Said shunday dedi",
+      "Uyning eshigi yopiq",
+      "Kalit shu yerga tushgan",
+      "Uy qorong'i, bu yer yorug'"
+     ],
+     "t": 3
+    },
+    {
+     "savol": "Suhbat qachon bo'lyapti?",
+     "v": [
+      "Ertalab",
+      "Kechqurun",
+      "Tushlikda",
+      "Darsda"
+     ],
+     "t": 1
+    }
+   ]
+  },
+  {
+   "id": "yangi-telefon",
+   "daraja": "A0",
+   "em": "📱",
+   "nom_ar": "هَاتِفٌ جَدِيدٌ",
+   "nom_uz": "Yangi telefon",
+   "juha": false,
+   "gaplar": [
+    {
+     "ar": "لَيْلَى: صَبَاحُ الْخَيْرِ يَا مَرْيَمُ!",
+     "uz": "Laylo: Xayrli tong, Maryam!"
+    },
+    {
+     "ar": "مَرْيَمُ: صَبَاحُ النُّورِ يَا لَيْلَى! مَا هٰذَا؟",
+     "uz": "Maryam: Xayrli tong, Laylo! Bu nima?"
+    },
+    {
+     "ar": "لَيْلَى: هٰذَا هَاتِفِي الْجَدِيدُ.",
+     "uz": "Laylo: Bu mening yangi telefonim."
+    },
+    {
+     "ar": "مَرْيَمُ: مُبَارَكٌ! وَمَا هٰذِهِ؟",
+     "uz": "Maryam: Muborak bo'lsin! Bu-chi, bu nima?"
+    },
+    {
+     "ar": "لَيْلَى: هٰذِهِ سَاعَتِي الْجَدِيدَةُ.",
+     "uz": "Laylo: Bu mening yangi soatim."
+    },
+    {
+     "ar": "مَرْيَمُ: مُبَارَكٌ! وَهٰذَا قَلَمِي الْقَدِيمُ.",
+     "uz": "Maryam: Muborak bo'lsin! Bu esa mening eski qalamim."
+    }
+   ],
+   "lugat": {
+    "لَيْلَى": "Laylo (ism)",
+    "صَبَاحُ": "tong (صَبَاحُ الْخَيْرِ — Xayrli tong)",
+    "الْخَيْرِ": "yaxshilik (Xayrli ...)",
+    "يَا": "ey (murojaat)",
+    "مَرْيَمُ": "Maryam (ism)",
+    "النُّورِ": "nur (صَبَاحُ النُّورِ — «Xayrli tong»ga javob)",
+    "مَا": "nima?",
+    "هٰذَا": "bu (erkak jinsi)",
+    "هَاتِفِي": "mening telefonim",
+    "الْجَدِيدُ": "yangi",
+    "مُبَارَكٌ": "muborak bo'lsin!",
+    "وَمَا": "bu-chi, nima? (و — «va»)",
+    "هٰذِهِ": "bu (ayol jinsi)",
+    "سَاعَتِي": "mening soatim",
+    "الْجَدِيدَةُ": "yangi (ayol jinsi)",
+    "وَهٰذَا": "bu esa",
+    "قَلَمِي": "mening qalamim",
+    "الْقَدِيمُ": "eski"
+   },
+   "savollar": [
+    {
+     "savol": "Laylo birinchi nimani ko'rsatdi?",
+     "v": [
+      "Soatini",
+      "Telefonini",
+      "Qalamini",
+      "Sumkasini"
+     ],
+     "t": 1
+    },
+    {
+     "savol": "Maryam Layloga nima dedi?",
+     "v": [
+      "Kechirasiz",
+      "Xayr",
+      "Muborak bo'lsin",
+      "Arzimaydi"
+     ],
+     "t": 2
+    },
+    {
+     "savol": "Maryamning qalami qanday?",
+     "v": [
+      "Eski",
+      "Yangi",
+      "Qimmat",
+      "Qizil"
+     ],
+     "t": 0
+    },
+    {
+     "savol": "Suhbat qachon bo'lyapti?",
+     "v": [
+      "Kechqurun",
+      "Tunda",
+      "Tushda",
+      "Ertalab"
+     ],
+     "t": 3
+    }
+   ]
+  },
+  {
+   "id": "ayna-al-jubn",
+   "daraja": "A0",
+   "em": "🧀",
+   "nom_ar": "أَيْنَ الْجُبْنُ؟",
+   "nom_uz": "Pishloq qani?",
+   "juha": false,
+   "gaplar": [
+    {
+     "ar": "أَنَا أَدْخُلُ الْمَطْبَخَ، وَأَفْتَحُ الثَّلَّاجَةَ.",
+     "uz": "Men oshxonaga kiraman va muzlatkichni ochaman."
+    },
+    {
+     "ar": "هٰذَا حَلِيبٌ، وَهٰذَا خِيَارٌ، وَهٰذَا خُبْزٌ.",
+     "uz": "Mana sut, mana bodring, mana non."
+    },
+    {
+     "ar": "وَالْجُبْنُ؟ أَيْنَ الْجُبْنُ؟",
+     "uz": "Pishloq-chi? Pishloq qani?"
+    },
+    {
+     "ar": "أَخِي جَمَالٌ: آسِفٌ يَا أَخِي، أَنَا آكُلُ الْجُبْنَ!",
+     "uz": "Akam Jamol: Kechir, uka, pishloqni men yeyapman!"
+    },
+    {
+     "ar": "لَا بَأْسَ، أَنَا آكُلُ خُبْزًا وَخِيَارًا، وَأَشْرَبُ حَلِيبًا.",
+     "uz": "Mayli, men non va bodring yeyman, sut ichaman."
+    }
+   ],
+   "lugat": {
+    "أَنَا": "men",
+    "أَدْخُلُ": "(men) kiraman",
+    "الْمَطْبَخَ": "oshxona",
+    "وَأَفْتَحُ": "va (men) ochaman",
+    "الثَّلَّاجَةَ": "muzlatkich",
+    "هٰذَا": "bu, mana (erkak jinsi)",
+    "حَلِيبٌ": "sut",
+    "وَهٰذَا": "va bu",
+    "خِيَارٌ": "bodring",
+    "خُبْزٌ": "non",
+    "وَالْجُبْنُ": "pishloq-chi? (و — «va»)",
+    "أَيْنَ": "qayerda? qani?",
+    "الْجُبْنُ": "pishloq",
+    "أَخِي": "akam (ukam); murojaatda — uka, aka",
+    "جَمَالٌ": "Jamol (ism)",
+    "آسِفٌ": "kechirasiz, uzr",
+    "يَا": "ey (murojaat)",
+    "آكُلُ": "(men) yeyman, yeyapman",
+    "الْجُبْنَ": "pishloq(ni)",
+    "لَا": "yo'q, emas",
+    "بَأْسَ": "zarar (لَا بَأْسَ — mayli, hechqisi yo'q)",
+    "خُبْزًا": "non",
+    "وَخِيَارًا": "va bodring",
+    "وَأَشْرَبُ": "va (men) ichaman",
+    "حَلِيبًا": "sut"
+   },
+   "savollar": [
+    {
+     "savol": "Gapiruvchi qayerga kiradi?",
+     "v": [
+      "Universitetga",
+      "Oshxonaga",
+      "Do'konga",
+      "Bog'ga"
+     ],
+     "t": 1
+    },
+    {
+     "savol": "Muzlatkichda nima yo'q?",
+     "v": [
+      "Sut",
+      "Bodring",
+      "Non",
+      "Pishloq"
+     ],
+     "t": 3
+    },
+    {
+     "savol": "Pishloqni kim yeyapti?",
+     "v": [
+      "Jamol",
+      "Gapiruvchi",
+      "Laylo",
+      "Hech kim"
+     ],
+     "t": 0
+    },
+    {
+     "savol": "Gapiruvchi oxirida nima ichadi?",
+     "v": [
+      "Suv",
+      "Sharbat",
+      "Sut",
+      "Choy"
+     ],
+     "t": 2
+    }
+   ]
+  },
+  {
+   "id": "juha-eshak",
+   "daraja": "A1",
+   "em": "🐴",
+   "nom_ar": "جُحَا وَابْنُهُ وَالْحِمَارُ",
+   "nom_uz": "Juha, o'g'li va eshak",
+   "juha": true,
+   "gaplar": [
+    {
+     "ar": "ذَهَبَ جُحَا وَابْنُهُ وَالْحِمَارُ إِلَى السُّوقِ.",
+     "uz": "Juha, o'g'li va eshak bozorga ketishdi."
+    },
+    {
+     "ar": "رَكِبَ جُحَا الْحِمَارَ، وَمَشَى ابْنُهُ.",
+     "uz": "Juha eshakka mindi, o'g'li esa piyoda yurdi."
+    },
+    {
+     "ar": "قَالَ النَّاسُ: «أَبٌ سَيِّئٌ! يَرْكَبُ، وَابْنُهُ الصَّغِيرُ يَمْشِي!»",
+     "uz": "Odamlar dedi: «Yomon ota! O'zi minib olgan, kichkina o'g'li esa piyoda!»"
+    },
+    {
+     "ar": "نَزَلَ جُحَا، وَرَكِبَ ابْنُهُ.",
+     "uz": "Juha tushdi, o'g'li mindi."
+    },
+    {
+     "ar": "قَالَ النَّاسُ: «وَلَدٌ سَيِّئٌ! يَرْكَبُ، وَأَبُوهُ يَمْشِي!»",
+     "uz": "Odamlar dedi: «Yomon bola! O'zi minib olgan, otasi esa piyoda!»"
+    },
+    {
+     "ar": "رَكِبَ جُحَا وَابْنُهُ الْحِمَارَ مَعًا.",
+     "uz": "Juha va o'g'li eshakka birga minishdi."
+    },
+    {
+     "ar": "قَالَ النَّاسُ: «حِمَارٌ مِسْكِينٌ!»",
+     "uz": "Odamlar dedi: «Bechora eshak!»"
+    },
+    {
+     "ar": "فِي النِّهَايَةِ، حَمَلَ جُحَا وَابْنُهُ الْحِمَارَ!",
+     "uz": "Oxirida Juha va o'g'li eshakni ko'tarib olishdi!"
+    },
+    {
+     "ar": "ضَحِكَ النَّاسُ، وَقَالَ جُحَا: «كَلَامُ النَّاسِ لَا يَنْتَهِي!»",
+     "uz": "Odamlar kulishdi, Juha esa dedi: «Odamlarning gapi tugamaydi!»"
+    }
+   ],
+   "lugat": {
+    "ذَهَبَ": "ketdi, bordi",
+    "جُحَا": "Juha",
+    "وَابْنُهُ": "va uning o'g'li",
+    "وَالْحِمَارُ": "va eshak",
+    "إِلَى": "...ga (yo'nalish)",
+    "السُّوقِ": "bozor",
+    "رَكِبَ": "mindi",
+    "الْحِمَارَ": "eshak(ni, ga)",
+    "وَمَشَى": "va piyoda yurdi",
+    "ابْنُهُ": "uning o'g'li",
+    "قَالَ": "dedi",
+    "النَّاسُ": "odamlar",
+    "أَبٌ": "ota",
+    "سَيِّئٌ": "yomon",
+    "يَرْكَبُ": "minib olgan, minadi",
+    "الصَّغِيرُ": "kichkina",
+    "يَمْشِي": "piyoda yuradi",
+    "نَزَلَ": "tushdi",
+    "وَرَكِبَ": "va mindi",
+    "وَلَدٌ": "bola, o'g'il bola",
+    "وَأَبُوهُ": "uning otasi esa",
+    "مَعًا": "birga",
+    "حِمَارٌ": "eshak",
+    "مِسْكِينٌ": "bechora",
+    "فِي": "-da (فِي النِّهَايَةِ — oxirida)",
+    "النِّهَايَةِ": "oxir, yakun",
+    "حَمَلَ": "ko'tardi",
+    "ضَحِكَ": "kuldi",
+    "وَقَالَ": "va dedi",
+    "كَلَامُ": "gap, so'z",
+    "النَّاسِ": "odamlar(ning)",
+    "لَا": "yo'q, emas (inkor)",
+    "يَنْتَهِي": "tugaydi"
+   },
+   "savollar": [
+    {
+     "savol": "Juha va o'g'li qayerga ketyapti?",
+     "v": [
+      "Bozorga",
+      "Maktabga",
+      "Uyga",
+      "Dalaga"
+     ],
+     "t": 0
+    },
+    {
+     "savol": "O'g'li eshakda, Juha piyoda bo'lganda odamlar nima dedi?",
+     "v": [
+      "Yomon ota!",
+      "Yomon bola!",
+      "Bechora eshak!",
+      "Yaxshi bola!"
+     ],
+     "t": 1
+    },
+    {
+     "savol": "Oxirida Juha va o'g'li nima qildi?",
+     "v": [
+      "Uyga qaytishdi",
+      "Eshakni sotishdi",
+      "Eshakni ko'tarib olishdi",
+      "Ikkalasi eshakka minishdi"
+     ],
+     "t": 2
+    },
+    {
+     "savol": "Juhaning oxirgi gapi nimani anglatadi?",
+     "v": [
+      "Eshak juda og'ir",
+      "Bozor uzoq",
+      "O'g'li yomon bola",
+      "Hammaga yoqib bo'lmaydi — odamlar baribir gapiradi"
+     ],
+     "t": 3
+    }
+   ]
+  },
+  {
+   "id": "juha-qozon",
+   "daraja": "A1",
+   "em": "🍲",
+   "nom_ar": "قِدْرُ جُحَا",
+   "nom_uz": "Juhaning qozoni",
+   "juha": true,
+   "gaplar": [
+    {
+     "ar": "أَخَذَ جُحَا قِدْرًا كَبِيرَةً مِنْ جَارِهِ.",
+     "uz": "Juha qo'shnisidan katta qozon oldi."
+    },
+    {
+     "ar": "بَعْدَ أُسْبُوعٍ، أَعَادَ جُحَا الْقِدْرَ، وَفِيهَا قِدْرٌ صَغِيرَةٌ.",
+     "uz": "Bir haftadan keyin Juha qozonni qaytardi, ichida esa kichkina qozon bor edi."
+    },
+    {
+     "ar": "قَالَ جُحَا: «مُبَارَكٌ! قِدْرُكَ وَلَدَتْ!»",
+     "uz": "Juha dedi: «Muborak bo'lsin! Qozoning tug'di!»"
+    },
+    {
+     "ar": "فَرِحَ الْجَارُ كَثِيرًا، وَأَخَذَ الْقِدْرَ الْكَبِيرَةَ وَالصَّغِيرَةَ.",
+     "uz": "Qo'shni juda xursand bo'ldi va katta qozonni ham, kichigini ham oldi."
+    },
+    {
+     "ar": "بَعْدَ شَهْرٍ، أَخَذَ جُحَا الْقِدْرَ الْكَبِيرَةَ مَرَّةً أُخْرَى.",
+     "uz": "Bir oydan keyin Juha katta qozonni yana oldi."
+    },
+    {
+     "ar": "مَرَّ أُسْبُوعٌ، وَسَأَلَ الْجَارُ: «يَا جُحَا، أَيْنَ قِدْرِي؟»",
+     "uz": "Bir hafta o'tdi, qo'shni so'radi: «Juha, qozonim qani?»"
+    },
+    {
+     "ar": "قَالَ جُحَا: «آسِفٌ، قِدْرُكَ مَاتَتْ!»",
+     "uz": "Juha dedi: «Kechirasan, qozoning o'lib qoldi!»"
+    },
+    {
+     "ar": "قَالَ الْجَارُ: «مَاتَتْ؟! الْقِدْرُ لَا تَمُوتُ!»",
+     "uz": "Qo'shni dedi: «O'ldimi?! Qozon o'lmaydi-ku!»"
+    },
+    {
+     "ar": "قَالَ جُحَا: «الْقِدْرُ تَلِدُ، وَلَا تَمُوتُ؟!»",
+     "uz": "Juha dedi: «Qozon tug'adi-yu, o'lmaydimi?!»"
+    }
+   ],
+   "lugat": {
+    "أَخَذَ": "oldi",
+    "جُحَا": "Juha",
+    "قِدْرًا": "qozon",
+    "كَبِيرَةً": "katta",
+    "مِنْ": "-dan",
+    "جَارِهِ": "uning qo'shnisi",
+    "بَعْدَ": "keyin, -dan keyin",
+    "أُسْبُوعٍ": "hafta",
+    "أَعَادَ": "qaytardi",
+    "الْقِدْرَ": "qozon(ni)",
+    "وَفِيهَا": "uning ichida esa",
+    "قِدْرٌ": "qozon",
+    "صَغِيرَةٌ": "kichkina",
+    "قَالَ": "dedi",
+    "مُبَارَكٌ": "muborak bo'lsin!",
+    "قِدْرُكَ": "sening qozoning",
+    "وَلَدَتْ": "tug'di",
+    "فَرِحَ": "xursand bo'ldi",
+    "الْجَارُ": "qo'shni",
+    "كَثِيرًا": "juda, ko'p",
+    "وَأَخَذَ": "va oldi",
+    "الْكَبِيرَةَ": "katta(sini)",
+    "وَالصَّغِيرَةَ": "va kichkina(sini)",
+    "شَهْرٍ": "oy (30 kun)",
+    "مَرَّةً": "marta",
+    "أُخْرَى": "boshqa (مَرَّةً أُخْرَى — yana bir marta)",
+    "مَرَّ": "o'tdi",
+    "أُسْبُوعٌ": "hafta",
+    "وَسَأَلَ": "va so'radi",
+    "يَا": "ey (murojaat)",
+    "أَيْنَ": "qayerda? qani?",
+    "قِدْرِي": "mening qozonim",
+    "آسِفٌ": "kechirasan, uzr",
+    "مَاتَتْ": "o'ldi (ayol jinsi)",
+    "الْقِدْرُ": "qozon",
+    "لَا": "yo'q, emas (inkor)",
+    "تَمُوتُ": "o'ladi",
+    "تَلِدُ": "tug'adi",
+    "وَلَا": "va ... emas"
+   },
+   "savollar": [
+    {
+     "savol": "Juha qo'shnisidan nima oldi?",
+     "v": [
+      "Eshak",
+      "Qozon",
+      "Pul",
+      "Kitob"
+     ],
+     "t": 1
+    },
+    {
+     "savol": "Juha qozonni birinchi marta qaytarganda ichida nima bor edi?",
+     "v": [
+      "Kichkina qozon",
+      "Ovqat",
+      "Pul",
+      "Hech narsa"
+     ],
+     "t": 0
+    },
+    {
+     "savol": "Ikkinchi marta Juha qozon haqida nima dedi?",
+     "v": [
+      "Qozon tug'di",
+      "Qozon sindi",
+      "Qozon o'ldi",
+      "Qozon yo'qoldi"
+     ],
+     "t": 2
+    },
+    {
+     "savol": "Qo'shni nega birinchi marta xursand bo'ldi?",
+     "v": [
+      "Juha unga pul berdi",
+      "Juha uni mehmonga chaqirdi",
+      "Juha qozonni sotib oldi",
+      "Unga kichkina qozon ham berildi"
+     ],
+     "t": 3
+    }
+   ]
+  },
+  {
+   "id": "telefonsiz-kun",
+   "daraja": "A1",
+   "em": "📵",
+   "nom_ar": "يَوْمٌ بِدُونِ هَاتِفٍ",
+   "nom_uz": "Telefonsiz bir kun",
+   "juha": false,
+   "gaplar": [
+    {
+     "ar": "اِسْمِي سَارَةُ، وَأَنَا طَالِبَةٌ فِي الْجَامِعَةِ.",
+     "uz": "Ismim Sora, men universitetda talabaman."
+    },
+    {
+     "ar": "الْيَوْمَ هَاتِفِي لَا يَعْمَلُ!",
+     "uz": "Bugun telefonim ishlamayapti!"
+    },
+    {
+     "ar": "لَا رَسَائِلَ، وَلَا أَلْعَابَ، وَلَا مُوسِيقَى.",
+     "uz": "Na xabar bor, na o'yin, na musiqa."
+    },
+    {
+     "ar": "أَذْهَبُ إِلَى الْجَامِعَةِ مَشْيًا، وَأَنْظُرُ إِلَى الشَّارِعِ وَالنَّاسِ.",
+     "uz": "Universitetga piyoda boraman, ko'chaga va odamlarga qarayman."
+    },
+    {
+     "ar": "فِي الدَّرْسِ، أَسْتَمِعُ إِلَى الْمُعَلِّمِ جَيِّدًا، وَأَكْتُبُ كَثِيرًا.",
+     "uz": "Darsda o'qituvchini diqqat bilan tinglayman va ko'p yozaman."
+    },
+    {
+     "ar": "بَعْدَ الدَّرْسِ، أَجْلِسُ مَعَ صَدِيقَتِي مَرْيَمَ فِي الْمَقْهَى، وَنَتَكَلَّمُ سَاعَةً كَامِلَةً.",
+     "uz": "Darsdan keyin dugonam Maryam bilan kafeda o'tiraman, biz to'liq bir soat gaplashamiz."
+    },
+    {
+     "ar": "فِي الْمَسَاءِ، أَقْرَأُ كِتَابًا، وَأَنَامُ مُبَكِّرًا.",
+     "uz": "Kechqurun kitob o'qiyman va erta uxlayman."
+    },
+    {
+     "ar": "يَوْمٌ بِدُونِ هَاتِفٍ، يَوْمٌ جَمِيلٌ!",
+     "uz": "Telefonsiz kun — ajoyib kun!"
+    }
+   ],
+   "lugat": {
+    "اِسْمِي": "mening ismim",
+    "سَارَةُ": "Sora (ism)",
+    "وَأَنَا": "va men",
+    "طَالِبَةٌ": "talaba (qiz)",
+    "فِي": "-da, ichida",
+    "الْجَامِعَةِ": "universitet",
+    "الْيَوْمَ": "bugun",
+    "هَاتِفِي": "mening telefonim",
+    "لَا": "yo'q; -ma (inkor)",
+    "يَعْمَلُ": "ishlaydi",
+    "رَسَائِلَ": "xabarlar",
+    "وَلَا": "va ... yo'q (na ... na)",
+    "أَلْعَابَ": "o'yinlar",
+    "مُوسِيقَى": "musiqa",
+    "أَذْهَبُ": "(men) boraman",
+    "إِلَى": "...ga (yo'nalish)",
+    "مَشْيًا": "piyoda",
+    "وَأَنْظُرُ": "va (men) qarayman",
+    "الشَّارِعِ": "ko'cha",
+    "وَالنَّاسِ": "va odamlar",
+    "الدَّرْسِ": "dars",
+    "أَسْتَمِعُ": "(men) tinglayman",
+    "الْمُعَلِّمِ": "o'qituvchi",
+    "جَيِّدًا": "yaxshi, diqqat bilan",
+    "وَأَكْتُبُ": "va (men) yozaman",
+    "كَثِيرًا": "ko'p",
+    "بَعْدَ": "keyin, -dan keyin",
+    "أَجْلِسُ": "(men) o'tiraman",
+    "مَعَ": "bilan",
+    "صَدِيقَتِي": "mening dugonam",
+    "مَرْيَمَ": "Maryam (ism)",
+    "الْمَقْهَى": "kafe",
+    "وَنَتَكَلَّمُ": "va (biz) gaplashamiz",
+    "سَاعَةً": "soat (vaqt)",
+    "كَامِلَةً": "to'liq, butun",
+    "الْمَسَاءِ": "kech (فِي الْمَسَاءِ — kechqurun)",
+    "أَقْرَأُ": "(men) o'qiyman",
+    "كِتَابًا": "kitob",
+    "وَأَنَامُ": "va (men) uxlayman",
+    "مُبَكِّرًا": "erta",
+    "يَوْمٌ": "kun",
+    "بِدُونِ": "...siz (بِدُونِ هَاتِفٍ — telefonsiz)",
+    "هَاتِفٍ": "telefon",
+    "جَمِيلٌ": "chiroyli, ajoyib"
+   },
+   "savollar": [
+    {
+     "savol": "Bugun Soraning qaysi narsasi ishlamayapti?",
+     "v": [
+      "Kompyuteri",
+      "Soati",
+      "Telefoni",
+      "Mashinasi"
+     ],
+     "t": 2
+    },
+    {
+     "savol": "Sora universitetga qanday boradi?",
+     "v": [
+      "Piyoda",
+      "Avtobusda",
+      "Taksida",
+      "Velosipedda"
+     ],
+     "t": 0
+    },
+    {
+     "savol": "Darsdan keyin Sora nima qiladi?",
+     "v": [
+      "Uyga boradi",
+      "Kutubxonaga boradi",
+      "Maryam bilan kafeda gaplashadi",
+      "Sport bilan shug'ullanadi"
+     ],
+     "t": 2
+    },
+    {
+     "savol": "Sora bu kun haqida nima deydi?",
+     "v": [
+      "Zerikarli kun",
+      "Og'ir kun",
+      "Yomon kun",
+      "Ajoyib kun"
+     ],
+     "t": 3
+    }
+   ]
+  }
+ ]
+}
