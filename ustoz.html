@@ -59,6 +59,52 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
 .olay .x{margin-left:auto;border:0;background:#2A3164;color:var(--ink);border-radius:50%;width:40px;height:40px;font-size:18px;cursor:pointer}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;background:#000;color:#fff;padding:11px 18px;border-radius:14px;font-weight:800;z-index:40;max-width:calc(100% - 32px)}
 @media (max-width:600px){.stats{grid-template-columns:1fr}}
+
+/* ===== 👁 Kuzatish (Meetda ekran ulash uchun) ===== */
+#o-kuzat{padding:0;overflow:auto;background:radial-gradient(1200px 600px at 50% -10%,#232A63 0,#0E1230 60%)}
+.kz{max-width:1200px;margin:0 auto;padding:16px 20px 30px}
+.kz-tepa{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.kz-tepa .nom{font-size:22px;font-weight:900}
+.kz-tepa .rd{color:var(--brand);font-weight:900;font-size:18px}
+.kz-tepa .n{color:var(--soft);font-weight:900;font-size:18px}
+.kz-taymer{margin-left:auto;font-size:40px;font-weight:900;min-width:90px;text-align:center;font-variant-numeric:tabular-nums}
+.kz-taymer.oz{color:var(--red)}
+.kz-bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden;margin:10px 0 16px}
+.kz-bar u{display:block;height:100%;background:var(--brand);transition:width .25s linear}
+.kz-asos{display:grid;grid-template-columns:1.5fr 1fr;gap:18px}
+@media (max-width:860px){.kz-asos{grid-template-columns:1fr}}
+.kz-savol{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px}
+.kz-savol .lv{display:inline-block;padding:4px 12px;border-radius:99px;background:#2A3164;font-weight:900;margin-bottom:8px}
+.kz-savol .mt{font-size:24px;font-weight:900;text-align:center;margin:4px 0 10px}
+.kz-savol .ar{font-family:"Noto Naskh Arabic","Traditional Arabic",serif;font-size:44px;direction:rtl;text-align:center;line-height:1.6}
+.kz-savol .uz{text-align:center;color:var(--soft);font-size:18px;margin-bottom:6px}
+.kz-var{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.kz-var div{background:#232A5C;border:2px solid var(--line);border-radius:18px;padding:16px;font-size:22px;font-weight:900;text-align:center;position:relative}
+.kz-var div.arv{font-family:"Noto Naskh Arabic","Traditional Arabic",serif;font-size:32px;direction:rtl;font-weight:600}
+.kz-var div.ok{background:#1E4D33;border-color:var(--green)}
+.kz-var div .jm{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-top:6px;direction:ltr}
+.kz-var div .jm span,.kz-bolak .jm span{font-family:Nunito,system-ui,sans-serif;font-size:12px;font-weight:900;padding:2px 8px;border-radius:99px;color:#fff}
+.kz-bolak{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;direction:rtl;margin-top:14px}
+.kz-bolak b{font-family:"Noto Naskh Arabic","Traditional Arabic",serif;font-weight:600;font-size:30px;background:#232A5C;border:2px solid var(--line);border-radius:14px;padding:4px 16px}
+.kz-togri{margin-top:14px;padding:12px;border-radius:16px;background:#1E4D33;border:2px solid var(--green);text-align:center;font-weight:900;font-size:18px}
+.kz-togri .ar{font-size:34px}
+.kz-yon .kz-j{background:var(--card);border:1px solid var(--line);border-left:8px solid var(--jr);border-radius:20px;padding:14px;margin-bottom:12px}
+.kz-j .bosh{display:flex;align-items:center;gap:8px;font-weight:900;font-size:19px;color:var(--ink)}
+.kz-j .bosh .bl{margin-left:auto;font-size:26px}
+.kz-j .yo{height:30px;border-radius:99px;background:var(--line);position:relative;margin:10px 0}
+.kz-j .yo u{position:absolute;left:0;top:0;bottom:0;border-radius:99px;opacity:.45;transition:width .8s}
+.kz-j .yo i{position:absolute;top:50%;transform:translate(-50%,-50%);font-size:24px;font-style:normal;transition:left .8s}
+.kz-j .hol{font-weight:900;font-size:16px}
+.kz-j .hol.ok{color:var(--green)}.kz-j .hol.no{color:var(--red)}.kz-j .hol.kut{color:var(--soft)}
+.kz-j .az{color:var(--soft);font-size:13px;margin-top:6px}
+.kz-j .az b{color:var(--brand)}
+.kz-katta{text-align:center;padding:40px 10px}
+.kz-katta .em{font-size:80px}
+.kz-katta h2{font-size:40px;margin:6px 0}
+.kz-katta p{color:var(--soft);font-size:20px;margin:4px 0}
+.kz-katta .sn{font-size:72px;font-weight:900;margin-top:10px;font-variant-numeric:tabular-nums}
+.kz-podium{display:flex;align-items:flex-end;justify-content:center;gap:12px;margin:20px 0}
+.kz-podium div{width:180px;border-radius:18px 18px 0 0;color:#fff;font-weight:900;font-size:18px;padding:12px 6px;text-align:center}
 </style>
 </head>
 <body>
@@ -131,6 +177,13 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
   </main>
 </div>
 
+<div class="olay" id="o-kuzat" hidden><div class="kz">
+  <div class="kz-tepa"><span class="nom">🐪 Karvon poygasi</span><span class="rd" id="kz-rd"></span><span class="n" id="kz-n"></span>
+    <button class="btn sm alt" type="button" id="kz-tingla" hidden>🔊 Eshittirish</button><span class="kz-taymer" id="kz-t"></span>
+    <button class="x" type="button" id="kz-yop" style="margin-left:0">✕</button></div>
+  <div class="kz-bar"><u id="kz-bar"></u></div>
+  <div id="kz"></div>
+</div></div>
 <div class="toast" id="toast" hidden></div>
 
 <script>
@@ -343,6 +396,7 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
       if (d.sinov) h += '<button class="btn sm alt" data-kv="bekor">✖ Sinovni bekor qilish</button>';
     }
     if (!d.sinov || d.holat === "tugadi") h += '<button class="btn sm alt" data-kv="sinov">🧪 Sinov poygasi ochish</button>';
+    h += '<button class="btn sm" data-kv="kuzat">👁 Kuzatish</button>';
     h += '</div>';
     if (d.natija && d.natija.jamoalar) h += '<div style="margin-top:14px">' + d.natija.jamoalar.map(function(j){
       return '<div class="row"><span class="ava" style="background:' + esc(j.rang) + ';color:#fff">' + j.orin + '</span><div class="g"><b>' + esc(j.nom) + ' · ' + j.ball + ' ball</b><span>' + esc(j.azolar.join(", ")) + ' · +' + j.xp + ' XP</span></div></div>';
@@ -363,6 +417,7 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
   $("kv-holat").addEventListener("click", function(e){
     var b = e.target.closest("[data-kv]"); if (!b) return;
     var a = b.getAttribute("data-kv"), ish;
+    if (a === "kuzat") return kzOch();
     if (a === "toxtat") ish = rpc("karvon_pauza", { p_karvon: KV.karvon, p_toxtat: true });
     if (a === "davom") ish = rpc("karvon_pauza", { p_karvon: KV.karvon, p_toxtat: false });
     if (a === "hozir"){ if (!confirm("Poyga 15 soniyadan keyin boshlansinmi?")) return; ish = rpc("karvon_hozir", { p_karvon: KV.karvon }); }
@@ -391,6 +446,89 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
     var sek = document.querySelector('main section[data-s="karvon"]');
     if (sek && !sek.hidden && !document.querySelector("#kv-ishtirok select:focus")) yuklaKarvon().catch(function(){});
   }, 3000);
+
+
+  // ---------- 👁 kuzatish: savol, yo'lak, kim javob berdi, taymer (to'g'ri javob faqat vaqt tugagach) ----------
+  var KZ = null, KZT = null, KZV = 0, KZA = new Audio(), KZQI = -1;
+  var KZ_LV = { oson: "🟢 Oson · 1×", orta: "🟡 O'rta · 2×", qiyin: "🔴 Qiyin · 3×" };
+  var KZ_RD = { 1: ["🎧", "Tinglash", "So'zni eshiting va to'g'risini toping"], 2: ["💬", "Vaziyatlar", "Shunday paytda arabcha nima deysiz?"],
+                3: ["🔀", "Tartiblash", "So'zlarni to'g'ri tartibda tering"], 4: ["💡", "Qiziqarli faktlar", "Arab tili va arab dunyosi haqida"],
+                5: ["👑", "Final: Shoh tuya sinovi", "Karvonboshi qiyinlikni tanlaydi: oson 1×, o'rta 2×, qiyin 3×"] };
+  function kzOch(){ $("o-kuzat").hidden = false; kzYukla(); clearInterval(KZT); clearInterval(kzTaymer.t); KZT = setInterval(function(){ kzYukla(); }, 1000); kzTaymer.t = setInterval(kzTaymer, 200); }
+  function kzYop(){ $("o-kuzat").hidden = true; clearInterval(KZT); clearInterval(kzTaymer.t); KZA.pause(); }
+  $("kz-yop").addEventListener("click", kzYop);
+  function kzYukla(){
+    return rpc("karvon_kuzat").then(function(d){ KZ = d; KZV = Date.now(); kzChiz(); }).catch(function(){});
+  }
+  function kzQolgan(){ return KZ ? Math.max(0, KZ.qolgan - (KZ.pauza ? 0 : Date.now() - KZV)) : 0; }
+  function kzTaymer(){
+    var d = KZ; if (!d) return;
+    var q = kzQolgan(), t = $("kz-t"), bar = $("kz-bar");
+    if (d.faza === "savol"){ t.textContent = Math.ceil(q / 1000); t.className = "kz-taymer" + (q < 5000 ? " oz" : ""); bar.style.width = Math.min(100, q * 100 / (d.muddat || 1)) + "%"; }
+    else if (d.faza === "kutish"){ t.textContent = kvVaqt(q / 1000); t.className = "kz-taymer"; bar.style.width = "0%"; }
+    else if (d.faza === "raund" || d.faza === "tanlov" || d.faza === "javob"){ t.textContent = Math.ceil(q / 1000); t.className = "kz-taymer"; bar.style.width = "0%"; }
+    else { t.textContent = ""; bar.style.width = "0%"; }
+    var sn = $("kz-sn"); if (sn) sn.textContent = d.faza === "kutish" ? kvVaqt(q / 1000) : Math.ceil(q / 1000);
+  }
+  function kzChiz(){
+    var d = KZ, h = "";
+    if (!d || !d.karvon){ $("kz").innerHTML = '<div class="kz-katta"><div class="em">🐪</div><h2>Hozir poyga yo\'q</h2></div>'; return; }
+    var rd = KZ_RD[d.raund] || null;
+    $("kz-rd").textContent = rd ? rd[0] + " " + (d.raund < 5 ? d.raund + "-raund: " : "") + rd[1] : (d.sinov ? "🧪 Sinov" : "");
+    $("kz-n").textContent = d.qi != null ? "· savol " + (d.qi + 1) + " / " + d.jami : "";
+    var sv0 = d.savollar && d.savollar[0] && d.savollar[0].s;
+    $("kz-tingla").hidden = !(sv0 && sv0.audio && (d.faza === "savol" || d.faza === "javob"));
+    if (d.qi !== KZQI){ KZQI = d.qi; if (d.faza === "savol" && sv0 && sv0.audio){ KZA.src = sv0.audio; KZA.currentTime = 0; KZA.play().catch(function(){}); } }
+    var eng = Math.max.apply(null, d.jamoalar.map(function(j){ return j.ball; }).concat([1]));
+    var yol = d.jamoalar.map(function(j){
+      var p = 5 + j.ball * 88 / eng, hol, boshliq = j.azolar.filter(function(a){ return a.boshliq; })[0], onl = j.azolar.filter(function(a){ return a.onlayn; }).length;
+      if (d.pauza) hol = '<span class="hol kut">⏸ Kutyapti</span>';
+      else if (d.faza === "savol") hol = j.javob_berdi ? '<span class="hol ok">✅ Javob berdi</span>' : '<span class="hol kut">⏳ O\'ylayapti…</span>';
+      else if (d.faza === "javob") hol = j.togri ? '<span class="hol ok">✅ To\'g\'ri · +' + j.olgan + '</span>' : (j.javob ? '<span class="hol no">❌ Noto\'g\'ri</span>' : '<span class="hol no">⏱ Javob bermadi</span>');
+      else if (d.faza === "tanlov") hol = j.daraja ? '<span class="hol ok">' + KZ_LV[j.daraja] + '</span>' : '<span class="hol kut">⏳ Qiyinlikni tanlayapti…</span>';
+      else hol = "";
+      return '<div class="kz-j" style="--jr:' + esc(j.rang) + '"><div class="bosh"><span style="color:' + esc(j.rang) + '">🐪</span>' + esc(j.nom) + '<span class="bl">' + j.ball + '</span></div>' +
+        '<div class="yo"><u style="width:' + p + '%;background:' + esc(j.rang) + '"></u><i style="left:' + p + '%">🐪</i></div>' + hol +
+        '<div class="az">' + (boshliq ? '👑 <b>' + esc(boshliq.ism.split(" ")[0]) + '</b> · ' : "") + '● ' + onl + ' / ' + j.azolar.length + ' onlayn' +
+        (d.final && j.daraja && d.faza !== "tanlov" ? ' · ' + KZ_LV[j.daraja] : "") + '</div></div>';
+    }).join("");
+    if (d.faza === "tugadi"){
+      var jj = (d.natija && d.natija.jamoalar) || [];
+      h = '<div class="kz-katta"><div class="em">🏁</div><h2>Poyga tugadi!</h2><div class="kz-podium">' +
+        [jj[1], jj[0], jj[2]].map(function(j, i){ return j ? '<div style="background:' + esc(j.rang) + ';height:' + [150, 200, 120][i] + 'px">' + ["🥈", "🥇", "🥉"][i] + '<br>' + esc(j.nom) + '<br>' + j.ball + '</div>' : ""; }).join("") + '</div>' +
+        jj.map(function(j){ return '<p><b style="color:' + esc(j.rang) + '">' + j.orin + '. ' + esc(j.nom) + '</b> — ' + j.ball + ' ball · ' + esc(j.azolar.join(", ")) + '</p>'; }).join("") + '</div>';
+    } else if (d.faza === "kutish"){
+      h = '<div class="kz-asos"><div class="kz-katta"><div class="em">🐪</div><h2>' + (d.pauza ? "⏸ Biroz kutamiz" : "Poyga boshlanishiga") + '</h2>' + (d.pauza ? "" : '<div class="sn" id="kz-sn"></div>') +
+          '<p>Ishtirokchilar: ' + d.ishtirokchilar + ' kishi</p></div><div class="kz-yon">' + yol + '</div></div>';
+    } else if (d.faza === "raund"){
+      h = '<div class="kz-asos"><div class="kz-katta"><div class="em">' + rd[0] + '</div><h2>' + (d.raund < 5 ? d.raund + "-raund" : "Final") + '</h2><p style="font-size:26px;color:var(--ink);font-weight:900">' + esc(rd[1]) + '</p><p>' + esc(rd[2]) + '</p><div class="sn" id="kz-sn"></div></div><div class="kz-yon">' + yol + '</div></div>';
+    } else if (d.faza === "tanlov"){
+      h = '<div class="kz-asos"><div class="kz-katta"><div class="em">👑</div><h2>Karvonboshilar qiyinlikni tanlayapti</h2><p>🟢 Oson 1× · 🟡 O\'rta 2× · 🔴 Qiyin 3×</p><div class="sn" id="kz-sn"></div></div><div class="kz-yon">' + yol + '</div></div>';
+    } else {
+      var javob = d.faza === "javob", sav = (d.savollar || []).map(function(x){
+        var sv = x.s || {}, c = '<div class="kz-savol" style="margin-bottom:14px">';
+        if (x.daraja){ var kim = d.jamoalar.filter(function(j){ return (j.daraja || "oson") === x.daraja; }).map(function(j){ return esc(j.nom); }).join(", ");
+          c += '<span class="lv">' + KZ_LV[x.daraja] + ' · ' + kim + '</span>'; }
+        c += '<div class="mt">' + esc(sv.matn || "") + '</div>';
+        if (sv.ar && typeof sv.ar === "string") c += '<div class="ar">' + esc(sv.ar) + '</div>';
+        if (sv.uz) c += '<div class="uz">' + esc(sv.uz) + '</div>';
+        var jam = function(v){ if (!javob) return ""; var t = d.jamoalar.filter(function(j){ return j.javob === v && (!x.daraja || (j.daraja || "oson") === x.daraja); });
+          return t.length ? '<span class="jm">' + t.map(function(j){ return '<span style="background:' + esc(j.rang) + '">' + esc(j.nom) + '</span>'; }).join("") + '</span>' : ""; };
+        if (sv.bolak){
+          c += '<div class="kz-bolak">' + sv.bolak.map(function(w){ return '<b>' + esc(w) + '</b>'; }).join("") + '</div>';
+          if (javob && x.togri) c += '<div class="kz-togri">✅ To\'g\'ri javob<div class="ar">' + esc(x.togri) + '</div></div>';
+        } else if (sv.var){
+          var arv = sv.ar === true || sv.arvar;
+          c += '<div class="kz-var">' + sv.var.map(function(v){ return '<div class="' + (arv ? "arv" : "") + (javob && v === x.togri ? " ok" : "") + '">' + (javob && v === x.togri ? "✅ " : "") + esc(v) + jam(v) + '</div>'; }).join("") + '</div>';
+        }
+        return c + '</div>';
+      }).join("");
+      h = '<div class="kz-asos"><div>' + sav + '</div><div class="kz-yon">' + yol + '</div></div>';
+    }
+    if ($("kz").getAttribute("data-h") !== h){ $("kz").innerHTML = h; $("kz").setAttribute("data-h", h); }
+    kzTaymer();
+  }
+  $("kz-tingla").addEventListener("click", function(){ var s = KZ && KZ.savollar && KZ.savollar[0] && KZ.savollar[0].s; if (s && s.audio){ KZA.src = s.audio; KZA.currentTime = 0; KZA.play().catch(function(){}); } });
 
   // ---------- boshlash ----------
   function boshla(){
