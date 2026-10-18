@@ -1474,7 +1474,8 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
         h += meniki ? '<div class="card kv-jamoa" style="--jr:' + esc(meniki.rang) + '"><b style="font-weight:900">🐪 Jamoangiz: ' + esc(meniki.nom) + '</b>' + kvAzolar(meniki) + '</div>'
                     : '<div class="card"><b style="font-weight:900">🐪 Jamoangiz hali belgilanmagan</b><p class="soft" style="margin:6px 0 0">Ustoz jamoalarga joylayapti. Joylanmasangiz, boshlanishda o\'zingiz bir jamoaga qo\'shilasiz.</p></div>';
         h += '<button class="btn wide" type="button" id="kv-video">🎥 Kutish xonasiga kirish</button>';
-      } else h += '<div class="card"><p class="soft" style="margin:0">Bu poygada qatnashmayapsiz. Natijalarni shu yerda kuzatishingiz mumkin.</p></div>';
+      } else if (d.royxat_ochiq && d.chipta && !oyinda) h += '<button class="btn wide" type="button" id="kv-qatnash">🐪 Qatnashaman</button>';
+      else h += '<div class="card"><p class="soft" style="margin:0">Bu poygada qatnashmayapsiz. Natijalarni shu yerda kuzatishingiz mumkin.</p></div>';
       if (d.jamoalar.length) h += '<div class="card"><b style="font-weight:900">Karvonlar</b>' + d.jamoalar.map(function(j){ return '<div class="lb"><span style="color:' + esc(j.rang) + '">🐪</span><span>' + esc(j.nom) + ' <span class="soft">· ' + j.azolar.length + ' kishi</span></span><span class="x">' + j.ball + '</span></div>'; }).join("") + '</div>';
     } else {
       var ochiq = d.royxat_ochiq;
