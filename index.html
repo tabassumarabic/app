@@ -764,7 +764,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   function ktOqildi(){ try { return JSON.parse(get("tb_hikoya_oqildi") || "{}"); } catch(e){ return {}; } }
   function ktOch(){
     $("o-kutubxona").hidden = false;
-    var yukla = KT.d ? Promise.resolve() : fetch("kutubxona.json?v=2").then(function(r){ return r.json(); }).then(function(d){ KT.d = d; });
+    var yukla = KT.d ? Promise.resolve() : fetch("kutubxona.json?v=3").then(function(r){ return r.json(); }).then(function(d){ KT.d = d; });
     yukla.then(ktChiz).catch(function(){ $("kt").innerHTML = '<p class="soft">Internet bilan bog\'lanib bo\'lmadi.</p>'; });
   }
   function ktChiz(){
