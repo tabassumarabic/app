@@ -135,6 +135,37 @@ input:focus{border-color:var(--accent)}
 .kd-nishan.bitdi{background:#3FA34D}
 .kd-yol button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:2px solid var(--inputBorder);background:var(--card);color:var(--ink);border-radius:16px;padding:14px;margin-top:10px;font:inherit;cursor:pointer}
 .kd-yol button.tavsiya{border-color:var(--accent)}
+/* ===== Dars xaritasi (grammatika) ===== */
+.kd-tab{display:flex;gap:8px;margin:2px 0 12px}
+.kd-tab button{flex:1;border:0;padding:10px;border-radius:14px;background:var(--card);color:var(--soft);font:inherit;font-weight:900;cursor:pointer}
+.kd-tab button.on{background:var(--accent);color:var(--btnInk)}
+.dx-osmon{position:relative;border-radius:24px;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,#2A2470 0%,#14183F 55%,#0E1230 100%);padding:16px 0 26px;box-shadow:inset 0 0 0 1px #2B3163;color:#F3EEDC}
+.dx-osmon::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(1.5px 1.5px at 8% 12%,#fff9,transparent),radial-gradient(1px 1px at 22% 30%,#fff7,transparent),radial-gradient(1.5px 1.5px at 85% 8%,#fffa,transparent),radial-gradient(1px 1px at 70% 22%,#fff6,transparent),radial-gradient(1.5px 1.5px at 92% 40%,#fff8,transparent),radial-gradient(1px 1px at 12% 55%,#fff6,transparent),radial-gradient(1.5px 1.5px at 78% 62%,#fff7,transparent),radial-gradient(1px 1px at 30% 78%,#fff6,transparent)}
+.dx-hudud{position:relative;text-align:center;margin:0 14px 6px;padding:12px;border-radius:18px;background:#ffffff10;border:1px solid #ffffff1a}
+.dx-hudud .ar{font-family:"Noto Naskh Arabic",serif;font-size:22px;color:#F2B84B}
+.dx-hudud small{display:block;color:#A9A6C9;font-weight:800}
+.dx-hudud .bar{height:8px;margin:8px 20px 0;background:#2B3163}
+.dx-yol{position:relative}
+.dx-yol svg{position:absolute;inset:0;width:100%;height:100%}
+.dx-tugun{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;width:150px;border:0;background:none;color:inherit;font:inherit;cursor:pointer;padding:0}
+.dx-dum{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:26px;font-weight:900}
+.dx-tugun.ot .dx-dum{background:linear-gradient(160deg,#FFD978,#E3A72F);color:#1B1640;box-shadow:0 5px 0 #A8741A,0 0 22px #F2B84B66}
+.dx-tugun.joriy .dx-dum{width:82px;height:82px;background:conic-gradient(#F2B84B var(--f,0%),#2B3163 0);padding:6px;box-shadow:0 0 0 6px #F2B84B33,0 0 34px #F2B84Baa;animation:dxnur 1.8s ease-in-out infinite}
+.dx-tugun.joriy .dx-dum b{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:#20265A;font-size:28px;color:#fff}
+@keyframes dxnur{50%{box-shadow:0 0 0 12px #F2B84B22,0 0 44px #F2B84Bcc}}
+.dx-tugun.yopiq .dx-dum{background:#20265A;color:#59608F;border:3px dashed #39407A;font-size:22px}
+.dx-tugun.imt .dx-dum{border-radius:22px}
+.dx-nom{margin-top:6px;text-align:center;line-height:1.25;background:#0E1230cc;border-radius:12px;padding:3px 8px}
+.dx-nom .ar{font-family:"Noto Naskh Arabic",serif;font-size:18px;display:block}
+.dx-nom small{color:#A9A6C9;font-size:11.5px;font-weight:800}
+.dx-tugun.yopiq .dx-nom{opacity:.55}
+.dx-bayroq{position:absolute;top:-30px;background:#F2B84B;color:#1B1640;font-size:12px;font-weight:900;padding:4px 10px;border-radius:99px;white-space:nowrap}
+.dx-kun{display:flex;align-items:center;gap:12px;width:100%;padding:12px;border-radius:16px;background:var(--chip);border:0;margin-top:10px;color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.dx-kun:disabled{opacity:.6;cursor:default}
+.dx-kun .g{flex:1}.dx-kun small{display:block;color:var(--soft);font-size:12px}
+.imt-karta{text-align:center}
+.imt-karta .em{font-size:56px}
+.vz-vaqt{margin-left:auto;font-weight:900;font-variant-numeric:tabular-nums}
 /* ===== Daraja testi ===== */
 .dt-matn{font-family:"Noto Naskh Arabic",serif;font-size:21px;line-height:1.9;direction:rtl;text-align:right;background:var(--chip);color:var(--ink);border-radius:14px;padding:12px 14px;margin:0 0 14px}
 .dt-nishon{width:120px;height:120px;border-radius:50%;margin:6px auto 10px;display:grid;place-items:center;background:var(--accent);color:var(--btnInk);font-weight:900;font-size:40px;box-shadow:0 0 0 10px var(--chip)}
@@ -443,6 +474,8 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   <div class="card" id="ornat-yol"></div>
 </div></div>
 
+<div class="varaq-fon" id="o-dars" hidden><div class="varaq"><button class="x" type="button" data-yop-dars>✕</button><div id="dars-varaq"></div></div></div>
+
 <div class="olay" id="o-quti" hidden><div class="in">
   <div class="top-h"><b style="font-size:19px;font-weight:900">🧺 <span style="font-family:'Noto Naskh Arabic',serif">صُنْدُوقُ التَّمَارِينِ</span></b><button class="x" type="button" data-yopol>✕</button></div>
   <p class="soft" style="margin-top:0">Takrorlash qutisi: mavzular bo'yicha mashq va xatolaringiz ustida ishlash.</p>
@@ -706,6 +739,66 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     if (f === 1) return "Kecha";
     return ("0" + t.getDate()).slice(-2) + "." + ("0" + (t.getMonth() + 1)).slice(-2);
   }
+  var DX = null;
+  function dxYukla(){ return rpc("p_kunlik_xarita", { p_token: token }).then(function(r){ DX = r; dxChiz(); }); }
+  function dxChiz(){
+    if (!DX || KD.rejim !== "xarita") return;
+    var kunlar = DX.kunlar, darslar = [], bt = DX.bugun_tartib;
+    kunlar.forEach(function(k){
+      if (k.tur === "imtihon"){ darslar.push({ imt: true, kunlar: [k], tartib: k.tartib, nom: "🏆", izoh: k.sarlavha }); return; }
+      var x = darslar.filter(function(z){ return z.dars === k.dars; })[0];
+      if (!x){ x = { dars: k.dars, kunlar: [], nom: k.dars_nom, izoh: k.dars_izoh }; darslar.push(x); }
+      x.kunlar.push(k);
+    });
+    var jamiDars = darslar.filter(function(x){ return !x.imt; }).length, otgan = 0;
+    darslar.forEach(function(x){
+      var bajar = x.kunlar.every(function(k){ return x.imt ? k.otdi : k.bajarildi >= k.qism; });
+      var bor = x.kunlar.some(function(k){ return k.tartib === bt; });
+      x.holat = bajar ? "ot" : bor ? "joriy" : x.kunlar.some(function(k){ return k.ochiq; }) ? "ot" : "yopiq";
+      if (bajar && !x.imt) otgan++;
+      x.f = Math.round(x.kunlar.reduce(function(a, k){ return a + (k.bajarildi || 0); }, 0) * 100 / Math.max(1, x.kunlar.reduce(function(a, k){ return a + k.qism; }, 0)));
+    });
+    var W = 448, Y0 = 104, DY = 112, X = [0.5, 0.74, 0.5, 0.26], H = Y0 + darslar.length * DY + 30;
+    var pts = darslar.map(function(_, i){ return [W * X[i % 4], Y0 + i * DY]; });
+    var yol = "M" + pts[0][0] + " " + pts[0][1], joriyI = darslar.findIndex(function(x){ return x.holat === "joriy"; });
+    for (var i = 1; i < pts.length; i++){ var a = pts[i - 1], b = pts[i], my = (a[1] + b[1]) / 2; yol += " C" + a[0] + " " + my + " " + b[0] + " " + my + " " + b[0] + " " + b[1]; }
+    var tugadi = joriyI < 0 ? darslar.filter(function(x){ return x.holat === "ot"; }).length - 1 : joriyI;
+    var h = '<div class="dx-osmon"><div class="dx-hudud"><span class="ar">الْمُسْتَوَى التَّمْهِيدِيُّ</span><small>A0 · Boshlang\'ich daraja · ' + otgan + ' / ' + jamiDars + ' dars</small><div class="bar"><u style="width:' + Math.round(otgan * 100 / Math.max(1, jamiDars)) + '%"></u></div></div>' +
+      '<div class="dx-yol" style="height:' + H + 'px"><svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none"><path d="' + yol + '" stroke="#39407A" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="2 18"/>' +
+      (tugadi > 0 ? '<path d="' + yol.split(" C").slice(0, tugadi + 1).join(" C") + '" stroke="#F2B84B" stroke-width="8" fill="none" stroke-linecap="round" opacity=".85"/>' : "") + '</svg>';
+    darslar.forEach(function(x, i){
+      var dum = x.holat === "ot" ? "✓" : x.holat === "joriy" ? "<b>" + (x.imt ? "🏆" : x.dars) + "</b>" : (x.imt ? "🏆" : "🔒");
+      var bk = x.holat === "joriy" ? x.kunlar.filter(function(k){ return k.tartib === bt; })[0] : null;
+      h += '<button type="button" class="dx-tugun ' + x.holat + (x.imt ? " imt" : "") + '" data-dx="' + i + '" style="left:' + (pts[i][0] / W * 100) + '%;top:' + pts[i][1] + 'px;--f:' + x.f + '%">' +
+        (bk ? '<span class="dx-bayroq">BUGUN' + (bk.dars_kun ? " · " + bk.dars_kun + "-kun" : "") + '</span>' : "") +
+        '<span class="dx-dum">' + dum + '</span><span class="dx-nom"><span class="ar">' + esc(x.imt ? "اِمْتِحَانٌ" : x.nom || "") + '</span><small>' + (x.imt ? esc(x.izoh) : x.dars + "-dars · " + esc(x.izoh || "")) + '</small></span></button>';
+    });
+    if (joriyI >= 0) h += '<span style="position:absolute;font-size:32px;left:' + (pts[joriyI][0] / W * 100 + 13) + '%;top:' + (pts[joriyI][1] - 22) + 'px">🐪</span>';
+    h += '</div><p class="soft" style="text-align:center;margin:0;font-size:13px">Keyingi darslar tez orada qo\'shiladi ✨</p></div>';
+    $("kd-xarita").innerHTML = h;
+    DX.darslar = darslar;
+  }
+  function dxVaraq(i){
+    var x = DX.darslar[i], h = '<h3 style="margin:0;font-size:13px;color:var(--soft)">' + (x.imt ? "IMTIHON" : x.dars + "-DARS · " + x.kunlar.length + " KUN") + '</h3>' +
+      '<div class="dv-ar" style="font-size:28px;margin:2px 0">' + esc(x.imt ? "اِمْتِحَانٌ" : x.nom) + '</div><div class="soft" style="font-size:14px">' + esc(x.izoh || "") + '</div>';
+    var davom = null;
+    x.kunlar.forEach(function(k){
+      var holat = k.tur === "imtihon" ? (k.otdi ? "✅ O'tdingiz" : k.ochiq ? "Topshirish mumkin" : "🔒 Yopiq") :
+        k.bajarildi >= k.qism ? "✅ Bajarildi" : !k.ochiq ? "🔒 " + kdSana(k.sana, DX.bugun) : k.tartib === DX.bugun_tartib ? "Bugun · " + k.bajarildi + "/" + k.qism + " qism" : k.bajarildi + "/" + k.qism + " qism";
+      if (k.ochiq && !davom && !(k.tur === "imtihon" ? k.otdi : k.bajarildi >= k.qism)) davom = k;
+      h += '<button type="button" class="dx-kun" data-dx-sana="' + k.sana + '"' + (k.ochiq ? "" : " disabled") + '><span class="kd-ikon kichik' + (k.dars_kun === 3 ? " vaj" : "") + '">' + (k.tur === "imtihon" ? "🏆" : k.dars_kun) + '</span>' +
+        '<span class="g"><b>' + (k.tur === "imtihon" ? "Imtihon · 20 savol, 15 daqiqa" : k.dars_kun + "-kun · " + ["So'zlar va tinglash", "Qoida va o'qish", "Uy vazifasi kuni"][k.dars_kun - 1]) + '</b><small>' + holat + '</small>' +
+        (k.tur === "imtihon" ? "" : '<div class="bar" style="margin:6px 0 0"><u style="width:' + Math.round((k.bajarildi || 0) * 100 / k.qism) + '%"></u></div>') + '</span>' +
+        (k.tur === "imtihon" ? "" : '<span class="kd-nishan' + (k.bajarildi >= k.qism ? " bitdi" : "") + '">⭐ ' + k.togri + '/' + k.jami + '</span>') + '</button>';
+    });
+    if (davom) h += '<button class="btn wide" type="button" data-dx-sana="' + davom.sana + '" style="margin-top:12px">▶ Davom etish</button>';
+    $("dars-varaq").innerHTML = h; $("o-dars").hidden = false;
+  }
+  $("o-dars").addEventListener("click", function(e){
+    if (e.target === $("o-dars") || e.target.closest("[data-yop-dars]")){ $("o-dars").hidden = true; return; }
+    var b = e.target.closest("[data-dx-sana]"); if (!b || b.disabled) return;
+    $("o-dars").hidden = true; KD.rejim = "bugun"; kdYukla(b.getAttribute("data-dx-sana")).catch(function(){});
+  });
   function kdChiz(){
     var d = KD.d, h = "";
     if (!d.yol){
@@ -719,7 +812,11 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
         (d.daraja ? "" : '<p class="soft" style="margin:12px 0 0">Qaysi biri mos kelishini bilmasangiz — <a href="#" id="kd-daraja" style="color:var(--accent);font-weight:900">🎯 avval daraja testini topshiring</a>.</p>') + '</div>';
       $("kd").innerHTML = h + KD_QUTI; return;
     }
-    $("kd-kurs").textContent = (KURSLAR[d.yol.kurs] || ["", d.yol.kurs])[1] + " · " + (d.kun && d.kun.tartib ? d.kun.tartib + "-kun" : "kunlik dars");
+    $("kd-kurs").textContent = (KURSLAR[d.yol.kurs] || ["", d.yol.kurs])[1] + " · " + (d.kun && d.kun.dars ? d.kun.dars + "-dars, " + d.kun.dars_kun + "-kun" : d.kun && d.kun.tur === "imtihon" ? "imtihon" : d.kun && d.kun.tartib ? d.kun.tartib + "-kun" : "kunlik dars");
+    if (d.yol.xarita){
+      h += '<div class="kd-tab"><button type="button" data-rejim="bugun" class="' + (KD.rejim !== "xarita" ? "on" : "") + '">📅 Bugun</button><button type="button" data-rejim="xarita" class="' + (KD.rejim === "xarita" ? "on" : "") + '">🗺 Xarita</button></div>';
+      if (KD.rejim === "xarita"){ $("kd").innerHTML = h + '<div id="kd-xarita"><p class="soft">Yuklanmoqda…</p></div>' + KD_QUTI; dxYukla().catch(function(){}); return; }
+    }
     h += '<div class="kd-hafta">' + d.hafta.map(function(x, i){
       var cls = "kd-kun" + (x.sana === d.bugun ? " bugun" : "") + (x.sana === d.sana ? " tanlangan" : "") + (x.tartib ? "" : " bosh");
       return '<button type="button" class="' + cls + '" data-sana="' + x.sana + '"' + (x.tartib ? "" : " disabled") + '>' + HAFTA[i] +
@@ -740,6 +837,14 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
         '<div class="bar" style="margin:8px 0 6px"><u style="width:' + Math.round(bitdi * 100 / k.qismlar.length) + '%"></u></div>';
       if (k.izoh) h += '<p class="soft" style="margin:4px 0 10px;font-size:13.5px">' + esc(k.izoh) + '</p>';
       if (k.kelajak) h += '<div class="card" style="text-align:center"><b>🔒 Bu kunning darsi hali ochilmagan</b></div>';
+      else if (k.tur === "imtihon"){
+        var im = k.imtihon || {};
+        h += '<div class="card imt-karta"><div class="em">🏆</div><div class="big" style="font-weight:900;font-size:20px">' + esc(k.sarlavha) + '</div>' +
+          '<p class="soft">' + im.savol + ' ta savol · ' + Math.round((im.vaqt || 900) / 60) + ' daqiqa · o\'tish ' + (im.otish || 70) + '%. Javoblar oxirida ko\'rsatiladi.</p>' +
+          (im.otdi ? '<p style="font-weight:900;color:#3FA34D">✅ Imtihondan o\'tdingiz! (' + im.eng_yaxshi + '%) Keyingi dars ochildi.</p>'
+            : im.bugun_topshirdi ? '<p style="font-weight:900;color:#F59E0B">Bugun topshirdingiz (' + im.eng_yaxshi + '%). Ertaga yana urinib ko\'ring — shu orada «Takrorlash qutisi»da mashq qiling.</p><p class="soft">Keyingi darslar imtihondan o\'tgach ochiladi.</p>'
+            : '<button class="btn wide" type="button" id="kd-imtihon">🏆 Imtihonni boshlash</button>' + (im.urinish ? '<p class="soft">Oldingi urinish: ' + im.eng_yaxshi + '%</p>' : '<p class="soft">Kuniga 1 marta topshiriladi. Keyingi darslar o\'tgach ochiladi.</p>')) + '</div>';
+      }
       else {
         if (k.kech) h += '<p style="margin:0 0 10px;font-weight:800;color:#F59E0B">⏰ Kechikkan kun — vazifalar yarim XP beradi.</p>';
         var qator = function(q){
@@ -766,6 +871,9 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     if (b.getAttribute("data-sana")){ kdYukla(b.getAttribute("data-sana")).catch(function(){}); return; }
     if (b.getAttribute("data-qism")){ vzOch(b.getAttribute("data-qism")); return; }
     if (b.id === "kd-quti"){ $("o-quti").hidden = false; yuklaMashq().catch(function(){}); return; }
+    if (b.getAttribute("data-rejim")){ KD.rejim = b.getAttribute("data-rejim"); kdChiz(); return; }
+    if (b.getAttribute("data-dx") != null){ dxVaraq(+b.getAttribute("data-dx")); return; }
+    if (b.id === "kd-imtihon"){ vzOch("imtihon"); return; }
     if (b.id === "kd-yol-ozgar"){
       if (!confirm("Yo'lni o'zgartirasizmi? Yangi yo'l bugundan 1-kundan boshlanadi.")) return;
       KD.d.yol = null; kdChiz();
@@ -774,11 +882,19 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   function vzOch(kod){
     var sana = KD.d.sana, n = QISM[kod] || ["•", kod, kod];
     rpc("p_kunlik_qism", { p_token: token, p_sana: sana, p_qism: kod }).then(function(r){
-      if (r.xato){ toast("Bu vazifa hozir ochiq emas"); return; }
-      VZ = { kod: kod, sana: sana, d: r, i: 0, javob: [], belgi: [] };
+      if (r.xato){ toast({ bugun: "Bugun topshirdingiz — ertaga qayta urinib ko'ring", otdi: "Bu imtihondan o'tgansiz ✅" }[r.xato] || "Bu vazifa hozir ochiq emas"); return; }
+      VZ = { kod: kod, sana: sana, d: r, i: 0, javob: [], belgi: [], imt: !!r.imtihon };
+      if (VZ.imt){ VZ.tugash = Date.now() + (r.vaqt || 900) * 1000; clearInterval(vzOch.t); vzOch.t = setInterval(vzVaqt, 500); }
       $("vz-sarlavha").innerHTML = n[0] + ' <span style="font-family:\'Noto Naskh Arabic\',serif">' + n[1] + '</span> <span class="soft" style="font-size:14px">· ' + esc(n[2]) + '</span>';
-      $("o-vazifa").hidden = false; vzSavol();
+      if (VZ.imt) $("vz-sarlavha").innerHTML = '🏆 Imtihon <span class="vz-vaqt" id="vz-vaqt"></span>';
+      $("o-vazifa").hidden = false; vzSavol(); if (VZ.imt) vzVaqt();
     }).catch(function(){ toast("Internet bilan bog'lanib bo'lmadi"); });
+  }
+  function vzVaqt(){
+    if (!VZ || !VZ.imt || VZ.topshirildi){ clearInterval(vzOch.t); return; }
+    var q = Math.max(0, VZ.tugash - Date.now()), m = Math.floor(q / 60000), c = Math.floor(q % 60000 / 1000);
+    if ($("vz-vaqt")) $("vz-vaqt").textContent = "⏱ " + m + ":" + ("0" + c).slice(-2);
+    if (q <= 0){ clearInterval(vzOch.t); toast("⏱ Vaqt tugadi"); vzTopshir(); }
   }
   function vzSavol(){
     var q = VZ.d.savollar[VZ.i], h = '<div class="card"><div class="q-matn">' + esc(q.savol) + '</div>';
@@ -791,6 +907,13 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   }
   $("vz").addEventListener("click", function(e){
     var b = e.target.closest("[data-vk]");
+    if (b && VZ && !VZ.tanlandi && VZ.imt){
+      VZ.tanlandi = true;
+      var qi = VZ.d.savollar[VZ.i]; VZ.javob.push({ i: qi.i, j: qi.v[+b.getAttribute("data-vk")] }); VZ.belgi.push("now");
+      b.classList.add("tanlangan");
+      setTimeout(function(){ VZ.i++; if (VZ.i < VZ.d.savollar.length) vzSavol(); else vzTopshir(); }, 350);
+      return;
+    }
     if (b && VZ && !VZ.tanlandi){
       VZ.tanlandi = true;
       var q = VZ.d.savollar[VZ.i], j = q.v[+b.getAttribute("data-vk")], ok = j === q.togri;
@@ -803,12 +926,24 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
       return;
     }
     if (e.target.id === "vz-davom"){ VZ.i++; if (VZ.i < VZ.d.savollar.length) vzSavol(); else vzTopshir(); }
-    if (e.target.id === "vz-qayta") vzOch(VZ.kod);
+    if (e.target.id === "vz-qayta" && !VZ.imt) vzOch(VZ.kod);
     if (e.target.id === "vz-tamom"){ $("o-vazifa").hidden = true; }
   });
   function vzTopshir(){
+    if (VZ.topshirildi) return; VZ.topshirildi = VZ.imt;
     $("vz").innerHTML = '<p class="q-matn">Natija hisoblanmoqda…</p>'; $("vz-dots").innerHTML = "";
     rpc("p_kunlik_javob", { p_token: token, p_sana: VZ.sana, p_qism: VZ.kod, p_javoblar: VZ.javob }).then(function(r){
+      if (r.imtihon){
+        if ($("vz-vaqt")) $("vz-vaqt").textContent = "";
+        var xatolar = (r.tahlil || []).filter(function(x){ return !x.ok; });
+        $("vz").innerHTML = '<div class="card natija"><div class="em">' + (r.otdi ? "🏆" : "📚") + '</div><div class="big">' + (r.otdi ? "Imtihondan o'tdingiz!" : "Bu safar o'tolmadingiz") + '</div>' +
+          '<div class="dt-nishon" style="width:110px;height:110px;font-size:34px">' + r.foiz + '%</div><p>' + r.togri + ' / ' + r.jami + ' to\'g\'ri · o\'tish uchun ' + r.otish + '%</p>' +
+          (r.otdi ? '<div class="mukofot"><span class="chip">⭐ +' + r.xp + ' XP</span><span class="chip">🔓 Keyingi dars ertaga ochiladi</span></div>' : '<p class="soft">Ertaga qayta topshirasiz. Shu orada xatolaringizni ko\'rib chiqing va «Takrorlash qutisi»da mashq qiling.</p>') +
+          (xatolar.length ? '<div class="card xatolar" style="text-align:left"><b style="font-weight:900">📝 Xatolar</b>' + xatolar.map(function(x){
+            return '<div class="row"><span style="flex:1">' + esc(x.savol) + (x.ar ? ' <span class="dv-ar">' + esc(x.ar) + '</span>' : "") + '</span><span class="soft">' + esc(x.javob || "—") + '</span><b style="color:#3FA34D">' + esc(x.togri) + '</b></div>'; }).join("") + '</div>' : "") +
+          '<button class="btn wide" type="button" id="vz-tamom" style="margin-top:8px">Yopish</button></div>';
+        return Promise.all([kdYukla(), yangila(), yuklaReyting()]);
+      }
       var yul = Math.round(r.togri * 3 / r.jami);
       $("vz").innerHTML = '<div class="card natija"><div class="yulduzlar">' + Array(yul + 1).join("⭐") + Array(4 - yul).join("☆") + '</div>' +
         '<div class="big">' + r.togri + ' / ' + r.jami + ' to\'g\'ri</div><div class="mukofot">' +
@@ -818,7 +953,9 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     }).catch(function(){ $("vz").innerHTML = '<p class="q-matn">Internet yo\'q.</p><button class="btn wide" type="button" id="vz-qayta2">↻ Qayta yuborish</button>'; $("vz-qayta2").addEventListener("click", vzTopshir); });
   }
   $("vz-yop").addEventListener("click", function(){
-    if (VZ && VZ.i > 0 && VZ.i < VZ.d.savollar.length && !confirm("Vazifani to'xtatasizmi? Natija saqlanmaydi.")) return;
+    if (VZ && VZ.imt && !VZ.topshirildi && !confirm("Imtihonni yakunlaysizmi? Javob berilmagan savollar xato hisoblanadi.")) return;
+    if (VZ && VZ.imt && !VZ.topshirildi){ vzTopshir(); return; }
+    if (VZ && !VZ.imt && VZ.i > 0 && VZ.i < VZ.d.savollar.length && !confirm("Vazifani to'xtatasizmi? Natija saqlanmaydi.")) return;
     $("o-vazifa").hidden = true; VZ = null;
   });
 
@@ -1559,7 +1696,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     }
   };
   var eskiOchish = ochish;
-  ochish = function(b){ eskiOchish(b); if (b === "mashq" && token){ KD.sana = null; kdYukla().catch(function(){}); } if (b === "karvon" && token){ kvYukla().catch(function(){}); kvKuzat(); } if (b === "duel" && token){ yuklaTarix().catch(function(){}); yuklaJahon().catch(function(){}); yuklaXarita().catch(function(){}); } };
+  ochish = function(b){ eskiOchish(b); if (b === "mashq" && token){ KD.sana = null; KD.rejim = KD.rejim || "bugun"; kdYukla().catch(function(){}); } if (b === "karvon" && token){ kvYukla().catch(function(){}); kvKuzat(); } if (b === "duel" && token){ yuklaTarix().catch(function(){}); yuklaJahon().catch(function(){}); yuklaXarita().catch(function(){}); } };
 
   boshla();
 })();
