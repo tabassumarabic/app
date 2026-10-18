@@ -135,6 +135,27 @@ input:focus{border-color:var(--accent)}
 .kd-nishan.bitdi{background:#3FA34D}
 .kd-yol button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:2px solid var(--inputBorder);background:var(--card);color:var(--ink);border-radius:16px;padding:14px;margin-top:10px;font:inherit;cursor:pointer}
 .kd-yol button.tavsiya{border-color:var(--accent)}
+/* ===== O'yinlar ===== */
+.oy-karta{display:flex;align-items:center;gap:14px;width:100%;text-align:left;border:var(--border);background:var(--card);color:var(--ink);border-radius:var(--r);box-shadow:var(--shadow);padding:16px;margin-bottom:12px;font:inherit;cursor:pointer}
+.oy-karta .ic{width:58px;height:58px;flex:none;border-radius:16px;display:grid;place-items:center;font-size:30px}
+.oy-karta .g{flex:1}.oy-karta .ar{font-family:"Noto Naskh Arabic",serif;font-size:20px;display:block}
+.oy-karta small{color:var(--soft);font-weight:800}
+.oy-top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.oy-taymer{font-size:46px;font-weight:900;font-variant-numeric:tabular-nums;text-align:center;margin:4px 0}
+.oy-taymer.kam{color:#E5484D}
+.oy-soz{font-family:"Noto Naskh Arabic",serif;font-size:46px;text-align:center;margin:10px 0 16px;direction:rtl}
+.oy-seriya{text-align:center;font-weight:900;color:#F59E0B;min-height:22px}
+.jf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.jf{aspect-ratio:3/4;border-radius:16px;border:0;font:inherit;font-weight:900;cursor:pointer;background:linear-gradient(150deg,#4FA3FF,#2563EB);color:#fff;font-size:30px;display:grid;place-items:center;padding:6px;transition:transform .2s}
+.jf.och{background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 2px var(--inputBorder)}
+.jf.och .ar{font-family:"Noto Naskh Arabic",serif;font-size:24px}
+.jf.och small{display:block;font-size:12px;color:var(--soft)}
+.jf.tayyor{background:#1E5B34;color:#fff;box-shadow:none;opacity:.8}
+.jf.tayyor small{color:#cfe9d6}
+.tr-javob{min-height:70px;border:2px dashed var(--inputBorder);border-radius:16px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;direction:rtl;padding:8px;margin:10px 0}
+.tr-harf{font-family:"Noto Naskh Arabic",serif;font-size:28px;min-width:52px;height:56px;border-radius:14px;border:2px solid var(--inputBorder);background:var(--card);color:var(--ink);cursor:pointer}
+.tr-harflar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;direction:rtl}
+.tr-javob.ok{border-color:#3FA34D;background:#3FA34D22}.tr-javob.no{border-color:#E5484D;background:#E5484D22}
 /* ===== Kutubxona ===== */
 .kt-tab{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 14px}
 .kt-tab button{border:2px solid var(--inputBorder);background:var(--card);color:var(--ink);border-radius:18px;padding:14px 10px;font:inherit;font-weight:900;cursor:pointer;text-align:center}
@@ -401,7 +422,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     </div>
     <div class="row2">
       <div class="card mini" id="b-kutubxona" style="cursor:pointer"><div class="ic">📚</div><b style="font-family:'Noto Naskh Arabic',serif;font-size:17px">الْمَكْتَبَةُ</b><span class="soft">Kutubxona: qoidalar va hikoyalar</span></div>
-      <div class="card mini" id="b-oyinlar" style="cursor:pointer;opacity:.75"><div class="ic">🎮</div><b style="font-family:'Noto Naskh Arabic',serif;font-size:17px">أَلْعَابٌ</b><span class="soft">O'yinlar · tez orada</span></div>
+      <div class="card mini" id="b-oyinlar" style="cursor:pointer"><div class="ic">🎮</div><b style="font-family:'Noto Naskh Arabic',serif;font-size:17px">أَلْعَابٌ</b><span class="soft">O'yinlar: 60 soniya, juftlik, so'z terish</span></div>
     </div>
     <div class="card">
       <b style="font-weight:900">🏆 Haftalik reyting</b>
@@ -512,6 +533,11 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   <div id="kt"></div>
 </div></div>
 <div class="kt-soz" id="kt-soz" hidden></div>
+
+<div class="olay" id="o-oyinlar" hidden><div class="in">
+  <div class="top-h"><b style="font-size:20px;font-weight:900">🎮 <span style="font-family:'Noto Naskh Arabic',serif">أَلْعَابٌ</span> <span class="soft" style="font-size:14px">· O'yinlar</span></b><span class="chip" id="oy-xp" style="margin-left:auto">⭐ 0/100</span><button class="x" type="button" id="oy-yop" style="margin-left:8px">✕</button></div>
+  <div id="oy"></div>
+</div></div>
 
 <div class="varaq-fon" id="o-dars" hidden><div class="varaq"><button class="x" type="button" data-yop-dars>✕</button><div id="dars-varaq"></div></div></div>
 
@@ -848,7 +874,150 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   });
   $("kt-yop").addEventListener("click", function(){ $("o-kutubxona").hidden = true; $("kt-soz").hidden = true; });
   $("b-kutubxona").addEventListener("click", ktOch);
-  $("b-oyinlar").addEventListener("click", function(){ toast("🎮 O'yinlar tez orada qo'shiladi"); });
+  // ================= O'YINLAR =================
+  var OY = { sozlar: null, holat: null, o: null, t: null };
+  var OYIN = { daqiqa: ["⚡", "دَقِيقَةٌ", "60 soniya", "Bir daqiqada iloji boricha ko'p so'zning ma'nosini toping", "linear-gradient(150deg,#FFB547,#F97316)"],
+               juftlik: ["🃏", "زَوْجَانِ", "Juftlik", "Yopiq kartalardan so'z va uning rasmini juftlang", "linear-gradient(150deg,#4FA3FF,#2563EB)"],
+               terish: ["🧩", "رَتِّبْ", "So'z terish", "Rasmga qarab aralash harflardan so'zni yig'ing", "linear-gradient(150deg,#4ADE80,#16A34A)"] };
+  function oyAralash(a){ a = a.slice(); for (var i = a.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)), x = a[i]; a[i] = a[j]; a[j] = x; } return a; }
+  function oyHarakatsiz(w){ return w.replace(/[\u064B-\u0652\u0670\u0640]/g, ""); }
+  function oyOch(){
+    $("o-oyinlar").hidden = false;
+    var y = OY.sozlar ? Promise.resolve() : rpc("p_oyin_sozlar", { p_token: token }).then(function(d){ OY.sozlar = d || []; });
+    y.then(function(){ return rpc("p_oyin_holat", { p_token: token }); }).then(function(h){ OY.holat = h; oyBosh(); }).catch(function(){ $("oy").innerHTML = '<p class="soft">Internet bilan bog\'lanib bo\'lmadi.</p>'; });
+  }
+  function oyXp(){ var b = OY.holat ? OY.holat.bugun_xp : 0; $("oy-xp").textContent = "⭐ " + b + "/100"; }
+  function oyBosh(){
+    clearInterval(OY.t); OY.o = null; oyXp();
+    var rek = (OY.holat && OY.holat.rekord) || {};
+    $("oy").innerHTML = Object.keys(OYIN).map(function(k){ var o = OYIN[k];
+      return '<button type="button" class="oy-karta" data-oy="' + k + '"><span class="ic" style="background:' + o[4] + '">' + o[0] + '</span><span class="g"><span class="ar">' + o[1] + '</span><b>' + o[2] + '</b><br><small>' + esc(o[3]) + '</small></span>' +
+        (rek[k] != null ? '<span class="chip">🏆 ' + rek[k] + '</span>' : '<span class="soft">›</span>') + '</button>'; }).join("") +
+      '<p class="soft" style="text-align:center;font-size:13px">O\'yinlardan kuniga ko\'pi bilan 100 XP olinadi.</p><div class="card" id="oy-top"><b style="font-weight:900">🏆 60 soniya · haftaning eng yaxshilari</b><div id="oy-top-r"><p class="soft">Yuklanmoqda…</p></div></div>';
+    rpc("p_oyin_reyting", { p_token: token, p_oyin: "daqiqa" }).then(function(l){
+      if (!$("oy-top-r")) return;
+      $("oy-top-r").innerHTML = l.length ? l.map(function(x){ return '<div class="lb' + (x.men ? " me" : "") + '"><span class="n">' + x.orin + '</span><span class="av">' + avatarHtml(x.rasm, x.avatar) + '</span>' + esc(x.men ? "Siz" : x.ism) + '<span class="x">' + x.ball + '</span></div>'; }).join("")
+        : '<p class="soft" style="margin:8px 0 0">Bu hafta hali hech kim o\'ynamadi — birinchi bo\'ling!</p>';
+    }).catch(function(){});
+  }
+  function oyNatija(oyin, ball, xatolar, matn){
+    clearInterval(OY.t);
+    $("oy").innerHTML = '<div class="card natija"><div class="em">' + OYIN[oyin][0] + '</div><div class="big">' + matn + '</div><p class="soft">Natija saqlanmoqda…</p></div>';
+    rpc("p_oyin_natija", { p_token: token, p_oyin: oyin, p_ball: ball, p_xatolar: xatolar || [] }).then(function(r){
+      if (r.holat) OY.holat = r.holat; oyXp();
+      $("oy").innerHTML = '<div class="card natija"><div class="em">' + (r.yangi_rekord ? "🎉" : OYIN[oyin][0]) + '</div><div class="big">' + matn + '</div>' +
+        '<div class="ballar"><div><b>' + r.ball + '</b><span class="soft">ball</span></div><div><b>' + r.rekord + '</b><span class="soft">rekord</span></div></div>' +
+        (r.yangi_rekord ? '<p style="font-weight:900;color:#F59E0B">🏆 Yangi rekord!</p>' : "") +
+        '<div class="mukofot"><span class="chip">' + (r.xp > 0 ? "⭐ +" + r.xp + " XP" : "⭐ Bugungi o'yin XP'si to'ldi") + '</span></div>' +
+        '<button class="btn wide" type="button" data-oy="' + oyin + '">↻ Yana o\'ynash</button><button class="link" type="button" id="oy-orqa">🎮 O\'yinlarga qaytish</button></div>';
+      return yangila();
+    }).catch(function(){ $("oy").innerHTML = '<p class="soft">Internet bilan bog\'lanib bo\'lmadi.</p><button class="link" type="button" id="oy-orqa">🎮 O\'yinlarga qaytish</button>'; });
+  }
+
+  // ⚡ 60 soniya
+  function dqBosh(){
+    OY.o = { tur: "daqiqa", ball: 0, seriya: 0, xato: [], tugash: Date.now() + 60000, togri: 0 };
+    dqSoz();
+    OY.t = setInterval(function(){
+      var q = Math.max(0, OY.o.tugash - Date.now());
+      if ($("dq-t")){ $("dq-t").textContent = Math.ceil(q / 1000); $("dq-t").classList.toggle("kam", q < 10000); }
+      if (q <= 0){ clearInterval(OY.t); oyNatija("daqiqa", OY.o.ball, OY.o.xato, OY.o.togri + " ta so'z!"); }
+    }, 100);
+  }
+  function dqSoz(){
+    var o = OY.o, l = OY.sozlar, s = l[Math.floor(Math.random() * l.length)];
+    if (o.oldingi === s.id) s = l[(l.indexOf(s) + 1) % l.length];
+    o.oldingi = s.id; o.joriy = s;
+    var bir = oyAralash(l.filter(function(x){ return x.id !== s.id && x.t === s.t; })), boshqa = oyAralash(l.filter(function(x){ return x.id !== s.id && x.t !== s.t; }));
+    var v = oyAralash([s].concat(bir.concat(boshqa).slice(0, 3)));
+    var kop = o.seriya >= 10 ? 3 : o.seriya >= 5 ? 2 : 1;
+    $("oy").innerHTML = '<div class="oy-top"><span class="chip">⭐ ' + o.ball + '</span><span class="oy-seriya" style="margin-left:auto">' + (o.seriya >= 3 ? "🔥 " + o.seriya + " ketma-ket" + (kop > 1 ? " · ×" + kop : "") : "") + '</span></div>' +
+      '<div class="oy-taymer" id="dq-t">' + Math.ceil(Math.max(0, o.tugash - Date.now()) / 1000) + '</div><div class="card"><div class="oy-soz">' + esc(s.ar) + '</div><div class="vars">' +
+      v.map(function(x){ return '<button type="button" class="var" data-dq="' + x.id + '">' + esc(x.em) + ' ' + esc(x.uz) + '</button>'; }).join("") + '</div></div>';
+  }
+  function dqJavob(b){
+    var o = OY.o; if (!o || o.band) return;
+    var id = +b.getAttribute("data-dq"), ok = id === o.joriy.id;
+    if (ok){ o.seriya++; o.togri++; o.ball += o.seriya >= 10 ? 3 : o.seriya >= 5 ? 2 : 1; b.classList.add("ok"); o.band = true; setTimeout(function(){ o.band = false; if (OY.o === o && Date.now() < o.tugash) dqSoz(); }, 180); }
+    else {
+      o.seriya = 0; o.tugash -= 2000; if (o.xato.indexOf(o.joriy.id) < 0) o.xato.push(o.joriy.id);
+      b.classList.add("no"); document.querySelectorAll("#oy [data-dq]").forEach(function(x){ if (+x.getAttribute("data-dq") === o.joriy.id) x.classList.add("ok"); });
+      o.band = true; setTimeout(function(){ o.band = false; if (OY.o === o && Date.now() < o.tugash) dqSoz(); }, 700);
+    }
+  }
+
+  // 🃏 Juftlik
+  function jfBosh(){
+    var t = oyAralash(OY.sozlar.filter(function(x){ return x.em; })).slice(0, 6);
+    var k = oyAralash(t.map(function(x){ return { id: x.id, tur: "ar", s: x }; }).concat(t.map(function(x){ return { id: x.id, tur: "em", s: x }; })));
+    OY.o = { tur: "juftlik", k: k, och: [], tayyor: 0, xato: 0, bosh: Date.now() };
+    jfChiz();
+    OY.t = setInterval(function(){ if ($("jf-t")) $("jf-t").textContent = "⏱ " + Math.floor((Date.now() - OY.o.bosh) / 1000) + " s"; }, 500);
+  }
+  function jfChiz(){
+    var o = OY.o;
+    $("oy").innerHTML = '<div class="oy-top"><span class="chip" id="jf-t">⏱ 0 s</span><span class="chip">✅ ' + o.tayyor + '/6</span><span class="chip" style="margin-left:auto">✖ ' + o.xato + '</span></div><div class="jf-grid">' +
+      o.k.map(function(c, i){ var och = c.ok || o.och.indexOf(i) >= 0;
+        return '<button type="button" class="jf' + (och ? " och" : "") + (c.ok ? " tayyor" : "") + '" data-jf="' + i + '">' + (!och ? "?" : c.tur === "ar" ? '<span class="ar">' + esc(c.s.ar) + '</span>' : '<span>' + esc(c.s.em) + '<small>' + esc(c.s.uz) + '</small></span>') + '</button>'; }).join("") + '</div>';
+  }
+  function jfBos(i){
+    var o = OY.o; if (!o || o.band) return;
+    var c = o.k[i]; if (c.ok || o.och.indexOf(i) >= 0) return;
+    o.och.push(i); jfChiz();
+    if (o.och.length < 2) return;
+    var a = o.k[o.och[0]], b = o.k[o.och[1]];
+    if (a.id === b.id && a.tur !== b.tur){ a.ok = b.ok = true; o.och = []; o.tayyor++; jfChiz();
+      if (o.tayyor === 6){ var sek = Math.floor((Date.now() - o.bosh) / 1000); clearInterval(OY.t); setTimeout(function(){ oyNatija("juftlik", Math.max(10, 120 - sek - o.xato * 2), [], sek + " soniyada, " + o.xato + " xato"); }, 500); }
+    } else { o.xato++; o.band = true; setTimeout(function(){ o.och = []; o.band = false; jfChiz(); }, 850); }
+  }
+
+  // 🧩 So'z terish
+  function trBosh(){
+    var l = oyAralash(OY.sozlar.filter(function(x){ var h = oyHarakatsiz(x.ar); return x.ar.indexOf(" ") < 0 && h.length >= 3 && h.length <= 6; })).slice(0, 5);
+    OY.o = { tur: "terish", l: l, i: 0, togri: 0 };
+    trSoz();
+  }
+  function trSoz(){
+    var o = OY.o, s = o.l[o.i], h = Array.from(oyHarakatsiz(s.ar)), a = oyAralash(h);
+    for (var n = 0; n < 5 && a.join("") === h.join(""); n++) a = oyAralash(h);
+    o.harflar = a.map(function(x, k){ return { h: x, k: k, ish: false }; }); o.javob = []; o.band = false;
+    trChiz();
+  }
+  function trChiz(holat){
+    var o = OY.o, s = o.l[o.i];
+    $("oy").innerHTML = '<div class="oy-top"><span class="chip">' + (o.i + 1) + ' / ' + o.l.length + '</span><span class="chip" style="margin-left:auto">✅ ' + o.togri + '</span></div><div class="card" style="text-align:center">' +
+      '<div style="font-size:64px">' + esc(s.em) + '</div><b style="font-size:20px">' + esc(s.uz) + '</b>' +
+      '<div class="tr-javob' + (holat ? " " + holat : "") + '">' + (holat === "ok" ? '<span style="font-family:\'Noto Naskh Arabic\',serif;font-size:34px">' + esc(s.ar) + '</span>' :
+        o.javob.map(function(j, n){ return '<button type="button" class="tr-harf" data-trj="' + n + '">' + esc(o.harflar[j].h) + '</button>'; }).join("")) + '</div>' +
+      (holat === "no" ? '<p style="font-weight:900">To\'g\'ri javob: <span style="font-family:\'Noto Naskh Arabic\',serif;font-size:28px">' + esc(s.ar) + '</span></p><button class="btn wide" type="button" id="tr-davom">Davom etish ›</button>' :
+        holat ? "" : '<div class="tr-harflar">' + o.harflar.map(function(x, n){ return x.ish ? "" : '<button type="button" class="tr-harf" data-trh="' + n + '">' + esc(x.h) + '</button>'; }).join("") + '</div>') + '</div>';
+  }
+  function trKeyingi(){ var o = OY.o; o.i++; if (o.i < o.l.length) trSoz(); else oyNatija("terish", o.togri * 20, [], o.togri + " / " + o.l.length + " so'z"); }
+  function trTekshir(){
+    var o = OY.o, s = o.l[o.i], j = o.javob.map(function(n){ return o.harflar[n].h; }).join("");
+    if (j === oyHarakatsiz(s.ar)){ o.togri++; o.band = true; trChiz("ok"); setTimeout(trKeyingi, 1100); }
+    else { o.band = true; trChiz("no"); }
+  }
+
+  $("oy").addEventListener("click", function(e){
+    var b = e.target.closest("button"); if (!b) return;
+    var oy = b.getAttribute("data-oy");
+    if (oy){ clearInterval(OY.t); if (oy === "daqiqa") dqBosh(); if (oy === "juftlik") jfBosh(); if (oy === "terish") trBosh(); return; }
+    if (b.id === "oy-orqa"){ oyBosh(); return; }
+    if (b.getAttribute("data-dq")){ dqJavob(b); return; }
+    if (b.getAttribute("data-jf") != null){ jfBos(+b.getAttribute("data-jf")); return; }
+    if (OY.o && OY.o.tur === "terish"){
+      if (b.id === "tr-davom"){ trKeyingi(); return; }
+      if (OY.o.band) return;
+      if (b.getAttribute("data-trh") != null){ var n = +b.getAttribute("data-trh"); OY.o.harflar[n].ish = true; OY.o.javob.push(n); if (OY.o.javob.length === OY.o.harflar.length) trTekshir(); else trChiz(); return; }
+      if (b.getAttribute("data-trj") != null){ var m = +b.getAttribute("data-trj"), x = OY.o.javob.splice(m, 1)[0]; OY.o.harflar[x].ish = false; trChiz(); return; }
+    }
+  });
+  $("oy-yop").addEventListener("click", function(){
+    if (OY.o && OY.o.tur === "daqiqa" && Date.now() < OY.o.tugash && !confirm("O'yinni to'xtatasizmi? Natija saqlanmaydi.")) return;
+    clearInterval(OY.t); OY.o = null; $("o-oyinlar").hidden = true;
+  });
+  $("b-oyinlar").addEventListener("click", oyOch);
 
   // ================= KUNLIK DARS =================
   var QISM = { harf: ["🔤", "حُرُوفٌ", "Harf shakllari"], istima: ["🎧", "اِسْتِمَاعٌ", "Tinglash"], qiroa: ["📖", "قِرَاءَةٌ", "O'qish"],
