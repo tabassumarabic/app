@@ -244,6 +244,81 @@
    "eslatma": "Shaddani tashlab ketsangiz, so'z boshqa so'zga aylanishi yoki ma'nosiz bo'lib qolishi mumkin. Qo'sh harfni o'zbekchadagi «katta», «olla» so'zlaridagidek aniq ayting."
   },
   {
+   "id": "muannas-samoiy",
+   "bolim": "A0 · 1-dars",
+   "nom": "ة siz muannas so'zlar",
+   "ar": "الْمُؤَنَّثُ السَّمَاعِيُّ",
+   "qisqa": "Ba'zi so'zlar oxirida ة bo'lmasa ham muannas hisoblanadi.",
+   "matn": [
+    "Odatda muannas so'zning oxirida ة bo'ladi: سَيَّارَةٌ، مَدْرَسَةٌ.",
+    "Lekin ba'zi so'zlar ة siz ham muannas. Ularni yodlab olish kerak — bunday so'zlar «samoiy muannas» (eshitib o'rganiladigan muannas) deyiladi.",
+    "Bunday so'z bilan kelgan sifat ham muannas shaklda bo'ladi: الشَّمْسُ جَمِيلَةٌ — Quyosh chiroyli. Ishora ham هٰذِهِ bo'ladi: هٰذِهِ شَمْسٌ."
+   ],
+   "jadval": {
+    "ustunlar": [
+     "So'z",
+     "Ma'nosi",
+     "Misol"
+    ],
+    "qatorlar": [
+     [
+      "شَمْسٌ",
+      "quyosh",
+      "الشَّمْسُ حَارَّةٌ"
+     ],
+     [
+      "أَرْضٌ",
+      "yer",
+      "الْأَرْضُ كَبِيرَةٌ"
+     ],
+     [
+      "قِدْرٌ",
+      "qozon",
+      "قِدْرٌ كَبِيرَةٌ"
+     ],
+     [
+      "دَارٌ",
+      "hovli, uy",
+      "دَارٌ وَاسِعَةٌ"
+     ],
+     [
+      "نَارٌ",
+      "olov",
+      "النَّارُ حَارَّةٌ"
+     ],
+     [
+      "يَدٌ",
+      "qo'l",
+      "يَدٌ نَظِيفَةٌ"
+     ],
+     [
+      "عَيْنٌ",
+      "ko'z",
+      "عَيْنٌ جَمِيلَةٌ"
+     ]
+    ]
+   },
+   "misollar": [
+    {
+     "ar": "هٰذِهِ شَمْسٌ.",
+     "uz": "Bu — quyosh (هٰذَا emas, هٰذِهِ!)"
+    },
+    {
+     "ar": "الْأَرْضُ كَبِيرَةٌ.",
+     "uz": "Yer katta."
+    },
+    {
+     "ar": "عِنْدِي قِدْرٌ صَغِيرَةٌ.",
+     "uz": "Menda kichkina qozon bor."
+    },
+    {
+     "ar": "النَّارُ حَارَّةٌ.",
+     "uz": "Olov issiq."
+    }
+   ],
+   "eslatma": "Tananing juft a'zolari ham odatda muannas: يَدٌ (qo'l), عَيْنٌ (ko'z), أُذُنٌ (quloq), رِجْلٌ (oyoq)."
+  },
+  {
    "id": "hadha-hadhihi",
    "bolim": "A0 · 2-dars",
    "nom": "هٰذَا va هٰذِهِ — «bu» (erkak va ayol jinsi)",
