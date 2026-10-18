@@ -3,13 +3,13 @@
   {
    "id": "harakatlar",
    "bolim": "Fonetika",
-   "nom": "Harakatlar: fatha, kasra, zamma",
+   "nom": "Harakatlar: fatha, kasra, domma",
    "ar": "الْحَرَكَاتُ",
    "qisqa": "Harakat — harf ustiga yoki ostiga qo'yiladigan kichik belgi; u harfga qisqa unli (a, i, u) beradi.",
    "matn": [
     "Arab yozuvida qisqa unlilar harf sifatida yozilmaydi. Ularning o'rniga harf ustiga yoki ostiga kichik belgi qo'yiladi — bu belgilar «harakat» deyiladi.",
-    "Fatha — harf ustidagi kichik qiya chiziq, «a» o'qiladi. Kasra — harf ostidagi qiya chiziq, «i» o'qiladi. Zamma (damma) — harf ustidagi kichik vov, «u» o'qiladi.",
-    "Fathani aytganda og'iz ochiladi, kasrada lablar yon tomonga yoyiladi, zammada lablar yumaloqlanib oldinga cho'ziladi."
+    "Fatha — harf ustidagi kichik qiya chiziq, «a» o'qiladi. Kasra — harf ostidagi qiya chiziq, «i» o'qiladi. Domma — harf ustidagi kichik vov, «u» o'qiladi.",
+    "Fathani aytganda og'iz ochiladi, kasrada lablar yon tomonga yoyiladi, dommada lablar yumaloqlanib oldinga cho'ziladi."
    ],
    "jadval": {
     "ustunlar": [
@@ -33,7 +33,7 @@
      ],
      [
       "ـُ",
-      "zamma (damma)",
+      "domma",
       "u",
       "بُ — bu"
      ]
@@ -102,7 +102,7 @@
    "qisqa": "ا، و، ي harflari oldingi mos harakatdan keyin kelsa, unlini ikki barobar cho'zadi: ā, ū, ī.",
    "matn": [
     "Arab tilida qisqa va uzun unlilar farq qiladi. Uzun unli uchun harakatdan keyin maxsus harf yoziladi — bu harflar «mad harflari» deyiladi.",
-    "Fathadan keyin alif (ـَا) — uzun «ā», zammadan keyin vov (ـُو) — uzun «ū», kasradan keyin ya (ـِي) — uzun «ī».",
+    "Fathadan keyin alif (ـَا) — uzun «ā», dommadan keyin vov (ـُو) — uzun «ū», kasradan keyin ya (ـِي) — uzun «ī».",
     "Uzun unlini qisqasidan ikki barobar uzoqroq ayting: بَ (ba) — بَا (bā)."
    ],
    "jadval": {
@@ -170,7 +170,7 @@
     "qatorlar": [
      [
       "ـٌ",
-      "tanvin zamma",
+      "tanvin domma",
       "-un",
       "كِتَابٌ — kitābun"
      ],
@@ -217,7 +217,7 @@
    "matn": [
     "Shadda — harf ustidagi kichik «w» ga o'xshash belgi. U harfni qo'shaloq qiladi: harf bir marta yoziladi, lekin ikki marta o'qiladi.",
     "Masalan, مُعَلِّمٌ: لّ = لْ + لِ, ya'ni «mu'al-limun». Birinchi «l» sukunli, ikkinchisi kasrali.",
-    "Shadda bilan birga harakat ham yoziladi: fatha va zamma shadda ustida, kasra esa shadda ostida (yoki harf ostida) turadi."
+    "Shadda bilan birga harakat ham yoziladi: fatha va domma shadda ustida, kasra esa shadda ostida (yoki harf ostida) turadi."
    ],
    "misollar": [
     {
@@ -475,7 +475,7 @@
    "qisqa": "«Men» uchun fe'l أَ bilan, «sen» uchun تَ bilan boshlanadi: أَكْتُبُ — yozaman, تَكْتُبُ — yozasan.",
    "matn": [
     "Arab fe'lida «kim bajaryapti» degan ma'no so'z boshidagi harfdan bilinadi.",
-    "«Men» (أَنَا) — fe'l boshida أَ: أَكْتُبُ, أَجْلِسُ. «Sen» (أَنْتَ) — fe'l boshida تَ: تَكْتُبُ, تَجْلِسُ. Oxiri ikkalasida ham zamma (ـُ).",
+    "«Men» (أَنَا) — fe'l boshida أَ: أَكْتُبُ, أَجْلِسُ. «Sen» (أَنْتَ) — fe'l boshida تَ: تَكْتُبُ, تَجْلِسُ. Oxiri ikkalasida ham domma (ـُ).",
     "O'rtadagi harakat har fe'lda har xil (أَكْتُبُ, أَفْتَحُ, أَجْلِسُ) — uni so'z bilan birga yodlang.",
     "Fe'l oldidan أَنَا yoki أَنْتَ yozilmasa ham bo'ladi, chunki boshidagi harf kimligini aytib turibdi."
    ],
