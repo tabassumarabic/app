@@ -131,10 +131,6 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
   </main>
 </div>
 
-<div class="olay" id="o-video" hidden>
-  <div class="top-h"><b style="font-size:18px">🎥 Karvon kutish xonasi</b><button class="x" type="button" id="video-yop">✕</button></div>
-  <div id="video" style="height:calc(100vh - 80px);border-radius:16px;overflow:hidden;background:#000"></div>
-</div>
 <div class="toast" id="toast" hidden></div>
 
 <script>
@@ -342,7 +338,6 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
     else holat = "⏳ Boshlanmoqda…";
     h += '<p style="font-weight:800;margin:0 0 12px">' + holat + '</p><div style="display:flex;gap:8px;flex-wrap:wrap">';
     if (d.holat !== "tugadi"){
-      h += '<button class="btn sm" data-kv="video">🎥 Kutish xonasi</button>';
       h += d.pauza ? '<button class="btn sm" data-kv="davom">▶️ Davom ettirish</button>' : '<button class="btn sm alt" data-kv="toxtat">⏸ To\'xtatish</button>';
       if (d.holat === "royxat") h += '<button class="btn sm alt" data-kv="hozir">▶️ Hozir boshlash</button>';
       if (d.sinov) h += '<button class="btn sm alt" data-kv="bekor">✖ Sinovni bekor qilish</button>';
@@ -368,7 +363,6 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
   $("kv-holat").addEventListener("click", function(e){
     var b = e.target.closest("[data-kv]"); if (!b) return;
     var a = b.getAttribute("data-kv"), ish;
-    if (a === "video") return kvVideo();
     if (a === "toxtat") ish = rpc("karvon_pauza", { p_karvon: KV.karvon, p_toxtat: true });
     if (a === "davom") ish = rpc("karvon_pauza", { p_karvon: KV.karvon, p_toxtat: false });
     if (a === "hozir"){ if (!confirm("Poyga 15 soniyadan keyin boshlansinmi?")) return; ish = rpc("karvon_hozir", { p_karvon: KV.karvon }); }
@@ -397,27 +391,6 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
     var sek = document.querySelector('main section[data-s="karvon"]');
     if (sek && !sek.hidden && !document.querySelector("#kv-ishtirok select:focus")) yuklaKarvon().catch(function(){});
   }, 3000);
-
-  // kutish xonasi (Jitsi) — ustoz moderator bo'lib kiradi
-  var KVAPI = null;
-  function kvVideo(){
-    if (!KV || !KV.xona) return;
-    $("o-video").hidden = false;
-    var boshla = function(){
-      if (KVAPI) return;
-      var opt = { roomName: KV.app + "/" + KV.xona, parentNode: $("video"), userInfo: { displayName: KV.ism || "Ustoz" },
-                  configOverwrite: { prejoinPageEnabled: true, disableDeepLinking: true, subject: "🐪 Karvon kutish xonasi" }, interfaceConfigOverwrite: { SHOW_PROMOTIONAL_CLOSE_PAGE: false } };
-      if (KV.jwt) opt.jwt = KV.jwt;
-      KVAPI = new JitsiMeetExternalAPI("8x8.vc", opt);
-      KVAPI.addListener("readyToClose", videoYop);
-    };
-    if (window.JitsiMeetExternalAPI) return boshla();
-    var sc = document.createElement("script"); sc.src = "https://8x8.vc/" + KV.app + "/external_api.js"; sc.onload = boshla;
-    sc.onerror = function(){ toast("Video ulanmadi — internetni tekshiring"); }; document.head.appendChild(sc);
-  }
-  function videoYop(){ if (KVAPI){ try { KVAPI.dispose(); } catch(e){} KVAPI = null; } $("video").innerHTML = ""; $("o-video").hidden = true; }
-  $("video-yop").addEventListener("click", videoYop);
-
 
   // ---------- boshlash ----------
   function boshla(){
