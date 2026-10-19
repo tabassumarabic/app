@@ -607,6 +607,76 @@
     }
    ],
    "eslatma": "Bu yerdagi «sen» shakli yigitga (أَنْتَ) gapirganda ishlatiladi. Qizga (أَنْتِ) gapirganda fe'l boshqacha bo'ladi — buni keyingi darslarda o'rganamiz."
+  },
+  {
+   "id": "izofa",
+   "bolim": "A0 · 9-dars",
+   "nom": "Izofa: «Ahmadning kitobi» (كِتَابُ أَحْمَدَ)",
+   "ar": "الْإِضَافَةُ",
+   "qisqa": "Ikki ot yonma-yon kelib «...ning ...i» ma'nosini beradi: بَابُ الْبَيْتِ — uyning eshigi. 1-so'z ال va tanvin olmaydi, 2-so'z kasra oladi.",
+   "matn": [
+    "O'zbekchada «uyning eshigi» deymiz. Arab tilida tartib teskari: avval narsaning o'zi (بَابُ — eshik), keyin u kimniki yoki nimaniki (الْبَيْتِ — uy). Bu birikma izofa deyiladi.",
+    "1-so'z ال ham, tanvin ham olmaydi: كِتَابٌ → كِتَابُ أَحْمَدَ. Uning oxirgi harakati gapdagi o'rniga qarab o'zgarishi mumkin (فِي غُرْفَةِ عَلِيٍّ), lekin ال va tanvin baribir bo'lmaydi.",
+    "2-so'z kasra oladi: بَابُ الْبَيْتِ، كِتَابُ الْمُعَلِّمِ. 2-so'zda ال bo'lmasa, kasra tanvin (ـٍ) bo'ladi: دَرَّاجَةُ عَلِيٍّ.",
+    "Tanvin olmaydigan ismlar: أَحْمَدُ، فَاطِمَةُ، مَرْيَمُ، زَيْنَبُ kabi ismlar hech qachon tanvin olmaydi. Izofada ular kasra o'rniga fatha oladi: كِتَابُ أَحْمَدَ، غُرْفَةُ فَاطِمَةَ، حَقِيبَةُ مَرْيَمَ. عَلِيٌّ esa tanvin oladigan ism: دَرَّاجَةُ عَلِيٍّ."
+   ],
+   "jadval": {
+    "ustunlar": [
+     "1-so'z",
+     "2-so'z",
+     "Ma'no"
+    ],
+    "qatorlar": [
+     [
+      "بَابُ",
+      "الْبَيْتِ",
+      "uyning eshigi"
+     ],
+     [
+      "كِتَابُ",
+      "الْمُعَلِّمِ",
+      "o'qituvchining kitobi"
+     ],
+     [
+      "دَرَّاجَةُ",
+      "عَلِيٍّ",
+      "Alining velosipedi"
+     ],
+     [
+      "كِتَابُ",
+      "أَحْمَدَ",
+      "Ahmadning kitobi"
+     ],
+     [
+      "غُرْفَةُ",
+      "فَاطِمَةَ",
+      "Fotimaning xonasi"
+     ]
+    ]
+   },
+   "misollar": [
+    {
+     "ar": "هٰذَا كِتَابُ أَحْمَدَ",
+     "uz": "Bu Ahmadning kitobi"
+    },
+    {
+     "ar": "بَابُ الْبَيْتِ",
+     "uz": "Uyning eshigi"
+    },
+    {
+     "ar": "هٰذِهِ غُرْفَةُ فَاطِمَةَ",
+     "uz": "Bu Fotimaning xonasi"
+    },
+    {
+     "ar": "حَقِيبَةُ مَرْيَمَ بِجَانِبِ الْبَابِ",
+     "uz": "Maryamning sumkasi eshik yonida"
+    },
+    {
+     "ar": "هٰذِهِ دَرَّاجَةُ عَلِيٍّ",
+     "uz": "Bu Alining velosipedi"
+    }
+   ],
+   "eslatma": "Ko'p uchraydigan xatolar: الْكِتَابُ أَحْمَدَ yoki كِتَابٌ أَحْمَدَ (1-so'zga ال yoki tanvin qo'shish) va كِتَابُ أَحْمَدٍ (tanvin olmaydigan ismga tanvin qo'shish). To'g'risi — كِتَابُ أَحْمَدَ."
   }
  ],
  "hikoyalar": [
