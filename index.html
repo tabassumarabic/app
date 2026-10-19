@@ -379,20 +379,18 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
       <div class="seg"><button id="t-royxat" class="on" type="button">Ro'yxatdan o'tish</button><button id="t-kirish" type="button">Kirish</button></div>
 
       <form id="f-royxat" novalidate onsubmit="return false">
-        <label for="r-ism">Ismingiz</label><input id="r-ism" maxlength="40" autocomplete="name" placeholder="Masalan: Aziza">
-        <label for="r-tel">Telefon raqam</label><input id="r-tel" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="+998 90 123 45 67">
-        <label for="r-parol">Parol <small>(kamida 6 belgi)</small></label><input id="r-parol" type="password" maxlength="72" autocomplete="new-password">
-        <label for="r-yil">Tug'ilgan yil <small>(ixtiyoriy)</small></label><input id="r-yil" type="number" inputmode="numeric" min="1930" max="2025" placeholder="2005">
+        <label for="r-ism">Ism familiyangiz</label><input id="r-ism" maxlength="40" autocomplete="name" placeholder="Masalan: Aziza Karimova">
+        <label for="r-parol">Parol o'ylab toping <small>(4 ta raqam)</small></label><input id="r-parol" type="password" inputmode="numeric" maxlength="4" autocomplete="new-password" style="letter-spacing:.5em;text-align:center;font-size:22px" placeholder="••••">
+        <p class="soft" style="font-size:13px;margin:4px 0 0">Ism familiya va parolingizni eslab qoling — keyingi safar shu bilan kirasiz.</p>
         <div class="err" id="r-err" role="alert"></div>
         <button class="btn wide" type="submit">Boshlash</button>
       </form>
 
       <form id="f-kirish" novalidate onsubmit="return false" hidden>
-        <label for="k-tel">Telefon raqam</label><input id="k-tel" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="+998 90 123 45 67">
-        <label for="k-parol">Parol</label><input id="k-parol" type="password" maxlength="72" autocomplete="current-password">
+        <label for="k-ism">Ism familiyangiz</label><input id="k-ism" maxlength="40" autocomplete="username" placeholder="Masalan: Aziza Karimova">
+        <label for="k-parol">Parol</label><input id="k-parol" type="password" maxlength="72" autocomplete="current-password" style="letter-spacing:.3em;text-align:center;font-size:20px" placeholder="••••">
         <div class="err" id="k-err" role="alert"></div>
         <button class="btn wide" type="submit">Kirish</button>
-        <p class="soft" style="text-align:center;margin:12px 0 0">Parolni unutdingizmi? Administratorga yozing.</p>
       </form>
 
       <p class="soft" id="parol-unut" style="text-align:center;font-size:13px;margin:12px 0 0" hidden>Parolni unutdingizmi? Ustozingizga ayting — yangi parol berib yuboradi.</p>
@@ -601,7 +599,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   <form novalidate onsubmit="return false" id="f-parol">
     <b style="font-size:18px;font-weight:900">🔑 Parolni o'zgartirish</b>
     <label for="pw-eski">Hozirgi parol</label><input id="pw-eski" type="password" autocomplete="current-password">
-    <label for="pw-yangi">Yangi parol <small>(kamida 6 belgi)</small></label><input id="pw-yangi" type="password" autocomplete="new-password">
+    <label for="pw-yangi">Yangi parol <small>(4 ta raqam)</small></label><input id="pw-yangi" type="password" inputmode="numeric" maxlength="4" autocomplete="new-password" style="letter-spacing:.5em;text-align:center;font-size:22px" placeholder="••••">
     <div class="err" id="pw-err"></div>
     <div class="row2"><button class="btn alt" type="button" data-yop>Bekor</button><button class="btn" type="submit">Saqlash</button></div>
   </form>
@@ -654,10 +652,11 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   $("t-royxat").addEventListener("click", function(){ rejim("royxat"); });
   $("t-kirish").addEventListener("click", function(){ rejim("kirish"); });
 
-  function telTekshir(v){ var d = String(v).replace(/\D/g, ""); return /^998\d{9}$/.test(d) || /^\d{9}$/.test(d); }
-  var XATO = { blok: "Ko'p marta xato. 15 daqiqadan keyin urinib ko'ring", ism: "Ismingizni yozing (kamida 2 harf)", tel: "Telefon raqamni to'liq yozing",
-               parol: "Parol kamida 6 belgi bo'lsin", yil: "Tug'ilgan yil noto'g'ri", band: "Bu raqam ro'yxatdan o'tgan — «Kirish» ni bosing",
-               notogri: "Raqam yoki parol noto'g'ri", kop: "Hozir juda ko'p so'rov. Birozdan keyin urinib ko'ring" };
+  var XATO = { blok: "Ko'p marta xato. 15 daqiqadan keyin urinib ko'ring", ism: "Ism va familiyangizni yozing (masalan: Aziza Karimova)",
+               parol: "Parol 4 ta raqam bo'lsin", yil: "Tug'ilgan yil noto'g'ri",
+               band: "Bu ism band. Agar bu siz bo'lsangiz — «Kirish» ni bosing. Bo'lmasa, familiyangizni to'liq yoki otangiz ismi bilan yozing",
+               notogri: "Ism yoki parol noto'g'ri", kop: "Hozir juda ko'p so'rov. Birozdan keyin urinib ko'ring" };
+  ["r-parol", "pw-yangi"].forEach(function(id){ $(id).addEventListener("input", function(){ this.value = this.value.replace(/\D/g, "").slice(0, 4); }); });
   function tayyor(d, errEl, btn){
     btn.disabled = false;
     if (d && d.token){ token = d.token; set("tb_p_token", token); return boshla(); }
@@ -666,20 +665,19 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   function tarmoq(errEl, btn){ return function(){ btn.disabled = false; errEl.textContent = "Internet bilan bog'lanib bo'lmadi"; }; }
 
   $("f-royxat").addEventListener("submit", function(){
-    var e = $("r-err"), b = this.querySelector("button[type=submit]"), ism = $("r-ism").value.trim(), yil = $("r-yil").value;
-    if (ism.length < 2){ e.textContent = XATO.ism; $("r-ism").focus(); return; }
-    if (!telTekshir($("r-tel").value)){ e.textContent = XATO.tel; $("r-tel").focus(); return; }
-    if ($("r-parol").value.length < 6){ e.textContent = XATO.parol; $("r-parol").focus(); return; }
-    if (yil && (+yil < 1930 || +yil > 2025)){ e.textContent = XATO.yil; $("r-yil").focus(); return; }
+    var e = $("r-err"), b = this.querySelector("button[type=submit]"), ism = $("r-ism").value.trim().replace(/\s+/g, " ");
+    if (ism.length < 5 || ism.indexOf(" ") < 0){ e.textContent = XATO.ism; $("r-ism").focus(); return; }
+    if (!/^\d{4}$/.test($("r-parol").value)){ e.textContent = XATO.parol; $("r-parol").focus(); return; }
     e.textContent = ""; b.disabled = true;
-    rpc("p_royxat", { p_ism: ism, p_tel: $("r-tel").value, p_parol: $("r-parol").value, p_yil: yil ? +yil : null })
+    rpc("p_royxat2", { p_ism: ism, p_parol: $("r-parol").value })
       .then(function(d){ tayyor(d, e, b); }, tarmoq(e, b));
   });
   $("f-kirish").addEventListener("submit", function(){
     var e = $("k-err"), b = this.querySelector("button[type=submit]");
-    if (!telTekshir($("k-tel").value)){ e.textContent = XATO.tel; return; }
+    if ($("k-ism").value.trim().length < 2){ e.textContent = XATO.ism; $("k-ism").focus(); return; }
+    if (!$("k-parol").value){ e.textContent = "Parolni yozing"; $("k-parol").focus(); return; }
     e.textContent = ""; b.disabled = true;
-    rpc("p_kirish", { p_tel: $("k-tel").value, p_parol: $("k-parol").value }).then(function(d){ tayyor(d, e, b); }, tarmoq(e, b));
+    rpc("p_kirish2", { p_ism: $("k-ism").value, p_parol: $("k-parol").value }).then(function(d){ tayyor(d, e, b); }, tarmoq(e, b));
   });
 
   // ---------- ma'lumotlarni chizish ----------
@@ -767,7 +765,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   // ---------- parol va chiqish ----------
   $("o-parol").addEventListener("click", function(){ $("pw-eski").value = ""; $("pw-yangi").value = ""; $("pw-err").textContent = ""; $("d-parol").showModal(); });
   $("f-parol").addEventListener("submit", function(){
-    if ($("pw-yangi").value.length < 6){ $("pw-err").textContent = XATO.parol; return; }
+    if (!/^\d{4}$/.test($("pw-yangi").value)){ $("pw-err").textContent = XATO.parol; return; }
     rpc("p_parol_ozgartir", { p_token: token, p_eski: $("pw-eski").value, p_yangi: $("pw-yangi").value }).then(function(d){
       if (d && d.xato){ $("pw-err").textContent = d.xato === "eski" ? "Hozirgi parol noto'g'ri" : XATO[d.xato] || "Tekshiring"; return; }
       $("d-parol").close(); toast("Parol o'zgartirildi");
@@ -1320,7 +1318,6 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
       DT.javob.push({ id: DT.d.savollar[DT.i].id, j: DT.tanlov }); DT.i++;
       if (DT.i < DT.d.savollar.length) dtSavol(); else dtTopshir();
     }
-    if (e.target.id === "dt-ariza") dtAriza(e.target);
     if (e.target.id === "dt-tamom"){ $("o-daraja").hidden = true; }
   });
   function dtTopshir(){
@@ -1340,20 +1337,9 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     h += '<div style="text-align:left;margin:12px 0">' + Object.keys(TURLAR).filter(function(t){ return k[t]; }).map(function(t){
       var p = Math.round(k[t].ok * 100 / k[t].jami);
       return '<div class="dt-konikma"><span>' + TURLAR[t] + '</span><div class="bar"><u style="width:' + p + '%"></u></div><span>' + k[t].ok + '/' + k[t].jami + '</span></div>'; }).join("") + '</div>';
-    h += '<button class="btn wide" type="button" id="dt-ariza">📝 Shu darajadagi guruhga yozilish</button>' +
-      '<p class="soft" style="font-size:13px">Tugmani bossangiz, markaz administratori siz bilan bog\'lanadi.</p>' +
-      '<p class="soft">Test: ' + esc(o.sana) + ' · qayta topshirish: ' + esc(o.keyingi) + ' dan keyin</p>' +
+    h += '<p class="soft">Test: ' + esc(o.sana) + ' · qayta topshirish: ' + esc(o.keyingi) + ' dan keyin</p>' +
       '<button class="link" type="button" id="dt-tamom">Yopish</button></div>';
     $("dt").innerHTML = h;
-  }
-  function dtAriza(b){
-    b.disabled = true;
-    rpc("p_daraja_ariza", { p_token: token }).then(function(r){
-      if (r.ok){ b.textContent = "✅ Ariza yuborildi"; toast("📝 Ariza yuborildi! Administrator tez orada bog'lanadi"); return; }
-      b.disabled = false;
-      toast({ bor: "Arizangiz allaqachon yuborilgan — tez orada bog'lanamiz", tel: "Profilingizda telefon raqami yo'q" }[r.xato] || "Xatolik");
-      if (r.xato === "bor"){ b.disabled = true; b.textContent = "✅ Ariza yuborilgan"; }
-    }).catch(function(){ b.disabled = false; toast("Internet bilan bog'lanib bo'lmadi"); });
   }
   $("dt-yop").addEventListener("click", function(){
     if (DT && !confirm("Testni keyinroq davom ettirasizmi? (2 soat ichida shu joydan davom etadi)")) return;

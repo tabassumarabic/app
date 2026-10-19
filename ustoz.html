@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Platforma paneli — Tabassum</title>
+<title>Direktor paneli — Tabassum</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0E1230">
 <link rel="icon" href="ikonka/favicon-64.png" type="image/png">
@@ -105,44 +105,64 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
 .kz-katta .sn{font-size:72px;font-weight:900;margin-top:10px;font-variant-numeric:tabular-nums}
 .kz-podium{display:flex;align-items:flex-end;justify-content:center;gap:12px;margin:20px 0}
 .kz-podium div{width:180px;border-radius:18px 18px 0 0;color:#fff;font-weight:900;font-size:18px;padding:12px 6px;text-align:center}
+
+/* ===== o'quvchi ishi ===== */
+.row.bos{cursor:pointer}.row.bos:hover{background:#20265A;border-radius:12px}
+#o-oq{overflow:auto}
+#o-oq .ich2{max-width:900px;margin:0 auto}
+.oq-chip{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.oq-chip span{background:#2A3164;border-radius:12px;padding:8px 12px;font-weight:900}
+.oq-chip span small{display:block;color:var(--soft);font-size:11px;font-weight:800}
+.oq-graf{display:flex;align-items:flex-end;gap:5px;height:120px;margin:10px 0 2px}
+.oq-graf div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;font-size:10px;color:var(--soft)}
+.oq-graf u{display:block;width:100%;background:var(--brand);border-radius:6px 6px 0 0;min-height:2px}
+.oq-graf div.yak u{background:#59608F}
+.oq-bar{height:12px;border-radius:99px;background:var(--line);overflow:hidden;margin:6px 0}
+.oq-bar u{display:block;height:100%;background:var(--green)}
+.oq-t{width:100%;border-collapse:collapse;font-size:14px}
+.oq-t td{padding:7px 6px;border-top:1px solid var(--line)}
+.oq-t td:last-child{text-align:right;white-space:nowrap}
 </style>
 </head>
 <body>
 <div class="kirish" id="kirish" hidden>
   <img src="ikonka/ikonka-192.png" alt="" width="72" height="72" style="border-radius:18px">
-  <h1 style="margin:10px 0 2px">Platforma paneli</h1>
-  <p class="bosh">Tabassum platformasi (ilova) uchun: foydalanuvchilar, Karvon, ovozlar</p>
+  <h1 style="margin:10px 0 2px">Direktor paneli</h1>
+  <p class="bosh">Tabassum: o'quvchilar, Karvon, ovozlar, arizalar</p>
   <form id="f-kirish" onsubmit="return false" novalidate>
-    <label for="k-login">Login</label><input id="k-login" autocomplete="username" autocapitalize="off" value="Tabassum_arabic" placeholder="Tabassum_arabic">
+    <label for="k-login">Ism familiyangiz</label><input id="k-login" autocomplete="username" placeholder="Ism familiya">
     <label for="k-pin">Parol (4 ta raqam)</label><input id="k-pin" type="password" inputmode="numeric" maxlength="4" autocomplete="current-password" style="letter-spacing:.4em;text-align:center">
     <p class="xato" id="k-xato"></p>
     <button class="btn" type="submit" style="width:100%">Kirish</button>
   </form>
-  <p class="bosh" style="margin-top:20px">🏫 Markaz ishlari (arizalar, guruhlar, to'lovlar) — <a href="../tabassum/ustoz.html" style="color:var(--brand)">Markaz paneli</a></p>
 </div>
 
 <div id="ilova" hidden>
   <header class="tepa">
     <div class="ich">
-      <a class="logo" href="#"><img src="ikonka/ikonka-192.png" alt=""><span>Tabassum<small>📱 Platforma paneli</small></span></a>
-      <span class="men"><span id="men-ism"></span> · <a href="../tabassum/ustoz.html">🏫 Markaz paneli</a> · <a href="#" id="chiq">Chiqish</a></span>
+      <a class="logo" href="#"><img src="ikonka/ikonka-192.png" alt=""><span>Tabassum<small>Direktor paneli</small></span></a>
+      <span class="men"><span id="men-ism"></span> · <a href="#" id="chiq">Chiqish</a></span>
     </div>
     <nav class="tablar" id="tablar">
-      <a href="#foydalanuvchilar" data-b="foydalanuvchilar">👥 Foydalanuvchilar</a>
+      <a href="#foydalanuvchilar" data-b="foydalanuvchilar">👥 O'quvchilar</a>
       <a href="#karvon" data-b="karvon">🐪 Karvon</a>
       <a href="#ovozlar" data-b="ovozlar">🎙 Ovozlar</a>
+      <a href="#arizalar" data-b="arizalar">📨 Arizalar</a>
+      <a href="../imtihon/ustoz.html" target="_blank" rel="noopener" data-b="imtihon">📝 Imtihon sayti ↗</a>
     </nav>
   </header>
   <main>
     <section data-s="foydalanuvchilar" hidden>
-      <div class="top"><h1>👥 Foydalanuvchilar</h1><p>Platformada ro'yxatdan o'tganlar (tabassumarabic.github.io/app)</p></div>
+      <div class="top" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div><h1>👥 O'quvchilar</h1><p>Ilovada ro'yxatdan o'tganlar. O'quvchini bossangiz — uning ishini ko'rasiz.</p></div>
+        <button class="btn" type="button" id="sinov-ochish" style="margin-left:auto">👁 Sinov o'quvchi bo'lib ilovani ochish</button></div>
       <div class="stats">
         <div class="card stat"><i>👥</i><div><b id="f-jami">–</b><span>Jami</span></div></div>
+        <div class="card stat"><i>🔥</i><div><b id="f-faol">–</b><span>Faol (7 kun)</span></div></div>
         <div class="card stat"><i>🆕</i><div><b id="f-bugun">–</b><span>Bugun</span></div></div>
         <div class="card stat"><i>📅</i><div><b id="f-hafta">–</b><span>Oxirgi 7 kun</span></div></div>
       </div>
       <div class="card">
-        <div class="head"><h3>Ro'yxat</h3><div class="sp"><input class="qidir" id="f-qidir" placeholder="🔎 Ism yoki telefon"><button class="btn sm alt" id="f-yangila">↻</button></div></div>
+        <div class="head"><h3>Ro'yxat</h3><div class="sp"><input class="qidir" id="f-qidir" placeholder="🔎 Ism"><button class="btn sm alt" id="f-yangila">↻</button></div></div>
         <div id="foydalanuvchilar"><p class="bosh">Yuklanmoqda…</p></div>
       </div>
     </section>
@@ -173,7 +193,13 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
       </div>
     </section>
 
-    <section data-s="ruxsatsiz" hidden><div class="card"><h3>Bu panelga ruxsat yo'q</h3><p class="bosh">Platforma paneli direktor, administrator va ustozlar uchun.</p></div></section>
+    <!-- ARIZALAR -->
+    <section data-s="arizalar" hidden>
+      <div class="top"><div><h1>📨 Arizalar</h1><p>Ariza qabul qilish hozircha yopiq — bu yerda oldin kelgan arizalar turibdi.</p></div></div>
+      <div class="card"><div id="arizalar"><p class="bosh">Yuklanmoqda…</p></div></div>
+    </section>
+
+    <section data-s="ruxsatsiz" hidden><div class="card"><h3>Bu panelga ruxsat yo'q</h3><p class="bosh">Bu panel direktor uchun.</p></div></section>
   </main>
 </div>
 
@@ -184,13 +210,17 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
   <div class="kz-bar"><u id="kz-bar"></u></div>
   <div id="kz"></div>
 </div></div>
+<div class="olay" id="o-oq" hidden><div class="ich2">
+  <div class="top-h"><b style="font-size:18px">👤 O'quvchi ishi</b><button class="x" type="button" id="oq-yop">✕</button></div>
+  <div id="oq"></div>
+</div></div>
 <div class="toast" id="toast" hidden></div>
 
 <script>
 (function(){
   "use strict";
   var SUPA = "https://qubrgtzfjmpyojaltfnf.supabase.co", KEY = "sb_publishable_32_AlXAqmxrZ0pr9UjFZJQ_XiNjsCy_", KALIT = "tb_platforma_panel";
-  var BOLIMLAR = { direktor: ["foydalanuvchilar", "karvon", "ovozlar"], administrator: ["foydalanuvchilar", "karvon"], ustoz: ["karvon", "ovozlar"] };
+  var BOLIMLAR = { direktor: ["foydalanuvchilar", "karvon", "ovozlar", "arizalar", "imtihon"], administrator: ["foydalanuvchilar", "karvon", "arizalar", "imtihon"], ustoz: ["karvon", "ovozlar", "imtihon"] };
   var token = null, men = null, ruxsat = [];
   try { token = localStorage.getItem(KALIT); } catch(e){}
   function $(id){ return document.getElementById(id); }
@@ -219,7 +249,7 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
     var b = this.querySelector("button"); b.disabled = true; $("k-xato").textContent = "";
     xom("login", { p_login: $("k-login").value, p_pin: $("k-pin").value }).then(function(d){
       b.disabled = false;
-      if (!d || d.xato){ $("k-xato").textContent = d && d.xato === "blok" ? "Ko'p urinish — 15 daqiqadan keyin qayta urinib ko'ring" : "Login yoki parol noto'g'ri"; return; }
+      if (!d || d.xato){ $("k-xato").textContent = d && d.xato === "blok" ? "Ko'p urinish — 15 daqiqadan keyin qayta urinib ko'ring" : "Ism yoki parol noto'g'ri"; return; }
       token = d.token; try { localStorage.setItem(KALIT, token); } catch(e){}
       boshla();
     }).catch(function(){ b.disabled = false; $("k-xato").textContent = "Internet bilan bog'lanib bo'lmadi"; });
@@ -231,18 +261,18 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
   function yuklaFoyd(){
     if (ruxsat.indexOf("foydalanuvchilar") < 0) return Promise.resolve();
     return rpc("p_foydalanuvchilar").then(function(d){
-      $("f-jami").textContent = d.jami; $("f-bugun").textContent = d.bugun; $("f-hafta").textContent = d.hafta;
+      $("f-jami").textContent = d.jami; $("f-bugun").textContent = d.bugun; $("f-hafta").textContent = d.hafta; $("f-faol").textContent = d.faol;
       F = d.royxat || []; chizFoyd();
     });
   }
   function chizFoyd(){
     var q = $("f-qidir").value.trim().toLowerCase().replace(/\s/g, "");
-    var l = F.filter(function(u){ return !q || (u.ism || "").toLowerCase().replace(/\s/g, "").indexOf(q) >= 0 || (u.tel || "").replace(/\D/g, "").indexOf(q.replace(/\D/g, "") || "§") >= 0; });
+    var l = F.filter(function(u){ return !q || (u.ism || "").toLowerCase().replace(/\s/g, "").indexOf(q) >= 0; });
     $("foydalanuvchilar").innerHTML = l.length ? l.map(function(u){
       var av = u.rasm ? '<img src="' + esc(u.rasm) + '" alt="">' : esc(u.avatar || "🙂");
-      return '<div class="row"><span class="ava">' + av + '</span><div class="g"><b>' + esc(u.ism) + '</b>' +
-        '<span>' + (u.tel ? esc(u.tel) : "telefonsiz") + (u.yil ? " · " + u.yil + "-yil" : "") + " · " + esc(u.sana) + " · ⭐ " + u.xp + '</span></div>' +
-        (u.tel ? '<button class="btn sm alt" data-parol="' + u.id + '">🔑 Parolni yangilash</button>' : "") +
+      return '<div class="row bos" data-oq="' + u.id + '"><span class="ava">' + av + '</span><div class="g"><b>' + esc(u.ism) + '</b>' +
+        '<span>⭐ ' + u.xp + ' XP · 🔥 ' + u.olov + ' · oxirgi: ' + esc(u.oxirgi || "—") + ' · ro\'yxat: ' + esc(u.sana) + '</span></div>' +
+        '<button class="btn sm alt" data-parol="' + u.id + '">🔑 Yangi parol</button>' +
         (u.rasm ? '<button class="del" data-rasm="' + u.id + '">Rasmni o\'chirish</button>' : "") + '</div>';
     }).join("") : '<p class="bosh">Hech kim topilmadi.</p>';
   }
@@ -252,14 +282,84 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
     var p = e.target.getAttribute("data-parol"), r0 = e.target.getAttribute("data-rasm");
     if (p){
       var u = F.filter(function(x){ return String(x.id) === p; })[0];
-      var yangi = prompt("«" + u.ism + "» uchun yangi vaqtinchalik parol (kamida 6 belgi):", String(100000 + Math.floor(Math.random() * 900000)));
-      if (!yangi) return;
+      var yangi = prompt("«" + u.ism + "» uchun yangi parol (4 ta raqam):", String(1000 + Math.floor(Math.random() * 9000)));
+      if (yangi === null) return;
+      yangi = yangi.trim();
+      if (!/^\d{4}$/.test(yangi)) return toast("Parol 4 ta raqam bo'lsin");
       rpc("p_parol_tikla_admin", { p_id: +p, p_parol: yangi }).then(function(r){
-        if (r.xato) return toast(r.xato === "qisqa" ? "Parol kamida 6 belgi bo'lsin" : "Xatolik");
-        alert("✅ Parol yangilandi.\n\nO'quvchiga ayting:\nTelefon: " + u.tel + "\nParol: " + yangi + "\n\nKirgach, Profil → «Parolni o'zgartirish» dan o'zi yangilasin.");
+        if (r.xato) return toast(r.xato === "qisqa" ? "Parol 4 ta raqam bo'lsin" : "Xatolik");
+        alert("✅ Parol yangilandi.\n\nO'quvchiga ayting:\nIsm: " + u.ism + "\nParol: " + yangi);
       }).catch(xato);
+      return;
     }
-    if (r0 && confirm("Bu foydalanuvchining rasmi o'chirilsinmi? (nomaqbul rasm bo'lsa)")) rpc("p_rasm_ochir_admin", { p_id: +r0 }).then(function(){ toast("Rasm o'chirildi"); return yuklaFoyd(); }).catch(xato);
+    if (r0){ if (confirm("Bu foydalanuvchining rasmi o'chirilsinmi? (nomaqbul rasm bo'lsa)")) rpc("p_rasm_ochir_admin", { p_id: +r0 }).then(function(){ toast("Rasm o'chirildi"); return yuklaFoyd(); }).catch(xato); return; }
+    var qator = e.target.closest("[data-oq]"); if (qator) oqOch(+qator.getAttribute("data-oq"));
+  });
+
+
+  // ---------- 👁 sinov o'quvchi: ilova shu brauzerda sinov hisobi bilan ochiladi ----------
+  $("sinov-ochish").addEventListener("click", function(){
+    var oyna = window.open("about:blank", "_blank");
+    rpc("p_sinov_kirish").then(function(r){
+      try { localStorage.setItem("tb_p_token", r.token); } catch(e){}
+      if (oyna) oyna.location = "./"; else location.href = "./";
+    }).catch(function(ex){ if (oyna) oyna.close(); xato(ex); });
+  });
+
+  // ---------- 👤 o'quvchi ishi ----------
+  var MANBA = { dars: "📅 Kunlik dars", mashq: "✍️ Mashq", duel: "⚔️ Duel", oyin: "🎮 O'yinlar", karvon: "🐪 Karvon", daraja: "🎯 Daraja testi" };
+  var HAFTA = ["", "Du", "Se", "Ch", "Pa", "Ju", "Sh", "Ya"];
+  function oqOch(id){
+    $("o-oq").hidden = false; $("oq").innerHTML = '<p class="bosh">Yuklanmoqda…</p>';
+    rpc("p_oquvchi_batafsil", { p_id: id }).then(function(d){
+      if (d.xato){ $("oq").innerHTML = '<p class="bosh">Topilmadi.</p>'; return; }
+      var av = d.rasm ? '<img src="' + esc(d.rasm) + '" alt="">' : esc(d.avatar || "🙂");
+      var h = '<div class="card"><div style="display:flex;align-items:center;gap:12px"><span class="ava" style="width:56px;height:56px;font-size:28px">' + av + '</span><div><h2 style="margin:0">' + esc(d.ism) + '</h2>' +
+        '<span class="bosh">Ro\'yxatdan o\'tgan: ' + esc(d.sana) + ' · oxirgi faollik: ' + esc(d.oxirgi || "—") + '</span></div></div>' +
+        '<div class="oq-chip"><span>⭐ ' + d.xp + '<small>jami XP</small></span><span>🔥 ' + d.olov + '<small>olov (kun)</small></span>' +
+        '<span>🎯 ' + esc(d.daraja || "—") + '<small>daraja testi</small></span><span>✍️ ' + d.mashq.soni + '<small>mashq</small></span>' +
+        '<span>⚔️ ' + d.duel + '<small>duel</small></span><span>🎮 ' + d.oyin + '<small>o\'yin</small></span><span>🐪 ' + d.karvon + '<small>karvon</small></span>' +
+        '<span>❗ ' + d.mashq.xato + '<small>xatolarim</small></span></div></div>';
+      var eng = Math.max.apply(null, d.kunlar.map(function(k){ return k.xp; }).concat([1]));
+      h += '<div class="card"><h3 style="margin:0">📈 Oxirgi 14 kun (XP)</h3><div class="oq-graf">' + d.kunlar.map(function(k){
+        return '<div class="' + (k.hafta === 7 ? "yak" : "") + '" title="' + k.sana + ': ' + k.xp + ' XP"><b style="color:var(--ink);font-size:10px">' + (k.xp || "") + '</b><u style="height:' + (k.xp * 90 / eng) + '%"></u>' + HAFTA[k.hafta] + '</div>'; }).join("") + '</div>';
+      var m = d.manba || {};
+      h += '<p class="bosh" style="margin:8px 0 0">30 kunda: ' + (Object.keys(m).map(function(k){ return (MANBA[k] || k) + " " + m[k]; }).join(" · ") || "hali XP yo'q") + '</p></div>';
+      (d.yollar || []).forEach(function(y){
+        var p = y.jami ? Math.round(y.bajarilgan * 100 / y.jami) : 0;
+        h += '<div class="card"><h3 style="margin:0">📅 Kunlik dars: ' + esc(y.kurs) + '</h3><p class="bosh" style="margin:4px 0">Boshlagan: ' + esc(y.boshlandi) + ' · bajarilgan kunlar: ' + y.bajarilgan + ' / ' + y.jami + '</p>' +
+          '<div class="oq-bar"><u style="width:' + p + '%"></u></div>';
+        h += y.oxirgi.length ? '<table class="oq-t">' + y.oxirgi.map(function(r){
+          var foiz = r.jami ? Math.round(r.togri * 100 / r.jami) : 0;
+          return '<tr><td>' + esc(r.sana) + '</td><td>' + (r.tur === "imtihon" ? "🏆 " : "") + esc(r.sarlavha || (r.tartib + "-kun")) + (r.kech ? ' <span class="chip">kechikib</span>' : "") + '</td><td>' + r.togri + '/' + r.jami + ' · ' + foiz + '%</td></tr>'; }).join("") + '</table>'
+          : '<p class="bosh">Hali birorta kun bajarilmagan.</p>';
+        h += '</div>';
+      });
+      if (d.imtihonlar.length) h += '<div class="card"><h3 style="margin:0">🏆 Dars imtihonlari</h3><table class="oq-t">' + d.imtihonlar.map(function(r){
+        return '<tr><td>' + esc(r.sana) + '</td><td>' + esc(r.kurs) + ' · ' + r.tartib + '-kun</td><td>' + r.togri + '/' + r.jami + ' · ' + (r.otdi ? "✅ o'tdi" : "❌ o'tolmadi") + '</td></tr>'; }).join("") + '</table></div>';
+      $("oq").innerHTML = h;
+    }).catch(xato);
+  }
+  $("oq-yop").addEventListener("click", function(){ $("o-oq").hidden = true; });
+
+  // ---------- 📨 arizalar (qabul yopiq, ro'yxat turibdi) ----------
+  var AR = [];
+  function yuklaArizalar(){
+    if (ruxsat.indexOf("arizalar") < 0) return Promise.resolve();
+    return rpc("arizalar").then(function(d){ AR = d || []; chizArizalar(); });
+  }
+  function chizArizalar(){
+    $("arizalar").innerHTML = AR.length ? AR.map(function(x, i){
+      var tel = esc(x.tel || ""), tg = x.tg ? ' · <a href="https://t.me/' + esc(x.tg) + '" target="_blank" rel="noopener" style="color:var(--brand)">@' + esc(x.tg) + '</a>' : "";
+      return '<div class="row"><div class="g"><b>' + esc(x.ism) + ' · ' + esc(x.kurs || "") + (x.daraja ? ' · 🎯 ' + esc(x.daraja) : "") + '</b>' +
+        '<span><a href="tel:' + tel.replace(/[^\d+]/g, "") + '" style="color:var(--brand)">' + tel + '</a>' + tg + ' · ' + esc(x.vaqt) + '</span></div>' +
+        '<button class="del" data-ax="' + i + '" title="O\'chirish" style="font-size:18px">✕</button></div>';
+    }).join("") : '<p class="bosh">Arizalar yo\'q.</p>';
+  }
+  $("arizalar").addEventListener("click", function(e){
+    var i = e.target.getAttribute("data-ax"); if (i == null) return;
+    var a = AR[+i]; if (!confirm("«" + a.ism + "» arizasi o'chirilsinmi?")) return;
+    rpc("ariza_ochir", { p_id: a.id }).then(function(){ toast("Ariza o'chirildi"); return yuklaArizalar(); }).catch(xato);
   });
 
   // ---------- 🎙 ustoz ovozi ----------
@@ -540,7 +640,7 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
       $("men-ism").textContent = m.ism;
       document.querySelectorAll("#tablar a").forEach(function(a){ a.hidden = ruxsat.indexOf(a.getAttribute("data-b")) < 0; });
       bolim();
-      return Promise.all([yuklaFoyd(), yuklaKarvon(), yuklaOvoz()]);
+      return Promise.all([yuklaFoyd(), yuklaKarvon(), yuklaOvoz(), yuklaArizalar()]);
     }).catch(xato);
   }
   boshla();
