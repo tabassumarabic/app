@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tabassum — arab tilini o'yin bilan o'rganing</title>
 <meta name="description" content="Tabassum — arab tilini har kuni oz-ozdan, o'yin va bellashuvlar bilan o'rganish platformasi.">
-<meta name="theme-color" content="#0E1230">
+<meta name="theme-color" content="#F3E1BD">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="ikonka/favicon-64.png" type="image/png">
 <link rel="apple-touch-icon" href="ikonka/apple-180.png">
@@ -37,6 +37,21 @@ body.dB{--font:Nunito,system-ui,sans-serif;--bg:#FFF6E8;--ink:#3A2716;--soft:#8A
   --input:#FFFFFF;--inputBorder:#F0D9BC;--err:#C62828}
 body.dB .hero::after{content:"🐪";position:absolute;right:12px;bottom:6px;font-size:44px}
 body.dB .hero .btn{background:#fff;color:#E8573A;box-shadow:0 5px 0 rgba(0,0,0,.18)}
+
+/* ===== dizayn C · Sahro (Duolingo uslubi, ustoz tanlovi 1B, 2026-10-19) ===== */
+body.dC{--font:Nunito,system-ui,sans-serif;--bg:#F3E1BD;--ink:#3C3C3C;--soft:#8A7650;--card:#FFF8EA;--hero:#FFF8EA;--heroInk:#3C3C3C;
+  --accent:#58CC02;--accent2:#3E9A00;--chip:#FFF8EA;--chipInk:#7A6440;--track:#E7D3A8;--btn:#58CC02;--btnInk:#fff;--btnShadow:0 4px 0 #46A302;--btnR:16px;
+  --r:20px;--shadow:none;--border:2px solid #DCC290;--tabs:#FFF8EA;--tabInk:#B49A6A;--tabOn:#58CC02;--tabOnInk:#fff;--tabShadow:0 -2px 0 #DCC290;
+  --input:#FFFDF8;--inputBorder:#DCC290;--err:#E0352B}
+body.dC::before{content:"";position:fixed;left:0;right:0;bottom:0;height:120px;pointer-events:none;z-index:0;background:no-repeat bottom/100% 120px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 120' preserveAspectRatio='none'%3E%3Cpath d='M0 60Q100 20 210 55T400 45V120H0Z' fill='%23E6CB93' opacity='.6'/%3E%3Cpath d='M0 90Q130 55 260 88T400 78V120H0Z' fill='%23D9B97A' opacity='.6'/%3E%3C/svg%3E")}
+body.dC .wrap{z-index:1}
+body.dC .card{border-bottom-width:5px}
+body.dC .hero .kicker{color:var(--accent2);opacity:1}
+body.dC .btn.alt{border:2px solid #DCC290;border-bottom-width:4px}
+body.dC .chip{border:2px solid #DCC290}
+body.dC .seg{background:#EFDBB0}
+body.dC .seg button{color:#8A7650}
+body.dC .seg button.on{background:#FFFDF8;color:var(--accent2);box-shadow:0 3px 0 #DCC290}
 
 /* ===== umumiy ===== */
 .brand{display:flex;align-items:center;gap:10px;justify-content:center;margin:18px 0 6px}
@@ -368,7 +383,7 @@ dialog{border:0;border-radius:22px;padding:20px;background:var(--card);color:var
 dialog::backdrop{background:rgba(0,0,0,.55)}
 </style>
 </head>
-<body class="dA">
+<body class="dC">
 <div class="wrap">
 
   <!-- ===== KIRISH / RO'YXAT ===== -->
@@ -470,6 +485,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
       <div class="dizayn" id="dizayn">
         <button type="button" data-d="A" style="background:#0E1230;color:#F2B84B">🌙 Tungi voha</button>
         <button type="button" data-d="B" style="background:#FFE7CC;color:#E8573A">🐪 Oltin qum</button>
+        <button type="button" data-d="C" style="background:#F3E1BD;color:#3E9A00">🏜 Sahro</button>
       </div>
     </div>
     <div class="card">
@@ -623,12 +639,13 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 
   // ---------- dizayn ----------
   function dizayn(d){
-    if (["A","B"].indexOf(d) < 0) d = "A";
+    if (["A","B","C"].indexOf(d) < 0) d = "C";
     document.body.className = "d" + d; set("tb_dizayn", d);
-    document.querySelector('meta[name=theme-color]').content = { A: "#0E1230", B: "#FFF6E8" }[d];
+    document.querySelector('meta[name=theme-color]').content = { A: "#0E1230", B: "#FFF6E8", C: "#F3E1BD" }[d];
     document.querySelectorAll("#dizayn button").forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-d") === d); });
   }
-  dizayn(get("tb_dizayn") || "A");
+  if (!get("tb_dizayn_c")){ set("tb_dizayn", "C"); set("tb_dizayn_c", "1"); }
+  dizayn(get("tb_dizayn") || "C");
   $("dizayn").addEventListener("click", function(e){ var b = e.target.closest("[data-d]"); if (b) dizayn(b.getAttribute("data-d")); });
 
   // ---------- ekranlar ----------
