@@ -484,8 +484,7 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
   }
   function chizKarvon(){
     var d = KV, h = '<div class="head"><h3>' + (d.sinov ? "🧪 Sinov poygasi" : "🐪 Yakshanba poygasi") + ' · ' + kvSoat(d.boshlanish) + '</h3></div>', holat;
-    if (d.toxtatilgan && !d.sinov) holat = "🛑 Karvon vaqtincha TO'XTATILGAN — yakshanba poygasi o'tmaydi, eslatma yuborilmaydi";
-    else if (d.holat === "tugadi") holat = "🏁 Poyga tugadi";
+    if (d.holat === "tugadi") holat = "🏁 Poyga tugadi";
     else if (d.pauza) holat = "⏸ To'xtatilgan — o'quvchilar kutyapti";
     else if (d.holat === "oyin") holat = "▶️ O'yin ketyapti: " + (d.savol || "–") + " / 45 savol · tugashiga " + kvVaqt((d.jami_sek || 0) - d.sekund);
     else if (d.sekund < 0) holat = "⏳ Boshlanishiga " + kvVaqt(-d.sekund) + (d.sinov ? "" : (d.royxat_ochiq ? " · ro'yxat shanba oxirigacha ochiq" : " · ro'yxat yopildi") + (d.chipta_shart ? "" : " · 🎉 chipta shart emas"));
@@ -498,7 +497,6 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
     }
     if (!d.sinov || d.holat === "tugadi") h += '<button class="btn sm alt" data-kv="sinov">🧪 Sinov poygasi ochish</button>';
     h += '<button class="btn sm" data-kv="kuzat">👁 Kuzatish</button>';
-    h += d.toxtatilgan ? '<button class="btn sm" data-kv="yoq">▶️ Karvonni qayta yoqish</button>' : '<button class="btn sm alt" data-kv="ochir">🛑 Karvonni to\'xtatish</button>';
     h += '</div>';
     if (d.natija && d.natija.jamoalar) h += '<div style="margin-top:14px">' + d.natija.jamoalar.map(function(j){
       return '<div class="row"><span class="ava" style="background:' + esc(j.rang) + ';color:#fff">' + j.orin + '</span><div class="g"><b>' + esc(j.nom) + ' · ' + j.ball + ' ball</b><span>' + esc(j.azolar.join(", ")) + ' · +' + j.xp + ' XP</span></div></div>';
@@ -520,8 +518,6 @@ input.qidir,select{padding:10px 14px;border-radius:12px;border:1px solid var(--l
     var b = e.target.closest("[data-kv]"); if (!b) return;
     var a = b.getAttribute("data-kv"), ish;
     if (a === "kuzat") return kzOch();
-    if (a === "ochir" && !confirm("Karvon to'xtatilsinmi? Yakshanba poygalari o'tmaydi.")) return;
-    if (a === "ochir" || a === "yoq") ish = rpc("karvon_toxtat", { p_toxtat: a === "ochir" }).then(function(){ toast(a === "ochir" ? "🛑 Karvon to'xtatildi" : "▶️ Karvon qayta yoqildi. Telefon eslatmalarini ham yoqishni unutmang"); });
     if (a === "toxtat") ish = rpc("karvon_pauza", { p_karvon: KV.karvon, p_toxtat: true });
     if (a === "davom") ish = rpc("karvon_pauza", { p_karvon: KV.karvon, p_toxtat: false });
     if (a === "hozir"){ if (!confirm("Poyga 15 soniyadan keyin boshlansinmi?")) return; ish = rpc("karvon_hozir", { p_karvon: KV.karvon }); }
