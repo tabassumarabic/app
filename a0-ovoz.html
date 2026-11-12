@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A0 ovoz yozish — Tabassum</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E1230">
+<link rel="icon" href="ikonka/favicon-64.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{--bg:#0E1230;--card:#1A1F45;--card2:#222859;--ink:#F3EEDC;--soft:#A9A6C9;--line:#2E3566;--brand:#F2B84B;--brand-ink:#1B1640;--red:#F87171;--green:#4ADE80;
+  --b1:#7DB7FF;--b2:#6EE7A8;--q1:#FF9EC0;--q2:#FFD27A}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,sans-serif;font-weight:700}
+button,input,select{font:inherit}
+.ar{font-family:"Noto Naskh Arabic",serif;direction:rtl;font-weight:500}
+.tepa{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.tepa .ich{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900}.logo img{width:36px;height:36px;border-radius:10px}
+.logo small{display:block;color:var(--brand);font-size:12px}
+.men{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:14px;color:var(--soft)}
+.men a{color:var(--brand);cursor:pointer}
+.hol{max-width:860px;margin:0 auto;padding:0 16px 10px}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--green);width:0;transition:width .3s}
+.hol .q{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap;font-size:14px;color:var(--soft)}
+.hol select{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--soft);border-radius:99px;padding:6px 12px;cursor:pointer}
+.chip.on{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+main{max-width:860px;margin:0 auto;padding:12px 16px 80px}
+.dbosh{margin:18px 0 8px;color:var(--brand);font-size:15px;letter-spacing:.3px}
+.k{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px;scroll-margin-top:140px}
+.k.joriy{border-color:var(--brand);box-shadow:0 0 0 2px rgba(242,184,75,.25)}
+.k.tayyor{border-color:#2F6B4A;background:#17283A}
+.kb{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--soft)}
+.kb .f{background:var(--card2);color:var(--ink);border-radius:8px;padding:2px 8px;font-family:ui-monospace,monospace}
+.kb .st{margin-left:auto;font-weight:900}
+.kb .st.ok{color:var(--green)}
+.msh{margin:8px 0 2px;font-size:16px;color:var(--soft);text-align:right}
+.izoh{margin:6px 0;background:#3A2E12;color:#FFE3A3;border-radius:10px;padding:6px 10px;font-size:14px}
+.matn{font-size:28px;line-height:1.9;text-align:right;margin:6px 0 10px;word-spacing:4px}
+.suh{display:grid;gap:4px;margin:8px 0}
+.sq{display:flex;align-items:center;gap:8px;direction:rtl;padding:4px 8px;border-radius:10px;color:var(--soft);font-size:18px}
+.sq.men{background:var(--card2);color:var(--ink);font-size:26px;border:1px solid var(--brand)}
+.sq .ism{flex:none;font-size:13px;color:var(--soft);background:#0E1230;border-radius:8px;padding:0 8px;font-family:Nunito,sans-serif;direction:ltr}
+.sq .p{margin-right:auto;direction:ltr}
+.sq .p button{background:none;border:0;color:var(--soft);cursor:pointer;font-size:16px}
+.tug{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{border:0;border-radius:14px;padding:11px 16px;background:var(--brand);color:var(--brand-ink);font-weight:900;cursor:pointer}
+.btn.alt{background:#2A3164;color:var(--ink)}
+.btn.rec{background:var(--red);color:#fff;animation:pul 1.2s infinite}
+.btn.del{background:none;color:var(--red);padding:11px 8px}
+.btn:disabled{opacity:.5}
+.vaqt{font-variant-numeric:tabular-nums;color:var(--red);font-weight:900}
+@keyframes pul{50%{opacity:.75}}
+@media (prefers-reduced-motion:reduce){.btn.rec{animation:none}}
+.tasdiq{display:flex;gap:8px;align-items:center;background:#3A1820;border-radius:12px;padding:6px 10px;color:#FFC9C9;font-size:14px}
+.kir{max-width:440px;margin:40px auto;padding:0 16px}
+.kir h1{font-size:24px;margin:0 0 4px}.kir p{color:var(--soft);margin:0 0 18px}
+.kimlar{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.kimlar button{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;padding:14px 10px;cursor:pointer;text-align:left}
+.kimlar button b{display:block;font-size:18px}.kimlar button span{display:block;color:var(--soft);font-size:13px;margin-top:2px}
+.kimlar button.on{border-color:var(--brand)}
+.kir input{width:100%;background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:14px;padding:13px;font-size:22px;letter-spacing:6px;text-align:center}
+.kir .btn{width:100%;margin-top:12px;font-size:17px}
+.xato{color:var(--red);margin-top:10px;min-height:22px}
+.yordam{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin:6px 0 4px;color:var(--soft);font-size:14px;line-height:1.6}
+.yordam b{color:var(--ink)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#000c;color:#fff;padding:10px 16px;border-radius:12px;z-index:50;font-size:15px}
+.bo{color:var(--soft);text-align:center;padding:30px}
+</style>
+</head>
+<body>
+<div id="ilova"></div>
+<script>
+(function(){
+  var SUPA = "https://qubrgtzfjmpyojaltfnf.supabase.co", KEY = "sb_publishable_32_AlXAqmxrZ0pr9UjFZJQ_XiNjsCy_", SAQ = "tb_a0_ovoz_kirish";
+  var KIMLAR = [["1-bola","Fonetika (1–19-darslar), Anvar"],["2-bola","Jasur, Sardor"],["1-qiz","Malika"],["2-qiz","Zarina, Nilufar"]];
+  var XATOLAR = { kod_xato: "Kod noto'g'ri", blok: "Ko'p xato kiritildi — 10 daqiqadan keyin urinib ko'ring", kim_yoq: "Bunday ishtirokchi yo'q", sizniki_emas: "Bu qator sizga tegishli emas", wav_emas: "Ovoz fayli buzilgan" };
+  var S = { kim: "", kod: "", hamma: [], meniki: [], dars: "hammasi", korinish: "qolgan", joriy: null, yangi: {}, rec: null, mik: null, ijro: new Audio(), ochirTasdiq: null };
+  var $ = function(id){ return document.getElementById(id); };
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function toast(t){ var d = document.createElement("div"); d.className = "toast"; d.textContent = t; document.body.appendChild(d); setTimeout(function(){ d.remove(); }, 2600); }
+  function rpc(nom, a){
+    a.p_kim = S.kim; a.p_kod = S.kod;
+    return fetch(SUPA + "/rest/v1/rpc/" + nom, { method: "POST", headers: { apikey: KEY, "Content-Type": "application/json" }, body: JSON.stringify(a) })
+      .then(function(r){ if (!r.ok) throw new Error("Internet yoki server xatosi (" + r.status + ")"); return r.json(); });
+  }
+  function xatoMatn(x){ return XATOLAR[x] || x; }
+
+  // ---------- kirish ----------
+  function kirishOyna(xabar){
+    var saq = {}; try { saq = JSON.parse(localStorage.getItem(SAQ) || "{}"); } catch(e){}
+    if (S.kim) saq.kim = S.kim;
+    $("ilova").innerHTML = '<div class="kir"><h1>🎙 A0 kitobi — ovoz yozish</h1><p>O\'zingizni tanlang va 6 raqamli kodingizni kiriting.</p>' +
+      '<div class="kimlar">' + KIMLAR.map(function(k){ return '<button type="button" data-kim="' + k[0] + '"' + (saq.kim === k[0] ? ' class="on"' : "") + '><b>' + k[0] + '</b><span>' + k[1] + '</span></button>'; }).join("") + '</div>' +
+      '<form id="kf"><input id="kod" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="••••••" aria-label="Kod"><button class="btn" type="submit">Kirish</button></form>' +
+      '<div class="xato" id="kx">' + esc(xabar || "") + '</div></div>';
+    var tanlangan = saq.kim || "";
+    $("ilova").querySelectorAll("[data-kim]").forEach(function(b){ b.onclick = function(){
+      tanlangan = b.getAttribute("data-kim"); $("ilova").querySelectorAll("[data-kim]").forEach(function(x){ x.classList.toggle("on", x === b); }); $("kod").focus(); }; });
+    $("kf").onsubmit = function(e){
+      e.preventDefault();
+      if (!tanlangan){ $("kx").textContent = "Avval o'zingizni tanlang"; return; }
+      S.kim = tanlangan; S.kod = $("kod").value.trim(); $("kx").textContent = "Tekshirilmoqda…";
+      yukla(true);
+    };
+  }
+  function yukla(birinchi){
+    return rpc("a0ov_royxat", {}).then(function(d){
+      if (d.xato){ if (birinchi !== false) kirishOyna(xatoMatn(d.xato)); else toast(xatoMatn(d.xato)); return; }
+      try { localStorage.setItem(SAQ, JSON.stringify({ kim: S.kim, kod: S.kod })); } catch(e){}
+      S.hamma = d.royxat || [];
+      S.meniki = S.hamma.filter(function(x){ return x.kim === S.kim; });
+      if (!S.joriy){ var bir = S.meniki.find(function(x){ return !x.yozildi; }); S.joriy = bir ? bir.fayl : (S.meniki[0] || {}).fayl; }
+      if (birinchi !== false) asosiy(); else chiz();
+    }).catch(function(ex){ if (birinchi !== false) kirishOyna(ex.message); else toast(ex.message); });
+  }
+
+  // ---------- asosiy oyna ----------
+  function asosiy(){
+    var darslar = []; S.meniki.forEach(function(x){ if (darslar.indexOf(x.dars) < 0) darslar.push(x.dars); });
+    $("ilova").innerHTML = '<div class="tepa"><div class="ich"><div class="logo"><img src="ikonka/favicon-64.png" alt=""><div>A0 ovoz yozish<small>At-Tabassum kitobi</small></div></div>' +
+      '<div class="men">👤 <b style="color:var(--ink)">' + esc(S.kim) + '</b> · <a id="chiq">Chiqish</a></div></div>' +
+      '<div class="hol"><div class="bar"><i id="bar"></i></div><div class="q"><span id="son"></span>' +
+      '<select id="dars" aria-label="Dars"><option value="hammasi">Hamma darslar</option>' + darslar.map(function(d){ return '<option value="' + d + '">' + d + '-dars</option>'; }).join("") + '</select>' +
+      '<button class="chip" data-kor="qolgan">Yozilmaganlar</button><button class="chip" data-kor="hammasi">Hammasi</button></div></div></div>' +
+      '<main><div class="yordam"><b>Qanday yoziladi:</b> 🎙 Yozish → o\'qing → ⏹ To\'xtatish → ▶ eshitib ko\'ring → 💾 Saqlash. Kerak bo\'lsa ⏸ Pauza. ' +
+      'Boshidagi va oxiridagi jimlik o\'zi kesiladi. Jim xonada, telefonni og\'izdan 20–30 sm uzoqda tuting. Kompyuterda: <b>Probel</b> — yozish/to\'xtatish, <b>Enter</b> — saqlash.</div>' +
+      '<div id="ro"></div></main>';
+    $("chiq").onclick = function(){ try { localStorage.removeItem(SAQ); } catch(e){} S.kod = ""; S.joriy = null; kirishOyna(); };
+    $("dars").onchange = function(){ S.dars = this.value; chiz(); };
+    document.querySelectorAll("[data-kor]").forEach(function(b){ b.onclick = function(){ S.korinish = b.getAttribute("data-kor"); chiz(); }; });
+    $("ro").addEventListener("click", bosish);
+    chiz();
+    var el = document.querySelector('.k.joriy'); if (el) el.scrollIntoView({ block: "center" });
+  }
+  function guruh(fayl){ var m = /^(A0-\d+-\d+)-\d+$/.exec(fayl); return m ? m[1] : null; }
+  function chiz(){
+    var n = S.meniki.filter(function(x){ return x.yozildi; }).length, j = S.meniki.length;
+    $("son").textContent = "Yozilgan: " + n + " / " + j;
+    $("bar").style.width = (j ? n * 100 / j : 0) + "%";
+    document.querySelectorAll("[data-kor]").forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-kor") === S.korinish); });
+    var l = S.meniki.filter(function(x){ return (S.dars === "hammasi" || String(x.dars) === S.dars) && (S.korinish === "hammasi" || !x.yozildi || S.yangi[x.fayl] || x.fayl === S.joriy); });
+    var html = "", oxirgiDars = null;
+    l.forEach(function(x){
+      if (x.dars !== oxirgiDars){ html += '<div class="dbosh">' + x.dars + '-DARS</div>'; oxirgiDars = x.dars; }
+      html += karta(x);
+    });
+    $("ro").innerHTML = html || '<div class="bo">' + (S.korinish === "qolgan" ? "🎉 Bu yerda hammasi yozilgan! «Hammasi» tugmasini bosib ko'rishingiz mumkin." : "Qator yo'q.") + '</div>';
+  }
+  function karta(x){
+    var y = S.yangi[x.fayl], yoz = S.rec && S.rec.fayl === x.fayl, g = guruh(x.fayl);
+    var st = y ? '<span class="st">🆕 Saqlanmagan</span>' : x.yozildi ? '<span class="st ok">✅ Saqlangan</span>' : '<span class="st">⏳ Yozilmagan</span>';
+    var asl = "";
+    if (g){
+      asl = '<div class="suh">' + S.hamma.filter(function(z){ return guruh(z.fayl) === g; }).map(function(z){
+        var men = z.fayl === x.fayl;
+        var ix = z.matn.indexOf(": "), ism = ix > 0 ? z.matn.slice(0, ix) : "", gap = ix > 0 ? z.matn.slice(ix + 2) : z.matn;
+        return '<div class="sq ar' + (men ? " men" : "") + '">' + (ism ? '<small class="ism">' + esc(ism) + '</small>' : "") + '<span>' + esc(gap) + '</span>' + (!men && z.yozildi ? '<span class="p"><button data-a="sherik" data-f="' + esc(z.fayl) + '" aria-label="Eshitish">▶ ' + esc(z.kim) + '</button></span>' : "") + '</div>';
+      }).join("") + '</div>';
+    } else {
+      asl = '<div class="matn ar">' + esc(x.matn) + '</div>';
+    }
+    var t = "";
+    if (yoz){
+      t = '<button class="btn rec" data-a="toxta">⏹ To\'xtatish</button>' +
+          '<button class="btn alt" data-a="pauza">' + (S.rec.pauza ? "▶ Davom etish" : "⏸ Pauza") + '</button><span class="vaqt" id="vq">' + vaqtM() + '</span>';
+    } else if (y){
+      t = '<button class="btn alt" data-a="eshit">▶ Eshitish</button><button class="btn" data-a="saqla">💾 Saqlash</button>' +
+          '<button class="btn alt" data-a="yoz">🔁 Qayta yozish</button><button class="btn del" data-a="bekor">🗑 Bekor qilish</button>';
+    } else if (x.yozildi){
+      t = S.ochirTasdiq === x.fayl
+        ? '<div class="tasdiq">O\'chirilsinmi? <button class="btn del" data-a="ochirha">Ha, o\'chir</button><button class="btn alt" data-a="ochiryoq">Yo\'q</button></div>'
+        : '<button class="btn alt" data-a="eshit">▶ Eshitish</button><button class="btn alt" data-a="yoz">🔁 Qayta yozish</button><button class="btn del" data-a="ochir">🗑 O\'chirish</button>';
+    } else {
+      t = '<button class="btn" data-a="yoz">🎙 Yozish</button>';
+    }
+    return '<div class="k' + (x.fayl === S.joriy ? " joriy" : "") + (x.yozildi && !y ? " tayyor" : "") + '" data-f="' + esc(x.fayl) + '">' +
+      '<div class="kb"><span class="f">' + esc(x.fayl) + '</span><span>' + x.bet + '-bet</span>' + st + '</div>' +
+      '<div class="msh ar">' + esc(x.mashq) + '</div>' + (x.izoh ? '<div class="izoh">💡 ' + esc(x.izoh) + '</div>' : "") + asl +
+      '<div class="tug">' + t + '</div></div>';
+  }
+  function bosish(e){
+    var b = e.target.closest("[data-a]"), k = e.target.closest(".k"); if (!k) return;
+    var f = k.getAttribute("data-f");
+    if (!b){ if (S.joriy !== f){ S.joriy = f; chiz(); } return; }
+    var a = b.getAttribute("data-a"); S.joriy = f;
+    if (a === "yoz") boshla(f);
+    else if (a === "toxta") toxtat();
+    else if (a === "pauza") pauza();
+    else if (a === "eshit") eshit(f);
+    else if (a === "sherik") eshit(b.getAttribute("data-f"));
+    else if (a === "saqla") saqla(f);
+    else if (a === "bekor"){ delete S.yangi[f]; chiz(); }
+    else if (a === "ochir"){ S.ochirTasdiq = f; chiz(); }
+    else if (a === "ochiryoq"){ S.ochirTasdiq = null; chiz(); }
+    else if (a === "ochirha") ochir(f);
+  }
+
+  // ---------- yozish ----------
+  var taymer = null;
+  function vaqtM(){ if (!S.rec) return ""; var s = Math.floor(S.rec.sek); return Math.floor(s / 60) + ":" + ("0" + s % 60).slice(-2); }
+  function boshla(f){
+    if (S.rec) toxtat();
+    var ishga = function(stream){
+      var m = new MediaRecorder(stream), bo = [];
+      S.rec = { fayl: f, m: m, pauza: false, sek: 0 };
+      m.ondataavailable = function(e){ if (e.data.size) bo.push(e.data); };
+      m.onstop = function(){
+        tayyorla(new Blob(bo, { type: m.mimeType || "audio/webm" })).then(function(t){ S.yangi[f] = t; chiz(); eshit(f); })
+          .catch(function(ex){ toast(/jim/.test(ex && ex.message) ? "Ovoz eshitilmadi — mikrofonga yaqinroq gapiring" : "Ovozni o'qib bo'lmadi, qayta yozing"); chiz(); });
+      };
+      m.start(); chiz();
+      clearInterval(taymer); taymer = setInterval(function(){ if (S.rec && !S.rec.pauza){ S.rec.sek += 0.25; var v = $("vq"); if (v) v.textContent = vaqtM(); } }, 250);
+    };
+    if (S.mik) return ishga(S.mik);
+    navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } })
+      .then(function(st){ S.mik = st; ishga(st); })
+      .catch(function(){ toast("Mikrofonga ruxsat bering (manzil qatoridagi 🎤 belgisi)"); });
+  }
+  function toxtat(){ if (!S.rec) return; var r = S.rec; S.rec = null; clearInterval(taymer); try { r.m.stop(); } catch(e){} chiz(); }
+  function pauza(){
+    if (!S.rec) return;
+    if (S.rec.pauza){ S.rec.m.resume(); S.rec.pauza = false; } else { S.rec.m.pause(); S.rec.pauza = true; }
+    chiz();
+  }
+  function wav(buf){
+    var d = buf.getChannelData(0), n = d.length, b = new ArrayBuffer(44 + n * 2), v = new DataView(b), p = 0;
+    function s4(t){ for (var k = 0; k < 4; k++) v.setUint8(p++, t.charCodeAt(k)); }
+    s4("RIFF"); v.setUint32(p, 36 + n * 2, true); p += 4; s4("WAVE"); s4("fmt "); v.setUint32(p, 16, true); p += 4;
+    v.setUint16(p, 1, true); p += 2; v.setUint16(p, 1, true); p += 2; v.setUint32(p, buf.sampleRate, true); p += 4;
+    v.setUint32(p, buf.sampleRate * 2, true); p += 4; v.setUint16(p, 2, true); p += 2; v.setUint16(p, 16, true); p += 2;
+    s4("data"); v.setUint32(p, n * 2, true); p += 4;
+    for (var k = 0; k < n; k++, p += 2){ var q = Math.max(-1, Math.min(1, d[k])); v.setInt16(p, q < 0 ? q * 0x8000 : q * 0x7FFF, true); }
+    return b;
+  }
+  function tayyorla(blob){
+    var AC = window.AudioContext || window.webkitAudioContext, ctx = new AC();
+    return blob.arrayBuffer().then(function(a){ return new Promise(function(ok, yoq){ ctx.decodeAudioData(a, ok, yoq); }); }).then(function(buf){
+      ctx.close();
+      var d = buf.getChannelData(0), eng = 0, k;
+      for (k = 0; k < d.length; k++) eng = Math.max(eng, Math.abs(d[k]));
+      var chegara = Math.max(0.02, eng * 0.08), bosh = 0, oxir = d.length - 1;
+      while (bosh < d.length && Math.abs(d[bosh]) < chegara) bosh++;
+      while (oxir > bosh && Math.abs(d[oxir]) < chegara) oxir--;
+      var pad = Math.round(buf.sampleRate * 0.25);
+      bosh = Math.max(0, bosh - pad); oxir = Math.min(d.length - 1, oxir + pad);
+      var dur = (oxir - bosh + 1) / buf.sampleRate;
+      if (eng < 0.01 || dur < 0.2) throw new Error("jim");
+      var off = new OfflineAudioContext(1, Math.ceil(dur * 16000), 16000), src = off.createBufferSource(), kesik = off.createBuffer(1, oxir - bosh + 1, buf.sampleRate);
+      kesik.copyToChannel(d.slice(bosh, oxir + 1), 0);
+      src.buffer = kesik; src.connect(off.destination); src.start();
+      return off.startRendering();
+    }).then(function(out){
+      var w = wav(out), u8 = new Uint8Array(w), bin = "";
+      for (var k = 0; k < u8.length; k += 0x8000) bin += String.fromCharCode.apply(null, u8.subarray(k, k + 0x8000));
+      return { b64: btoa(bin), url: URL.createObjectURL(new Blob([w], { type: "audio/wav" })) };
+    });
+  }
+  function eshit(f){
+    var y = S.yangi[f];
+    if (y){ S.ijro.src = y.url; S.ijro.play().catch(function(){}); return; }
+    rpc("a0ov_ol", { p_fayl: f }).then(function(r){ if (r.uri){ S.ijro.src = r.uri; S.ijro.play().catch(function(){}); } else toast(xatoMatn(r.xato)); }).catch(function(ex){ toast(ex.message); });
+  }
+  function saqla(f){
+    var y = S.yangi[f]; if (!y) return;
+    toast("Saqlanmoqda…");
+    rpc("a0ov_saqla", { p_fayl: f, p_base64: y.b64 }).then(function(r){
+      if (r.xato){ toast("Saqlab bo'lmadi: " + xatoMatn(r.xato)); return; }
+      delete S.yangi[f];
+      S.hamma.forEach(function(z){ if (z.fayl === f) z.yozildi = true; });
+      var i = S.meniki.findIndex(function(z){ return z.fayl === f; });
+      var keyin = S.meniki.find(function(z, n){ return n > i && !z.yozildi; });
+      S.joriy = keyin ? keyin.fayl : f; chiz(); toast("💾 Saqlandi");
+      var el = document.querySelector('.k.joriy'); if (el) el.scrollIntoView({ block: "center", behavior: "smooth" });
+    }).catch(function(ex){ toast("Saqlab bo'lmadi: " + ex.message); });
+  }
+  function ochir(f){
+    S.ochirTasdiq = null;
+    rpc("a0ov_ochir", { p_fayl: f }).then(function(r){
+      if (r.xato){ toast(xatoMatn(r.xato)); return; }
+      S.hamma.forEach(function(z){ if (z.fayl === f) z.yozildi = false; }); chiz(); toast("🗑 O'chirildi");
+    }).catch(function(ex){ toast(ex.message); });
+  }
+  document.addEventListener("keydown", function(e){
+    if (!S.kod || !S.joriy || /INPUT|SELECT|TEXTAREA|BUTTON/.test(document.activeElement.tagName)) return;
+    if (e.code === "Space"){ e.preventDefault(); if (S.rec) toxtat(); else boshla(S.joriy); }
+    if (e.key === "Enter"){ e.preventDefault(); saqla(S.joriy); }
+  });
+
+  // boshlanish: saqlangan kirish bo'lsa — to'g'ridan-to'g'ri
+  var saq = {}; try { saq = JSON.parse(localStorage.getItem(SAQ) || "{}"); } catch(e){}
+  if (saq.kim && saq.kod){ S.kim = saq.kim; S.kod = saq.kod; $("ilova").innerHTML = '<div class="bo">Yuklanmoqda…</div>'; yukla(true); }
+  else kirishOyna();
+})();
+</script>
+</body>
+</html>
